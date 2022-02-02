@@ -1,12 +1,11 @@
+require('dotenv').config();
 import express from 'express';
 import router from './routes/router';
 const app = express();
+const PORT: string | number = process.env.PORT || 8081
 
 app.use('/router', router)
-app.get('/', (req, res)=>{
-    res.send('Hello world')
-})
 
-app.listen(8081, ()=>{
-    console.log('Server started')
+app.listen(PORT, (): void => {
+    console.log(`Server started on port ${PORT}`)
 })
