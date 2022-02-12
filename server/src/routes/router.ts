@@ -1,8 +1,10 @@
 import {Router, Request, Response } from "express";
+import userRouter from "./userRouter";
+import postRouter from "./postRouter";
+import mysql from "mysql2";
 const router = Router()
 
-router.get('/', (req: Request, res: Response)=>{
-    res.send('Hello router world')
-})
+router.use('/user', userRouter)
+router.use('/post', postRouter)
 
 export default router
