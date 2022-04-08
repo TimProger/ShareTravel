@@ -10,13 +10,18 @@ function Navbar(){
         <div className="navbar-container">
             <p className="navbar-logo">ShareTravel</p>
 
-            <NavLink to={'/user/' + user.id} className='navbar-profile'>
-               <img className="profile-image" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"  alt={user.name} />
-                <p className='profile-name'>
-                    {user.name} <br/> {user.surname}
-                </p>
-            </NavLink>
-
+            <div className="navbar-profile">
+                <NavLink
+                    to={'/user/'+user.id}
+                    className='navbar-profile-avatar'>
+                    <img src={user.avatar} alt={user.name} />
+                </NavLink>
+                <NavLink to={'/user/' + user.id} className='navbar-profile-text'>
+                    <p className='profile-name'>
+                        {user.name} <br/> {user.surname}
+                    </p>
+                </NavLink>
+            </div>
             <div className='menu_links'>
                 <NavLink to='/'>
                     <IoNewspaperOutline className="icons" />

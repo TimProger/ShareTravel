@@ -11,6 +11,7 @@ interface IComment {
 interface IPost {
     id: number;
     uid: number;
+    avatar: string;
     text?: string;
     image?: string;
     likes: number;
@@ -57,7 +58,7 @@ interface IFetchCommentsAction {
 
 interface IFetchPostsSuccessAction {
     type: PostActionTypes.FETCH_POSTS_SUCCESS;
-    payload: any[]
+    payload: IPost[]
 }
 
 interface IFetchPostsErrorAction {
@@ -66,8 +67,8 @@ interface IFetchPostsErrorAction {
 }
 
 export type PostAction = ILikePostAction
-| IFetchCommentsAction
-| ILoadCommentsAction
-| IFetchPostsAction
-| IFetchPostsSuccessAction
-| IFetchPostsErrorAction
+    | IFetchCommentsAction
+    | ILoadCommentsAction
+    | IFetchPostsAction
+    | IFetchPostsSuccessAction
+    | IFetchPostsErrorAction

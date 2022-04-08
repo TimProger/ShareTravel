@@ -11,6 +11,7 @@ export const fetchPosts = () => {
                     {
                         id: 0,
                         uid: 1,
+                        avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
                         text: 'What a good network',
                         likes: 18,
                         liked: false,
@@ -22,6 +23,7 @@ export const fetchPosts = () => {
                     {
                         id: 1,
                         uid: 2,
+                        avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
                         text: 'Yo dudes',
                         likes: 0,
                         liked: false,
@@ -33,6 +35,7 @@ export const fetchPosts = () => {
                     {
                         id: 2,
                         uid: 3,
+                        avatar: 'https://www.meme-arsenal.com/memes/c0220207c25e98f991d6f79e4e98c14e.jpg',
                         text: 'Nice knife, Jack.',
                         image: 'https://i.ytimg.com/vi/LmWQd8zhEg4/maxresdefault.jpg',
                         likes: 231312,

@@ -9,7 +9,12 @@ function Post(props: any){
         <div className="post">
             <div className="post-content">
                 <div className="post-header">
-                    <div className="post-profile" >
+                    <div className="post-profile">
+                        <NavLink
+                            to={'/user/'+props.post.uid}
+                            className='post-profile-avatar'>
+                            <img src={props.post.avatar} alt={props.post.name} />
+                        </NavLink>
                         <NavLink
                             to={'/user/'+props.post.uid}
                             className='post-profile-text'>
