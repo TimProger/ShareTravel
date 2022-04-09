@@ -1,33 +1,44 @@
 import React, {useEffect} from "react"
 import './Posts.css'
 import Post from "./Post/Post";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useActions} from "../../hooks/useActions";
-import {loadComments} from "../../store/action-creators/post";
+import {connect} from "react-redux";
+import {fetchPosts, likePost, loadComments} from "../../store/action-creators/post";
+import {Simulate} from "react-dom/test-utils";
 
-function Posts(){
-    const {posts, error, loading} = useTypedSelector(state => state.post)
-    const {fetchPosts, likePost, loadComments} = useActions()
+function Posts(props: any){
 
     useEffect(() => {
-        fetchPosts()
+        props.fetchPosts()
     }, [])
 
-    if (loading) {
+    if (props.loading) {
         return <h1>Идет загрузка...</h1>
     }
 
-    if (error) {
-        return <h1>{error}</h1>
+    if (props.error) {
+        return <h1>{props.error}</h1>
     }
 
     return (
         <div className="posts">
-            {posts.map((el, index)=>{
-                return <Post loadComments={loadComments} likePost={likePost} key={index} post={el}/>
+            {props.posts.map((el: any, index: number)=>{
+                return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}/>
             })}
         </div>
     )
 }
+let mapStateToProps = (state: any) => {
+    return {
+        posts: state.post.posts,
+        error: state.post.error,
+        loading: state.post.loading
+    }
+}
 
-export default Posts;
+let PostsContainer = connect(mapStateToProps, {
+    fetchPosts,
+    likePost,
+    loadComments,
+})(Posts);
+
+export default PostsContainer;

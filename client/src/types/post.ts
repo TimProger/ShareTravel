@@ -23,7 +23,7 @@ interface IPost {
 }
 
 export interface IPostState {
-    posts: IPost[];
+    posts: IPost[] | any[]; // Убрать any[] после подключения бд
     loading: boolean;
     error: null | string;
 }

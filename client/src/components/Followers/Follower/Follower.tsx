@@ -16,7 +16,7 @@ function Follower(props: any){
                 <div className="follower-header">
                     <p className="follower-profile" >
                         <NavLink
-                            to={'/follower/'+props.follower.id}
+                            to={'/user/'+props.follower.id}
                             className='follower-profile-name'
                         >
                             {props.follower.name} {props.follower.surname}
