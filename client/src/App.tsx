@@ -16,7 +16,7 @@ function App(){
             <div className="page">
                 <Routes>
                     <Route path='/' element={<Posts />} />
-                    <Route path='/friends' element={<Followers />} />
+                    <Route path='/followers' element={<Followers />} />
                     <Route path='/user/:id' element={<Profile />} />
                     {/*<Route path='/dialogs/*' element={<Dialogs />} />*/}
                 </Routes>

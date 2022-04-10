@@ -28,7 +28,7 @@ function Navbar(){
                     <p className="menu_text">Новости</p>
                 </NavLink>
 
-                <NavLink to='friends'>
+                <NavLink to='followers'>
                     <IoPeopleOutline className="icons" />
                     <p className="menu_text">Подписки</p>
                 </NavLink>
