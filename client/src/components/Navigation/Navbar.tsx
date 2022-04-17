@@ -5,7 +5,10 @@ import { IoNewspaperOutline, IoPeopleOutline, IoChatbubblesOutline, IoStarOutlin
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function Navbar(){
+    // Получение пользователя из состояния при помощи типизированного хука
     const {user} = useTypedSelector(state => state.user)
+
+    // Создание навигационной панели с блоком пользователя полученным из состояния
     return (
         <div className="navbar-container">
             <p className="navbar-logo">ShareTravel</p>
