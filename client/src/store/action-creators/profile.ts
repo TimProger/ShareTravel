@@ -24,3 +24,17 @@ export const fetchProfile = (id: number) => {
         }
     }
 }
+
+export const authProfile = (id: number) => {
+    return async (dispatch: Dispatch<ProfileAction>) => {
+        try {
+            dispatch({type: ProfileActionTypes.AUTH_PROFILE})
+
+        } catch (e) {
+            dispatch({
+                type: ProfileActionTypes.AUTH_PROFILE_ERROR,
+                payload: 'Произошла ошибка при авторизации'
+            })
+        }
+    }
+}

@@ -3,7 +3,6 @@ import './Posts.css'
 import Post from "./Post/Post";
 import {connect} from "react-redux";
 import {fetchPosts, likePost, loadComments} from "../../store/action-creators/post";
-import {Simulate} from "react-dom/test-utils";
 
 function Posts(props: any){
 
@@ -27,6 +26,7 @@ function Posts(props: any){
         </div>
     )
 }
+
 let mapStateToProps = (state: any) => {
     return {
         posts: state.post.posts,

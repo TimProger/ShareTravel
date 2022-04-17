@@ -51,7 +51,6 @@ class userController {
                 });
             pool.end()
         }
-
     }
 
     static async login(req: Request, res: Response){
