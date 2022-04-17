@@ -1,7 +1,12 @@
 import React, {useEffect} from 'react';
+
+// Импортирую стили
 import './Followers.css'
+// Импортирую изменённый для работы с типами хук useSelector
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+// Импортирую изменённый хук для получения ActionCreator'ов
 import {useActions} from "../../hooks/useActions";
+// Импортирую компоненту пользователя
 import Follower from "./Follower/Follower";
 
 const Followers = () => {
