@@ -1,4 +1,5 @@
 import React from "react";
+
 // Импортирую стили
 import './Navbar.css'
 // Импортирую компоненту для навигации из react-router-dom
