@@ -1,18 +1,33 @@
 import React, {useEffect} from "react"
-import './Profile.css';
-import {connect} from "react-redux";
-import {fetchProfile} from "../../store/action-creators/profile";
-import {useParams} from "react-router-dom";
 
-function Profile(props: any) {
-    console.log(props)
+// Импортирую стили
+import './Profile.css';
+// Импортирую функцию для создания контейнерной компоненты
+import {connect} from "react-redux";
+// Импортирую хук для получения параметров из url
+import {useParams} from "react-router-dom";
+// Импортирую изменённый хук для получения ActionCreator'ов
+import {useActions} from "../../hooks/useActions";
+// Импортирую изменённый для работы с типами хук useSelector
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+
+function Profile() {
+    const {profile, error, loading} = useTypedSelector(state => state.profile)
+
+    // Получение айдишника из url при помощи импортированного ранее хука
     let {id} = useParams();
 
+    // Получаю необходимый ActionCreator для получения пользователей
+    const {fetchProfile} = useActions()
+
+    // Получаю пользователя путём вызова ActionCreator
     useEffect(() => {
-        props.fetchProfile(id)
+        fetchProfile(id)
     }, [])
 
-    if (props.loading) {
+    // Проверяю статус загрузки
+    if (loading) {
+        // Если статус true, то пользователь будет видеть этот код
         return (
             <div className="page">
                 <h1>Идет загрузка...</h1>
@@ -20,26 +35,18 @@ function Profile(props: any) {
         )
     }
 
-    if (props.error) {
-        return <h1>{props.error}</h1>
+    // Проверяю статус ошибки
+    if (error) {
+        // Если есть ошибка, то пользователь будет видеть этот код
+        return <h1>{error}</h1>
     }
 
+    // Вывожу пользователя найденного при помощи fetchProfile
     return (
         <div className="page">
-            {props.profile ? props.profile.name : ''}
+            {profile ? profile.name : ''}
         </div>
     )
 }
-let mapStateToProps = (state: any) => {
-    return {
-        profile: state.profile.profile,
-        loading: state.profile.loading,
-        error: state.profile.error
-    }
-}
 
-let ProfileContainer = connect(mapStateToProps, {
-    fetchProfile,
-})(Profile);
-
-export default ProfileContainer;
+export default Profile;

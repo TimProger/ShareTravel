@@ -1,7 +1,7 @@
 import {ProfileAction, ProfileActionTypes} from "../../types/profile";
 import {Dispatch} from "redux";
 
-export const fetchProfile = (id: number) => {
+export const fetchProfile = (id: any) => {
     return async (dispatch: Dispatch<ProfileAction>) => {
         try {
             dispatch({type: ProfileActionTypes.FETCH_PROFILE})
