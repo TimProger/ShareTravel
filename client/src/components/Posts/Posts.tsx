@@ -7,7 +7,7 @@ import Post from "./Post/Post";
 // Импортирую функцию для создания контейнерной компоненты
 import {connect} from "react-redux";
 // Импортирую ActionCreator'ы
-import {fetchPosts, likePost, loadComments} from "../../store/action-creators/post";
+import {fetchPosts, likePost, loadComments} from "../../store/actionCreators/postAC";
 
 function Posts(props: any){
 

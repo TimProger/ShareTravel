@@ -1,4 +1,4 @@
-import {UserAction, UserActionTypes} from "../../types/user";
+import {UserAction, UserActionTypes} from "../../types/userType";
 import {Dispatch} from "redux";
 
 export const fetchUsers = () => {

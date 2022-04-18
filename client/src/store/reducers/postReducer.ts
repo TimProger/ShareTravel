@@ -1,4 +1,4 @@
-import {PostAction, PostActionTypes, IPostState} from "../../types/post";
+import {PostAction, PostActionTypes, IPostState} from "../../types/postType";
 
 const initialState: IPostState = {
     posts: [],

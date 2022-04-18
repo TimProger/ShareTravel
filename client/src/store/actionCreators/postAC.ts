@@ -1,4 +1,4 @@
-import {PostAction, PostActionTypes} from "../../types/post";
+import {PostAction, PostActionTypes} from "../../types/postType";
 import {Dispatch} from "redux";
 
 export const fetchPosts = () => {

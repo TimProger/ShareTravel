@@ -1,4 +1,4 @@
-import {ProfileAction, ProfileActionTypes} from "../../types/profile";
+import {ProfileAction, ProfileActionTypes} from "../../types/profileType";
 import {Dispatch} from "redux";
 
 export const fetchProfile = (id: any) => {

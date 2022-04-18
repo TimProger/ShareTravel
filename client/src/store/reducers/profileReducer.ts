@@ -1,4 +1,4 @@
-import {ProfileAction, ProfileActionTypes, IProfileState} from "../../types/profile";
+import {ProfileAction, ProfileActionTypes, IProfileState} from "../../types/profileType";
 
 const initialState: IProfileState = {
     authProfile: null,
