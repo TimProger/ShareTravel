@@ -1,37 +1,37 @@
 import React, {useEffect} from "react"
-
-// Импортирую стили
 import './Posts.css'
-// Импортирую компоненту поста
-import Post from "./Post/Post";
-// Импортирую изменённый для работы с типами хук useSelector
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import Post from "./Post/Post";
 
 function Posts(){
+    // Получение постов, ошибки и статуса загрузки
     const {posts, error, loading} = useTypedSelector(state => state.post)
+
+    // Получаю функции для получения постов, для лайков и для подгрузки комментариев
     const {fetchPosts, likePost, loadComments} = useActions()
 
-    // Получаю пользователей путём вызова ActionCreator
+    // Получаю посты
     useEffect(() => {
         fetchPosts()
     }, [])
 
     // Проверяю статус загрузки
     if (loading) {
-        // Если статус true, то пользователь будет видеть этот код
         return <h1>Идет загрузка...</h1>
     }
 
     // Проверяю статус ошибки
     if (error) {
-        // Если есть ошибка, то пользователь будет видеть этот код
         return <h1>{error}</h1>
     }
 
-    // Вывожу посты, создавая под каждого компоненту Post
     return (
         <div className="posts">
+            {/*
+                Вывожу посты, создавая под каждого компоненту Post
+                А также передаю в них полученные ранее функции
+            */}
             {posts.map((el: any, index: number)=>{
                 return <Post loadComments={loadComments} likePost={likePost} key={index} post={el}/>
             })}

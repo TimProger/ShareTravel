@@ -1,3 +1,5 @@
+// Файл с типами пользователей и экшенов связанных с ними
+
 interface IUser {
     id: number;
     avatar: string;

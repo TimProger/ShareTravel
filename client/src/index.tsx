@@ -8,7 +8,7 @@ import {store} from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter> {/* Позволяет работать с путями */}
           <Provider store={store}>
             <App />
           </Provider>

@@ -1,6 +1,4 @@
 import React from "react"
-
-// Импортирую компоненту для навигации из react-router-dom
 import {NavLink} from "react-router-dom";
 
 function Follower(props: any){

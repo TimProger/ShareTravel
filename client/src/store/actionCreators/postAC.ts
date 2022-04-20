@@ -1,6 +1,9 @@
 import {PostAction, PostActionTypes} from "../../types/postType";
 import {Dispatch} from "redux";
 
+// AC который в начале начинает загрузку постов при помощи FETCH_POSTS
+// А затем обращается за ними на сервер
+// и при помощи FETCH_POSTS_SUCCESS передаёт их в хранилище (store)
 export const fetchPosts = () => {
     return async (dispatch: Dispatch<PostAction>) => {
         try {
@@ -56,7 +59,7 @@ export const fetchPosts = () => {
             //             totalComments: 0
             //         }
             //     ]
-            // })), 5000)
+            // })), 2000)
         } catch (e) {
             dispatch({
                 type: PostActionTypes.FETCH_POSTS_ERROR,
@@ -66,6 +69,7 @@ export const fetchPosts = () => {
     }
 }
 
+// AC с типом LIKE_POST и с айдишником поста
 export const likePost = (id: number) => {
     return async (dispatch: Dispatch<PostAction>) => {
         dispatch({
@@ -75,7 +79,7 @@ export const likePost = (id: number) => {
     }
 }
 
-
+//
 export const loadComments = (id: number) => {
     return async (dispatch: Dispatch<PostAction>) => {
         dispatch({type: PostActionTypes.FETCH_COMMENTS})

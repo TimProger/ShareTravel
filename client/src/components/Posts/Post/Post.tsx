@@ -6,6 +6,8 @@ import {VscComment} from "react-icons/vsc";
 function Post(props: any){
 
     return (
+
+        // Рендеринг поста, который мы получаем с нашего сервера
         // <div className="post">
         //     <div className="post-content">
         //         <div className="post-header">
@@ -73,6 +75,9 @@ function Post(props: any){
         //         ''
         //     }
         // </div>
+
+
+        // Рендеринг поста, который мы получаем с fake api
         <div className="post">
             <div className="post-content">
                 <div className="post-header">

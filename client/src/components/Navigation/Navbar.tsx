@@ -1,16 +1,11 @@
 import React from "react";
-
-// Импортирую стили
 import './Navbar.css'
-// Импортирую компоненту для навигации из react-router-dom
 import { NavLink } from "react-router-dom";
-// Импортирую иконки из библиотеки react-icons
 import { IoNewspaperOutline, IoPeopleOutline, IoChatbubblesOutline, IoStarOutline, IoHeartOutline, IoSettingsOutline, IoHelpSharp, IoMapOutline} from "react-icons/io5";
-// Импортирую изменённый для работы с типами хук useSelector
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function Navbar(){
-    // Получение пользователя из состояния при помощи типизированного хука
+    // Получение пользователя
     const {user} = useTypedSelector(state => state.user)
 
     // Создание навигационной панели с блоком пользователя полученным из состояния
@@ -19,7 +14,7 @@ function Navbar(){
             <p className="navbar-logo">ShareTravel</p>
 
             <div className="navbar-profile">
-                {/* Создаю ссылки ведущую на страницу профиля */}
+                {/* Ссылка ведущая на страницу профиля */}
                 <NavLink
                     to={'/user/'+user.id}
                     className='navbar-profile-avatar'
@@ -34,6 +29,8 @@ function Navbar(){
                     </p>
                 </NavLink>
             </div>
+
+            {/* Просто ссылки */}
             <div className='menu_links'>
                 <NavLink to='/'>
                     <IoNewspaperOutline className="icons" />

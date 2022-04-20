@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile";
 import Auth from "./components/Auth/AuthComponent/Auth";
 
 function App(){
+    // Получение куки для аутентификации
     function getCookie(name: string) {
         let matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -16,6 +17,7 @@ function App(){
     }
     return (
         <div className='wrapper'>
+            {/* Проверка наличия куки */}
             {getCookie('auth') ?
                 <>
                     <div className="navbar">

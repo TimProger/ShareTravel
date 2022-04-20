@@ -1,3 +1,5 @@
+// Файл с типами профиля и экшенов связанных с ним
+
 interface IProfile {
     id: number;
     avatar: string;

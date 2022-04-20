@@ -1,33 +1,26 @@
 import React, {useEffect} from "react"
-
-// Импортирую стили
 import './Profile.css';
-// Импортирую функцию для создания контейнерной компоненты
-import {connect} from "react-redux";
-// Импортирую хук для получения параметров из url
 import {useParams} from "react-router-dom";
-// Импортирую изменённый хук для получения ActionCreator'ов
 import {useActions} from "../../hooks/useActions";
-// Импортирую изменённый для работы с типами хук useSelector
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function Profile() {
+    // Получение пользователя, ошибки и статуса загрузки
     const {profile, error, loading} = useTypedSelector(state => state.profile)
 
-    // Получение айдишника из url при помощи импортированного ранее хука
+    // Получение поля id из url при помощи useParams
     let {id} = useParams();
 
-    // Получаю необходимый ActionCreator для получения пользователей
+    // Получаю функцию для получения пользователя
     const {fetchProfile} = useActions()
 
-    // Получаю пользователя путём вызова ActionCreator
     useEffect(() => {
+        // Получаю пользователя используя полученный id
         fetchProfile(id)
     }, [])
 
     // Проверяю статус загрузки
     if (loading) {
-        // Если статус true, то пользователь будет видеть этот код
         return (
             <div className="page">
                 <h1>Идет загрузка...</h1>
@@ -37,13 +30,12 @@ function Profile() {
 
     // Проверяю статус ошибки
     if (error) {
-        // Если есть ошибка, то пользователь будет видеть этот код
         return <h1>{error}</h1>
     }
 
-    // Вывожу пользователя найденного при помощи fetchProfile
     return (
         <div className="page">
+            {/* Вывожу поле name пользователя найденного при помощи fetchProfile */}
             {profile ? profile.name : ''}
         </div>
     )

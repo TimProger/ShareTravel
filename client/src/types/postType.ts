@@ -1,3 +1,5 @@
+// Файл с типами постов и экшенов связанных с ними
+
 interface IComment {
     id: number;
     uid: number;
