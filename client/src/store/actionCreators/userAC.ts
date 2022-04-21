@@ -23,23 +23,3 @@ export const fetchUsers = () => {
         }
     }
 }
-
-export const Auth = () => {
-    return async (dispatch: Dispatch<UserAction>) => {
-        try {
-            dispatch({type: UserActionTypes.FETCH_USER, payload: {
-                    id: 4,
-                    avatar: '',
-                    name: '',
-                    surname: '',
-                    text: '',
-                    age: 0
-                }})
-        } catch (e) {
-            dispatch({
-                type: UserActionTypes.FETCH_USERS_ERROR,
-                payload: 'Произошла ошибка при авторизации'
-            })
-        }
-    }
-}

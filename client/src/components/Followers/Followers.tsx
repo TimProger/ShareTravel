@@ -1,29 +1,23 @@
 import React, {useEffect} from 'react';
 import './Followers.css'
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 import Follower from "./Follower/Follower";
+import {IUser} from "../../types/userType";
 
-const Followers = () => {
-    // Получение пользователей, ошибки и статуса загрузки
-    const {users, error, loading} = useTypedSelector(state => state.user)
-
-    // Получаю функцию для получения пользователей
-    const {fetchUsers} = useActions()
+const Followers = (props: any) => {
 
     useEffect(() => {
         // Получаю пользователей
-        fetchUsers()
+        props.fetchUsers()
     }, [])
 
     // Проверяю статус загрузки
-    if (loading) {
+    if (props.loading) {
         return <h1>Идет загрузка...</h1>
     }
 
     // Проверяю статус ошибки
-    if (error) {
-        return <h1>{error}</h1>
+    if (props.error) {
+        return <h1>{props.error}</h1>
     }
 
     return (
@@ -32,11 +26,7 @@ const Followers = () => {
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
              */}
-            {users.map(follower => follower.subscribed ?
-                    <Follower key={follower.id} follower={follower} subscribed={true} />
-                    :
-                    <Follower key={follower.id} follower={follower} subscribed={false}/>
-            )}
+            {props.users.map((follower: any) => <Follower key={follower.id} follower={follower} />)}
         </div>
     );
 };

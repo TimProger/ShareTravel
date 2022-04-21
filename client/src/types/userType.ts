@@ -1,6 +1,6 @@
 // Файл с типами пользователей и экшенов связанных с ними
 
-interface IUser {
+export interface IUser {
     id: number;
     avatar: string;
     name: string;

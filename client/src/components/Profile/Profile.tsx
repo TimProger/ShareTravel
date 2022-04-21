@@ -4,23 +4,15 @@ import {useParams} from "react-router-dom";
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-function Profile() {
-    // Получение пользователя, ошибки и статуса загрузки
-    const {profile, error, loading} = useTypedSelector(state => state.profile)
-
-    // Получение поля id из url при помощи useParams
-    let {id} = useParams();
-
-    // Получаю функцию для получения пользователя
-    const {fetchProfile} = useActions()
+function Profile(props: any) {
 
     useEffect(() => {
         // Получаю пользователя используя полученный id
-        fetchProfile(id)
+        props.fetchProfile(props.id)
     }, [])
 
     // Проверяю статус загрузки
-    if (loading) {
+    if (props.loading) {
         return (
             <div className="page">
                 <h1>Идет загрузка...</h1>
@@ -29,14 +21,14 @@ function Profile() {
     }
 
     // Проверяю статус ошибки
-    if (error) {
-        return <h1>{error}</h1>
+    if (props.error) {
+        return <h1>{props.error}</h1>
     }
 
     return (
         <div className="page">
             {/* Вывожу поле name пользователя найденного при помощи fetchProfile */}
-            {profile ? profile.name : ''}
+            {props.profile ? props.profile.name : ''}
         </div>
     )
 }

@@ -2,13 +2,10 @@ import React from "react";
 import './Navbar.css'
 import { NavLink } from "react-router-dom";
 import { IoNewspaperOutline, IoPeopleOutline, IoChatbubblesOutline, IoStarOutline, IoHeartOutline, IoSettingsOutline, IoHelpSharp, IoMapOutline} from "react-icons/io5";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-function Navbar(){
-    // Получение пользователя
-    const {user} = useTypedSelector(state => state.user)
+function Navbar(props: any){
 
-    // Создание навигационной панели с блоком пользователя полученным из состояния
+    // Создание навигационной панели с блоком пользователя полученным через props
     return (
         <div className="navbar-container">
             <p className="navbar-logo">ShareTravel</p>
@@ -16,16 +13,16 @@ function Navbar(){
             <div className="navbar-profile">
                 {/* Ссылка ведущая на страницу профиля */}
                 <NavLink
-                    to={'/user/'+user.id}
+                    to={'/user/'+props.user.id}
                     className='navbar-profile-avatar'
                 >
                     {/* Аватар пользователя */}
-                    <img src={user.avatar} alt={user.name} />
+                    <img src={props.user.avatar} alt={props.user.name} />
                 </NavLink>
-                <NavLink to={'/user/' + user.id} className='navbar-profile-text'>
+                <NavLink to={'/user/' + props.user.id} className='navbar-profile-text'>
                     <p className='profile-name'>
                         {/* Имя и фамилия пользователя */}
-                        {user.name} <br/> {user.surname}
+                        {props.user.name} <br/> {props.user.surname}
                     </p>
                 </NavLink>
             </div>
