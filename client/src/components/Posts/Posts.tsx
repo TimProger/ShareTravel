@@ -1,8 +1,7 @@
 import React, {useEffect} from "react"
 import './Posts.css'
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
 import Post from "./Post/Post";
+import PostsLoading from "../Loadings/Posts/PostsLoading";
 
 function Posts(props: any){
 
@@ -13,7 +12,7 @@ function Posts(props: any){
 
     // Проверяю статус загрузки
     if (props.loading) {
-        return <h1>Идет загрузка...</h1>
+        return <PostsLoading />
     }
 
     // Проверяю статус ошибки
