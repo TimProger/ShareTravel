@@ -76,7 +76,6 @@ function Post(props: any){
         //     }
         // </div>
 
-
         // Рендеринг поста, который мы получаем с fake api
         <div className="post">
             <div className="post-content">

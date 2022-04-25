@@ -1,3 +1,8 @@
+:root {
+    --main-text-color: #1c1c1c;
+    --second-text-color: rgb(40, 95, 171);
+}
+
 .posts{
     display: flex;
     flex-direction: column;
@@ -70,9 +75,7 @@
     margin: 0;
     text-align: left;
     text-decoration: none;
-    background: linear-gradient(180deg, rgba(63,146,245,1) 0%, rgba(9,58,121,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--second-text-color);
     font-size: 18px;
 }
 
@@ -166,9 +169,7 @@
     margin: 0;
     text-align: left;
     text-decoration: none;
-    background: linear-gradient(180deg, rgba(63,146,245,1) 0%, rgba(9,58,121,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--second-text-color);
     font-size: 16px;
 }
 

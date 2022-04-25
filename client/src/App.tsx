@@ -8,12 +8,10 @@ function App(){
     // Получение куки для аутентификации
     const {isAuth} = useTypedSelector(state=>state.profile)
     return (
-        <div className='wrapper'>
+        <>
             {/* Проверка наличия куки */}
-            {isAuth ? <MainPage /> : <AuthPage />
-            }
-
-        </div>
+            {isAuth ? <MainPage /> : <AuthPage />}
+        </>
     )
 }
 

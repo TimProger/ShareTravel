@@ -13,14 +13,18 @@ export default function Auth() {
     const {formAuth} = useActions()
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         defaultValues: {
-            email: "",
-            password: ""
+            email: "1email1@mail.ru",
+            password: "123321123321"
         }
     });
     return (
-        <form onSubmit={handleSubmit((formData):void => {
-            formAuth(formData)
-        })}>
+        <form
+            className={'auth-form'}
+            onSubmit={handleSubmit((formData):void => {
+                formAuth(formData)
+            }
+        )}>
+            <h1>Авторизация</h1>
             <div className="item email">
                 <input type={"email"} placeholder={'Почта'} {...register("email", { required: true })} />
                 {errors.email ? <span>{errors.email.message}</span> : null}
@@ -33,7 +37,7 @@ export default function Auth() {
                 />
                 {errors.password ? <span>{errors.password.message}</span> : null}
             </div>
-            <input type="submit" /> Или <NavLink to={'/registration'}>Зарегистрируйтесь</NavLink>
+            <div className="submit"><input type="submit" /> Или <NavLink to={'/registration'}>Зарегистрируйтесь</NavLink></div>
         </form>
     );
 }

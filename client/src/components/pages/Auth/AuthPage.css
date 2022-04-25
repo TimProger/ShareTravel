@@ -1,15 +1,8 @@
-form{
-    width: 40%;
+.auth{
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
     align-items: center;
     justify-content: center;
-    align-self: center;
-}
-
-form .item{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }

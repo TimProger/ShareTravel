@@ -19,11 +19,11 @@ export default function Register() {
             passwordRepeat: "P@ssw0rd!",
         }
     });
-    console.log(errors)
     return (
-        <form onSubmit={handleSubmit((formData):void => {
+        <form className={'registration-form'} onSubmit={handleSubmit((formData):void => {
             console.log(formData)
         })}>
+            <h1>Регистрация</h1>
             <div className="item login">
                 <input type={"text"} placeholder={'Логин'} {...register("login", { required: true })} />
                 {errors.login ? <span>{errors.login.message}</span> : null}
@@ -58,8 +58,7 @@ export default function Register() {
                 <input type={"password"} placeholder={'Повторите пароль'} {...register("passwordRepeat", { required: true })} />
                 {errors.passwordRepeat ? <span>{errors.passwordRepeat.message}</span> : null}
             </div>
-            <input type="submit" /> Или <NavLink to={'/auth'}>Авторизуйтесь</NavLink>
-
+            <div className="submit"><input type="submit" /> Или <NavLink to={'/auth'}>Авторизуйтесь</NavLink></div>
         </form>
     );
 }

@@ -7,9 +7,9 @@ import Register from '../../Auth/AuthComponent/Register/Register'
 export default function AuthPage() {
 
     return (
-        <div className="form">
+        <div className="auth">
             <Routes>
-                <Route path='/' element={<Navigate to="/auth" />} />
+                <Route path='*' element={<Navigate to="/auth" />} />
                 <Route path='/auth' element={<Auth />} />
                 <Route path='/registration' element={<Register />} />
             </Routes>

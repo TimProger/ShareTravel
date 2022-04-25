@@ -1,8 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Rubik+One&subset=latin,cyrillic);
-
 :root {
     --main-text-color: #1c1c1c;
-    --second-text-color: lightseagreen;
+    --second-text-color: rgb(40, 95, 171);
 }
 
 .navbar{
@@ -31,10 +29,7 @@
     font-weight: bold;
     font-size: 35px;
     line-height: 46px;
-    background: linear-gradient(180deg, rgba(63,146,245,1) 0%, rgba(9,58,121,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: black;
+    color: var(--second-text-color);
     margin: 0;
  }
 
@@ -93,9 +88,7 @@
 
 .menu_links a:hover{
     text-decoration: none;
-    background: linear-gradient(180deg, rgba(63,146,245,1) 0%, rgba(9,58,121,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--second-text-color);
     display: flex;
     align-items: center;
     gap: 20px;
