@@ -2,7 +2,6 @@ import React, {useEffect} from "react"
 import './Posts.css'
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import Post from "./Post/Post";
 import Posts from "./Posts";
 
 function PostsContainer(){

@@ -6,7 +6,7 @@ import MainPage from "./components/pages/Main/MainPage";
 
 function App(){
     // Получение куки для аутентификации
-    const {isAuth} = useTypedSelector(state=>state.profile)
+    const {isAuth} = useTypedSelector(state=>state.auth)
     return (
         <>
             {/* Проверка наличия куки */}

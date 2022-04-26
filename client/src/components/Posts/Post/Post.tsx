@@ -1,5 +1,6 @@
 import React from "react"
 import {NavLink} from "react-router-dom";
+import './Post.css'
 import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
 import {VscComment} from "react-icons/vsc";
 

@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 function NavbarContainer(){
     // Получение пользователя
-    const {user} = useTypedSelector(state => state.profile)
+    const {user} = useTypedSelector(state => state.auth)
 
     // Создание навигационной панели с переданным пользователем
     return <Navbar user={user} />
