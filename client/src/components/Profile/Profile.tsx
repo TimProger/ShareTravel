@@ -1,10 +1,14 @@
 import React, {useEffect} from "react"
+import {useParams} from "react-router-dom";
 import './Profile.css';
 
 function Profile(props: any) {
+    // Получение поля id из url при помощи useParams
+    let {id} = useParams();
+
     // Получаю пользователя используя полученный id
     useEffect(() => {
-        console.log(1)
+        props.fetchProfile(id)
     }, [])
 
     // Проверяю статус загрузки

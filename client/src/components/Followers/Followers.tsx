@@ -26,7 +26,7 @@ const Followers = (props: any) => {
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
              */}
-            {props.users.map((follower: any) => <Follower key={follower.id} follower={follower} />)}
+            {props.users.map((follower: IUser) => <Follower key={follower.id} follower={follower} />)}
         </div>
     );
 };
