@@ -1,4 +1,5 @@
 import {PostAction, PostActionTypes, IPostState} from "../../types/postType";
+import {ProfileActionTypes} from "../../types/profileType";
 
 const initialState: IPostState = {
     posts: [],
@@ -28,7 +29,9 @@ export const postReducer = (state: IPostState = initialState, action: PostAction
                     return post
                 })}
         case PostActionTypes.FETCH_POSTS:
-            return {...state, loading: true, error: null, posts: []}
+            return {loading: true, error: null, posts: []}
+        case PostActionTypes.DROP_POSTS:
+            return {loading: true, error: null, posts: []}
         case PostActionTypes.FETCH_POSTS_SUCCESS:
             return {...state, loading: false, error: null, posts: action.payload}
         case PostActionTypes.FETCH_POSTS_ERROR:

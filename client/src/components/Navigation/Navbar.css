@@ -27,7 +27,7 @@
 .navbar-logo{
     font-style: normal;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 25px;
     line-height: 46px;
     color: var(--second-text-color);
     margin: 0;
@@ -41,14 +41,16 @@
 }
 
 .navbar-profile-avatar{
-     width: 50px;
-     height: 50px;
-     overflow: hidden;
-     border-radius: 50%;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
  }
 
 .navbar-profile-avatar img{
     width: 50px;
+    min-width: 50px;
     height: 50px;
     object-fit: cover;
 }
@@ -73,7 +75,8 @@
 }
 
 .icons{
-    width: auto;
+    width: 30px;
+    min-width: 30px;
     height: 30px;
     top: 20px;
 }

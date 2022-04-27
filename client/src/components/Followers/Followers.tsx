@@ -5,8 +5,8 @@ import {IUser} from "../../types/userType";
 
 const Followers = (props: any) => {
 
+    // Получаю пользователей
     useEffect(() => {
-        // Получаю пользователей
         props.fetchUsers()
     }, [])
 

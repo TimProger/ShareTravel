@@ -3,34 +3,76 @@ import './Posts.css'
 import Post from "./Post/Post";
 import PostsLoading from "../Loadings/Posts/PostsLoading";
 
-function Posts(props: any){
+// function Posts(props: any){
+//
+//     // Получаю посты
+//     useEffect(() => {
+//         props.fetchPosts()
+//     }, [])
+//
+//     // Проверяю статус загрузки
+//     if (props.loading) {
+//         return <PostsLoading />
+//     }
+//
+//     // Проверяю статус ошибки
+//     if (props.error) {
+//         return <h1>{props.error}</h1>
+//     }
+//
+//     return (
+//         <div className="posts">
+//             {/*
+//                 Вывожу посты, создавая под каждого компоненту Post
+//                 А также передаю в них полученные ранее функции
+//             */}
+//             {props.posts.map((el: any, index: number)=>{
+//                 return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}/>
+//             })}
+//         </div>
+//     )
+// }
+
+class Posts extends React.Component<any, any> {
+    constructor(props: any) {
+        super(props);
+
+    }
 
     // Получаю посты
-    useEffect(() => {
-        props.fetchPosts()
-    }, [])
-
-    // Проверяю статус загрузки
-    if (props.loading) {
-        return <PostsLoading />
+    componentDidMount() {
+        this.props.fetchPosts()
     }
 
-    // Проверяю статус ошибки
-    if (props.error) {
-        return <h1>{props.error}</h1>
+    // Удаляю посты
+    componentWillUnmount() {
+        this.props.dropPosts()
     }
 
-    return (
-        <div className="posts">
-            {/*
-                Вывожу посты, создавая под каждого компоненту Post
-                А также передаю в них полученные ранее функции
-            */}
-            {props.posts.map((el: any, index: number)=>{
-                return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}/>
-            })}
-        </div>
-    )
+    render() {
+
+        // Проверяю статус загрузки
+        if (this.props.loading) {
+            return <PostsLoading />
+        }
+
+        // Проверяю статус ошибки
+        if (this.props.error) {
+            return <h1>{this.props.error}</h1>
+        }
+
+        return (
+            <div className="posts">
+                {/*
+                    Вывожу посты, создавая под каждого компоненту Post
+                    А также передаю в них полученные ранее функции
+                */}
+                {this.props.posts.map((el: any, index: number)=>{
+                    return <Post loadComments={this.props.loadComments} likePost={this.props.likePost} key={index} post={el}/>
+                })}
+            </div>
+        )
+    }
 }
 
 export default Posts;

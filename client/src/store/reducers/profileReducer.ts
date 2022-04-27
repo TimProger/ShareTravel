@@ -2,7 +2,7 @@ import {ProfileAction, ProfileActionTypes, IProfileState} from "../../types/prof
 
 const initialState: IProfileState = {
     profile: null, // Профиль пользователя (Для страницы пользователя (Любого))
-    loading: false,
+    loading: true,
     error: null
 }
 
@@ -10,6 +10,8 @@ export const ProfileReducer = (state: IProfileState = initialState, action: Prof
     switch (action.type) {
         case ProfileActionTypes.FETCH_PROFILE:
             return {...state, loading: true, error: null}
+        case ProfileActionTypes.DROP_PROFILE:
+            return {profile: null, loading: true, error: null}
         case ProfileActionTypes.FETCH_PROFILE_ERROR:
             return {...state, loading: false, error: action.payload, profile: null}
         case ProfileActionTypes.FETCH_PROFILE_SUCCESS:

@@ -32,6 +32,7 @@ const users = [
     }
 ]
 
+// Получаю данные с формы, нахожу по ним пользователя и сохраняю токен в куку
 export const formAuth = (data: IAuthFormData) => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
@@ -44,7 +45,6 @@ export const formAuth = (data: IAuthFormData) => {
                     payload: user
                 })
             }, 500)
-
         } catch (e) {
             dispatch({
                 type: AuthActionTypes.AUTH_USER_ERROR,
@@ -54,15 +54,16 @@ export const formAuth = (data: IAuthFormData) => {
     }
 }
 
+// Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
 export const checkCookie = () => {
     return async (dispatch: Dispatch<AuthAction>) => {
-        setTimeout(()=> {
-            const email = getCookie('auth_token')
-            if(email){
+        const email = getCookie('auth_token')
+        if(email){
+            dispatch({
+                type: AuthActionTypes.AUTH_USER,
+            })
+            setTimeout(()=> {
                 try {
-                    dispatch({
-                        type: AuthActionTypes.AUTH_USER,
-                    })
                     const user = users.find(user=>user.email === email) || users[0]
                     dispatch({
                         type: AuthActionTypes.AUTH_USER_SUCCESS,
@@ -74,7 +75,7 @@ export const checkCookie = () => {
                         payload: 'Произошла ошибка при поиске пользователя'
                     })
                 }
-            }
-        }, 500)
+            }, 500)
+        }
     }
 }

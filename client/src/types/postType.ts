@@ -31,6 +31,7 @@ export interface IPostState {
 }
 
 export enum PostActionTypes {
+    DROP_POSTS = 'DROP_POSTS',
     FETCH_POSTS = 'FETCH_POSTS',
     FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS',
     FETCH_POSTS_ERROR = 'FETCH_POSTS_ERROR',
@@ -54,6 +55,10 @@ interface IFetchPostsAction {
     type: PostActionTypes.FETCH_POSTS;
 }
 
+interface IDropPostsAction {
+    type: PostActionTypes.DROP_POSTS;
+}
+
 interface IFetchCommentsAction {
     type: PostActionTypes.FETCH_COMMENTS;
 }
@@ -69,6 +74,7 @@ interface IFetchPostsErrorAction {
 }
 
 export type PostAction = ILikePostAction
+    | IDropPostsAction
     | IFetchCommentsAction
     | ILoadCommentsAction
     | IFetchPostsAction

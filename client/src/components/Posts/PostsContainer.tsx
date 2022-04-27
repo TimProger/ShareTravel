@@ -9,9 +9,10 @@ function PostsContainer(){
     const {posts, error, loading} = useTypedSelector(state => state.post)
 
     // Получаю функции для получения постов, для лайков и для подгрузки комментариев
-    const {fetchPosts, likePost, loadComments} = useActions()
+    const {fetchPosts, likePost, loadComments, dropPosts} = useActions()
 
     return <Posts fetchPosts={fetchPosts}
+                  dropPosts={dropPosts}
                   likePost={likePost}
                   loadComments={loadComments}
                   posts={posts}

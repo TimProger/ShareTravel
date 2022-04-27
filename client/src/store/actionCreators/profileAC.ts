@@ -1,7 +1,7 @@
 import {ProfileAction, ProfileActionTypes} from "../../types/profileType";
 import {Dispatch} from "redux";
 
-export const fetchProfile = (id: any) => {
+export const fetchProfile = (id: string) => {
     return async (dispatch: Dispatch<ProfileAction>) => {
         try {
             dispatch({type: ProfileActionTypes.FETCH_PROFILE})
@@ -61,5 +61,11 @@ export const fetchProfile = (id: any) => {
                 payload: 'Произошла ошибка при поиске профиля'
             })
         }
+    }
+}
+
+export const dropProfile = (id: string) => {
+    return async (dispatch: Dispatch<ProfileAction>) => {
+            dispatch({type: ProfileActionTypes.DROP_PROFILE})
     }
 }

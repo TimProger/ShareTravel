@@ -17,25 +17,31 @@ export interface IProfileState {
 }
 
 export enum ProfileActionTypes {
+    DROP_PROFILE = 'DROP_PROFILE',
     FETCH_PROFILE = 'FETCH_PROFILE',
     FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR',
     FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS',
 }
 
-interface FETCH_PROFILE {
+interface IFETCH_PROFILE {
     type: ProfileActionTypes.FETCH_PROFILE;
 }
 
-interface FETCH_PROFILE_ERROR {
+interface IDROP_PROFILE {
+    type: ProfileActionTypes.DROP_PROFILE;
+}
+
+interface IFETCH_PROFILE_ERROR {
     type: ProfileActionTypes.FETCH_PROFILE_ERROR;
     payload: string;
 }
 
-interface FETCH_PROFILE_SUCCESS {
+interface IFETCH_PROFILE_SUCCESS {
     type: ProfileActionTypes.FETCH_PROFILE_SUCCESS;
     payload: IProfile | any;
 }
 
-export type ProfileAction = FETCH_PROFILE
-    | FETCH_PROFILE_ERROR
-    | FETCH_PROFILE_SUCCESS
+export type ProfileAction = IFETCH_PROFILE
+    | IDROP_PROFILE
+    | IFETCH_PROFILE_ERROR
+    | IFETCH_PROFILE_SUCCESS

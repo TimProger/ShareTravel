@@ -79,6 +79,13 @@ export const likePost = (id: number) => {
     }
 }
 
+// AC с типом LIKE_POST и с айдишником поста
+export const dropPosts = () => {
+    return async (dispatch: Dispatch<PostAction>) => {
+        dispatch({type: PostActionTypes.DROP_POSTS,})
+    }
+}
+
 //
 export const loadComments = (id: number) => {
     return async (dispatch: Dispatch<PostAction>) => {
