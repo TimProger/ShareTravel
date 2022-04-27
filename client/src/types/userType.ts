@@ -10,7 +10,6 @@ export interface IUser {
 }
 
 export interface IUserState {
-    user: IUser;
     users: any[];
     loading: boolean;
     error: null | string;
@@ -18,6 +17,7 @@ export interface IUserState {
 
 export enum UserActionTypes {
     FETCH_USER = 'FETCH_USER',
+    DROP_USERS = 'DROP_USERS',
     FETCH_USERS = 'FETCH_USERS',
     FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
     FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
@@ -32,6 +32,10 @@ interface IFetchUsersAction {
     type: UserActionTypes.FETCH_USERS;
 }
 
+interface IDropUsersAction {
+    type: UserActionTypes.DROP_USERS;
+}
+
 interface IFetchUsersSuccessAction {
     type: UserActionTypes.FETCH_USERS_SUCCESS;
     payload: any[]
@@ -42,4 +46,8 @@ interface IFetchUsersErrorAction {
     payload: string;
 }
 
-export type UserAction = IFetchUserAction | IFetchUsersAction | IFetchUsersErrorAction | IFetchUsersSuccessAction
+export type UserAction = IDropUsersAction
+    | IFetchUserAction
+    | IFetchUsersAction
+    | IFetchUsersErrorAction
+    | IFetchUsersSuccessAction

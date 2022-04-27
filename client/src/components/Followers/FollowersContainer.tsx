@@ -9,11 +9,12 @@ const FollowersContainer = () => {
     const {users, error, loading} = useTypedSelector(state => state.user)
 
     // Получаю функцию для получения пользователей
-    const {fetchUsers} = useActions()
+    const {fetchUsers, dropUsers} = useActions()
 
     return <Followers users={users}
                       error={error}
                       loading={loading}
+                      dropUsers={dropUsers}
                       fetchUsers={fetchUsers}/>;
 };
 

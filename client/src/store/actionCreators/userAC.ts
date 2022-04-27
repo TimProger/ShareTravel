@@ -23,3 +23,9 @@ export const fetchUsers = () => {
         }
     }
 }
+
+export const dropUsers = () => {
+    return async (dispatch: Dispatch<UserAction>) => {
+        dispatch({type: UserActionTypes.DROP_USERS})
+    }
+}
