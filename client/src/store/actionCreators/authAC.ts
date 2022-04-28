@@ -57,11 +57,11 @@ export const formAuth = (data: IAuthFormData) => {
 // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
 export const checkCookie = () => {
     return async (dispatch: Dispatch<AuthAction>) => {
+        dispatch({
+            type: AuthActionTypes.AUTH_USER,
+        })
         const email = getCookie('auth_token')
         if(email){
-            dispatch({
-                type: AuthActionTypes.AUTH_USER,
-            })
             setTimeout(()=> {
                 try {
                     const user = users.find(user=>user.email === email) || users[0]
@@ -76,6 +76,11 @@ export const checkCookie = () => {
                     })
                 }
             }, 500)
+        }else{
+            dispatch({
+                type: AuthActionTypes.AUTH_USER_ERROR,
+                payload: 'Произошла ошибка при поиске куки авторизации'
+            })
         }
     }
 }

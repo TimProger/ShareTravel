@@ -14,7 +14,7 @@ function App(){
     // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
     useEffect(()=>checkCookie(), [])
 
-    const {isAuth, loading, error} = useTypedSelector(state => state.auth)
+    const {isAuth, loading} = useTypedSelector(state => state.auth)
 
     if(loading){
         return <PageLoading />
