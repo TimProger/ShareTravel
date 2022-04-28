@@ -2,7 +2,7 @@ import {AuthAction, AuthActionTypes, IAuthState} from "../../types/authType";
 
 const initialState: IAuthState = {
     user: null, // Объект авторизованного пользователя
-    loading: false,
+    loading: true,
     error: null,
     isAuth: false,
 }

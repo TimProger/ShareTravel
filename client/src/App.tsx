@@ -4,6 +4,7 @@ import {useTypedSelector} from "./hooks/useTypedSelector";
 import AuthPage from "./components/pages/Auth/AuthPage";
 import MainPage from "./components/pages/Main/MainPageContainer";
 import {useActions} from "./hooks/useActions";
+import PageLoading from "./components/Loadings/Page/PageLoading"; // Loading by MattIn4D from Codepen.io
 
 function App(){
     // Получение куки для аутентификации
@@ -12,10 +13,11 @@ function App(){
     // @ts-ignore
     // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
     useEffect(()=>checkCookie(), [])
+
     const {isAuth, loading, error} = useTypedSelector(state => state.auth)
 
     if(loading){
-        return <h1>Loading</h1>
+        return <PageLoading />
     }
 
     return (

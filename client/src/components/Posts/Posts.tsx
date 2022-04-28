@@ -12,7 +12,7 @@ import PostsLoading from "../Loadings/Posts/PostsLoading";
 //
 //     // Проверяю статус загрузки
 //     if (props.loading) {
-//         return <PostsLoading />
+//         return <PageLoading />
 //     }
 //
 //     // Проверяю статус ошибки

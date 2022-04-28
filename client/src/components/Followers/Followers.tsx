@@ -2,6 +2,7 @@ import React from 'react';
 import './Followers.css'
 import Follower from "./Follower/Follower";
 import {IUser} from "../../types/userType";
+import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
 // const Followers = (props: any) => {
 //
@@ -52,9 +53,7 @@ class Followers extends React.Component<any, any> {
         // Проверяю статус загрузки
         if (this.props.loading) {
             return (
-                <div className="page">
-                    <h1>Идет загрузка...</h1>
-                </div>
+                <FollowersLoading />
             )
         }
 
