@@ -19,12 +19,15 @@
     /*width: auto;*/
     /*height: 452px;*/
     width: 100%;
-    height: 250px;
+    height: 200px;
 
 }
 
 .profile-avatar-img{
     border-radius: 50%;
+    position: absolute;
+    left: 680px;
+    top: 180px;
     width: 80px;
     height: 80px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
@@ -36,6 +39,9 @@
     -webkit-text-fill-color: transparent;
     color: black;
     font-weight: bold;
+    position: absolute;
+    left: 680px;
+    top: 280px;
 
 }
 .profile-text{
@@ -44,22 +50,49 @@
     font-size: 15px;
 }
 .btn-sub_follow {
-    overflow: hidden;
+    display: flex;
 
     font-weight: bold;
+    position: absolute;
+    left: 430px;
+    top: 380px;
+
 }
+.btn-sub_follow span{
+    color: #6c6c6c;
+}
+
 .sub {
+
+    margin: 0 100px;
     float: left;
     width: 48%;
-
 }
 .follow {
-    margin-left: 52%;
+    margin: 0 145px;
+
 }
+
+.profile-city-text{
+    display: flex;
+    font-weight: bold;
+    position: absolute;
+    left: 680px;
+    top: 330px;
+}
+
+
 .btn-message_follow {
     overflow: hidden;
-
+    position: absolute;
+    left: 570px;
+    top: 450px;
     font-weight: bold;
+    display: flex;
+    margin: 0 -5px;
+
+
+
 }
 .btn-follow{
     background: linear-gradient(90deg, #C53853 0%, #DA563D 100%);
@@ -68,6 +101,9 @@
     width: 162px;
     height: 41px;
     color: white;
+    flex: 1 1 auto;
+    margin: 0 5px;
+
 }
 .btn-message{
     background: linear-gradient(90deg, #77BCFF 0%, #3878C8 100%);
@@ -75,8 +111,9 @@
     border-radius: 30px;
     width: 162px;
     height: 41px;
-
     color: white;
+    flex: 1 1 auto;
+    margin: 0 5px;
 }
 .btn{
     border: 3px solid #1a1a1a;
