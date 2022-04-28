@@ -1,7 +1,7 @@
 import React from "react"
 // import {useParams} from "react-router-dom";
 import './Profile.css';
-
+import { FiMapPin } from "react-icons/fi";
 // function Profile(props: any) {
 //     // Получение поля id из url при помощи useParams
 //     const {id} = useParams();
@@ -88,9 +88,10 @@ class Profile extends React.Component<any, any> {
                     </div>
                     <div className="profile-name-surname">{this.props.profile.name}</div>
                     <div className="profile-text">{this.props.profile.text}</div>
+                    <div className="profile-city-text"><FiMapPin/>city</div>
                     <div className="btn-sub_follow">
-                        <div className="sub">1000<br/>subscribers</div>
-                        <div className="follow">1000<br/>followers</div>
+                        <div className="sub"><span>followers</span><br/>1000</div>
+                        <div className="follow"><span>following</span><br/>1000 </div>
                     </div>
                     <div className="btn-message_follow">
                         <button className="btn-follow">Подписаться</button>
