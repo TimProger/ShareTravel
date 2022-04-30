@@ -87,15 +87,19 @@ class Profile extends React.Component<any, any> {
                         <img className="profile-avatar-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg" alt="avatar"/>
                     </div>
                     <div className="profile-name-surname">{this.props.profile.name}</div>
-                    <div className="profile-text">{this.props.profile.text}</div>
-                    <div className="profile-city-text"><FiMapPin/>city</div>
-                    <div className="btn-sub_follow">
-                        <div className="sub"><span>followers</span><br/>1000</div>
-                        <div className="follow"><span>following</span><br/>1000 </div>
+                    <div className="profile-text">{this.props.profile.company.catchPhrase}</div>
+                    <div className="profile-city-text"><FiMapPin/>{this.props.profile.address.street} {this.props.profile.address.suite}</div>
+                    <div className="sub_follow">
+                        <div className="sub_follow__btn sub"><span>followers</span>1000</div>
+                        <div className="sub_follow__btn follow"><span>following</span>1000 </div>
                     </div>
-                    <div className="btn-message_follow">
-                        <button className="btn-follow">Подписаться</button>
-                        <button className="btn-message">Сообщение</button>
+                    <div className="btn-container">
+                        <div className="btn-follow__container">
+                            <button className="btn-follow">Подписаться</button>
+                        </div>
+                        <div className="btn-message__container">
+                            <button className="btn-message">Сообщение</button>
+                        </div>
                     </div>
                 </div>
             </div>

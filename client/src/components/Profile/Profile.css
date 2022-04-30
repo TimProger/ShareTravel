@@ -1,37 +1,32 @@
 .profile{
     width: 90%;
-    height: 100%;
+    height: 50%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
-
 }
 .profile-background{
     width: 100%;
     height: 100px;
+    text-align: center;
 }
 
 .profile-background-img{
     border-radius: 20px 20px 0 0;
-    /*width: auto;*/
-    /*height: 452px;*/
     width: 100%;
     height: 200px;
-
+    display: flex;
 }
 
 .profile-avatar-img{
     border-radius: 50%;
-    position: absolute;
-    left: 680px;
-    top: 180px;
     width: 80px;
     height: 80px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
-
+    margin: -40px 0 5px 0;
 }
 .profile-name-surname{
     background: linear-gradient(180deg, rgb(80, 141, 208) 0%, rgba(9,58,121,1) 100%);
@@ -39,80 +34,73 @@
     -webkit-text-fill-color: transparent;
     color: black;
     font-weight: bold;
-    position: absolute;
-    left: 680px;
-    top: 280px;
-
+    margin: 5px 0 20px 0;
 }
 .profile-text{
-
     font-weight: 600;
     font-size: 15px;
 }
-.btn-sub_follow {
+.sub_follow {
     display: flex;
-
     font-weight: bold;
-    position: absolute;
-    left: 430px;
-    top: 380px;
-
+    justify-content: space-around;
+    margin: 0 0 10px 0;
 }
-.btn-sub_follow span{
+.sub_follow span{
     color: #6c6c6c;
 }
 
-.sub {
-    margin: 0 100px;
-    float: left;
-    width: 48%;
-}
-
-.follow {
-    margin: 0 145px;
+.sub_follow__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .profile-city-text{
     display: flex;
-    font-weight: bold;
-    position: absolute;
-    left: 680px;
-    top: 330px;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    padding: 12px;
 }
 
-
-.btn-message_follow {
-    overflow: hidden;
-    position: absolute;
-    left: 570px;
-    top: 450px;
-    font-weight: bold;
+/*.btn-message_follow {*/
+/*}*/
+.btn-container{
     display: flex;
-    margin: 0 -5px;
-
-
-
+    align-items: center;
+    justify-content: center;
+    height: 40px;
 }
 .btn-follow{
     background: linear-gradient(90deg, #C53853 0%, #DA563D 100%);
     box-shadow: 0 -1px 14px rgba(197, 56, 83, 0.5);
     border-radius: 30px;
-    width: 162px;
-    height: 41px;
+    width: 150px;
+    height: 100%;
+    font-size: 15px;
+    font-weight: bold;
     color: white;
-    flex: 1 1 auto;
-    margin: 0 5px;
-
 }
 .btn-message{
     background: linear-gradient(90deg, #77BCFF 0%, #3878C8 100%);
     box-shadow: 0 -1px 14px rgba(72, 152, 229, 0.5);
     border-radius: 30px;
-    width: 162px;
-    height: 41px;
+    width: 150px;
+    height: 100%;
     color: white;
-    flex: 1 1 auto;
-    margin: 0 5px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+.btn-message__container{
+    height: 100%;
+    width: 100%;
+}
+.btn-follow__container{
+    height: 100%;
+    width: 100%;
 }
 .btn{
     border: 3px solid #1a1a1a;
