@@ -4,14 +4,13 @@ import {Dispatch} from "redux";
 // AC который в начале начинает загрузку постов при помощи FETCH_POSTS
 // А затем обращается за ними на сервер
 // и при помощи FETCH_POSTS_SUCCESS передаёт их в хранилище (store)
-export const fetchPosts = () => {
+export const fetchPosts = (page: number = 1) => {
     return async (dispatch: Dispatch<PostAction>) => {
         try {
             dispatch({type: PostActionTypes.FETCH_POSTS})
-            fetch('https://jsonplaceholder.typicode.com/posts/')
+            fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
                 .then(response => response.json())
                 .then(json => {
-                    json = json.slice(0, 10);
                     dispatch({
                         type: PostActionTypes.FETCH_POSTS_SUCCESS,
                         payload: json
