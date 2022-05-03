@@ -1,39 +1,38 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import './Posts.css'
 import Post from "./Post/Post";
 import PostsLoading from "../Loadings/Posts/PostsLoading";
 
 function Posts(props: any){
-    const [page, setPage] = useState(1)
-    const [fetching, setFetching] = useState(true)
+    const [page, setPage] = React.useState(1)
+    const [fetching, setFetching] = React.useState(true)
 
     const scrollHandler = (e: any) => {
-        console.log(2)
-        if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100){
+        let scrollPos = e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)
+        if(scrollPos < 100){
+            window.scrollTo(0, e.target.documentElement.scrollTop-100)
             setFetching(true)
         }
     }
 
-    // Получаю посты
-    useEffect(() => {
-        if(fetching){
-            console.log(1)
-            props.fetchPosts(page).then(()=>{
-                setPage(prevState => prevState + 1)
-                setFetching(false)
-            })
-        }
-    }, [fetching])
-
     // Добавляю ивент и удаляю его при переходе на другую страницу
-    useEffect(() => {
-        console.log('Работает')
+    React.useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
         return function (){
             props.dropPosts()
             document.removeEventListener('scroll', scrollHandler)
         }
     }, [])
+
+    // Получаю посты
+    React.useEffect(() => {
+        if(fetching){
+            console.log(1)
+            props.fetchPosts(page)
+            setPage(prevState => prevState + 1)
+            setFetching(false)
+        }
+    }, [fetching])
 
     // Проверяю статус ошибки
     if (props.error) {
