@@ -10,8 +10,9 @@ function Posts(props: any){
     const scrollHandler = (e: any) => {
         let scrollPos = e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)
         if(scrollPos < 200){
-            window.scrollTo(0, e.target.documentElement.scrollTop-100)
+            document.removeEventListener('scroll', scrollHandler)
             setFetching(true)
+            setTimeout(()=>document.addEventListener('scroll', scrollHandler), 1000)
         }
     }
 

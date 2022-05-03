@@ -12,7 +12,7 @@ export const fetchUsers = () => {
                     payload: json
                 })).catch(e => dispatch({
                     type: UserActionTypes.FETCH_USERS_ERROR,
-                payload: 'Произошла ошибка при загрузке пользователей'
+                payload: 'Произошла ошибка при запросе к серверу'
                 })
             )
         } catch (e) {
