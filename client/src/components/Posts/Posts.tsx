@@ -48,7 +48,7 @@ function Posts(props: any){
             {props.posts.map((el: any, index: number)=>{
                 return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}/>
             })}
-            <div id="scrollArea"/>
+            {props.loading ? <div id="loading">Идёт загрузка</div> : ""}
         </div>
     )
 }
