@@ -2,6 +2,8 @@ import React from "react"
 // import {useParams} from "react-router-dom";
 import './Profile.css';
 import { FiMapPin } from "react-icons/fi";
+import {isEmpty} from "../../utils/utils";
+import {Navigate} from "react-router-dom";
 // function Profile(props: any) {
 //     // Получение поля id из url при помощи useParams
 //     const {id} = useParams();
@@ -48,10 +50,6 @@ import { FiMapPin } from "react-icons/fi";
 // }
 
 class Profile extends React.Component<any, any> {
-    constructor(props: any) {
-        super(props);
-
-    }
 
     // Получаю пользователя используя полученный id
     componentDidMount() {
@@ -78,6 +76,11 @@ class Profile extends React.Component<any, any> {
         if (this.props.error) {
             return <h1>{this.props.error}</h1>
         }
+
+        if(isEmpty(this.props.profile)){
+            return <Navigate to={'/'} />
+        }
+
 
         return (
             <div className="profile">

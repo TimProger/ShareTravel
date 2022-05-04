@@ -28,7 +28,6 @@ function Posts(props: any){
     // Получаю посты
     React.useEffect(() => {
         if(fetching){
-            console.log(1)
             props.fetchPosts(page)
             setPage(prevState => prevState + 1)
             setFetching(false)

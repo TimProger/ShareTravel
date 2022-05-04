@@ -8,7 +8,6 @@ export const fetchProfile = (id: string) => {
             fetch('https://jsonplaceholder.typicode.com/users/' + id)
                 .then(response => response.json())
                 .then(json => {
-                    console.log(json)
                     dispatch({
                         type: ProfileActionTypes.FETCH_PROFILE_SUCCESS,
                         payload: json
