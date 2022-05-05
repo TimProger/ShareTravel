@@ -10,9 +10,10 @@ function App(){
     // Получение куки для аутентификации
     const {checkCookie} = useActions()
 
-    // @ts-ignore
     // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
-    useEffect(()=>checkCookie(), [])
+    useEffect(() => {
+        checkCookie()
+    }, [])
 
     const {isAuth, loading} = useTypedSelector(state => state.auth)
 
