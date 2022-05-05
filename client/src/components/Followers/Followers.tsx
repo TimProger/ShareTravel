@@ -4,7 +4,7 @@ import Follower from "./Follower/Follower";
 import {IUsersProps} from "../../types/userType";
 import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
-const Followers = (props: IUsersProps) => {
+const Followers: React.FC<IUsersProps> = (props) => {
 
     // Получаю пользователей
     React.useEffect(() => {

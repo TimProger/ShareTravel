@@ -3,7 +3,7 @@ import './Follower.css'
 import {NavLink} from "react-router-dom";
 import {IUserProps} from "../../../types/userType";
 
-function Follower(props: IUserProps){
+const Follower: React.FC<IUserProps> = (props) =>{
 
     // Создаю обработчики события нажатия
     const follow = (id: number) => {
