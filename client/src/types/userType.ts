@@ -51,3 +51,16 @@ export type UserAction = IDropUsersAction
     | IFetchUsersAction
     | IFetchUsersErrorAction
     | IFetchUsersSuccessAction
+
+
+export interface IUsersProps {
+    fetchUsers: () => void;
+    dropUsers: () => void;
+    users: IUser[] | any[];
+    error: null | string;
+    loading: boolean;
+}
+
+export interface IUserProps {
+    user: IUser | any;
+}

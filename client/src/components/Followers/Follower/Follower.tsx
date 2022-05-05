@@ -1,8 +1,9 @@
 import React from "react"
 import './Follower.css'
 import {NavLink} from "react-router-dom";
+import {IUserProps} from "../../../types/userType";
 
-function Follower(props: any){
+function Follower(props: IUserProps){
 
     // Создаю обработчики события нажатия
     const follow = (id: number) => {
@@ -20,26 +21,20 @@ function Follower(props: any){
                     <p className="follower-profile" >
                         {/* Создаю ссылку ведущую на страницу профиля */}
                         <NavLink
-                            to={'/user/'+props.follower.id}
+                            to={'/user/'+props.user.id}
                             className='follower-profile-name'
                         >
                             {/* Имя и фамиля пользователя */}
-                            {props.follower.name} {props.follower.surname}
+                            {props.user.name} {props.user.surname}
                         </NavLink>
                         <span className="follower-profile-text">
                             {/* Описание профиля пользователя */}
-                            {props.follower.text}
+                            {props.user.text}
                         </span>
                     </p>
                 </div>
                 <div className="follower-btn">
-                    {/* Создание кнопки "подписаться" и "отписаться" в зависимости от статуса подписки */}
-                    {props.subscribed ?
-                        <button onClick={()=>follow(props.follower.id)} className={'follow'}>Подписаться</button>
-                        :
-                        <button onClick={()=>unfollow(props.follower.id)} className={'unfollow'}>Отписаться</button>
-                    }
-
+                    <button onClick={()=>follow(props.user.id)} className={'follow'}>Подписаться</button>
                 </div>
             </div>
         </div>

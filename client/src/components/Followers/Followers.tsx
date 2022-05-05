@@ -1,10 +1,10 @@
 import React from 'react';
 import './Followers.css'
 import Follower from "./Follower/Follower";
-import {IUser} from "../../types/userType";
+import {IUsersProps} from "../../types/userType";
 import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
-const Followers = (props: any) => {
+const Followers = (props: IUsersProps) => {
 
     // Получаю пользователей
     React.useEffect(() => {
@@ -30,7 +30,7 @@ const Followers = (props: any) => {
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
              */}
-            {props.users.map((follower: IUser) => <Follower key={follower.id} follower={follower} />)}
+            {props.users.map((user, index: number) => <Follower key={index} user={user} />)}
         </div>
     );
 };
