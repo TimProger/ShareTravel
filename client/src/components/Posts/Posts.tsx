@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {IPostsProps} from "../../types/postType";
 
 
-function Posts(props: IPostsProps){
+const Posts: React.FC<IPostsProps> = (props) => {
     const [page, setPage] = React.useState(1)
     const [fetching, setFetching] = React.useState(true)
 

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import './Posts.css'
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";

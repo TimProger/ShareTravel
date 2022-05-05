@@ -5,7 +5,7 @@ import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
 import {VscComment} from "react-icons/vsc";
 import {IPostProps} from "../../../types/postType";
 
-function Post(props: IPostProps){
+const Post: React.FC<IPostProps> = (props) => {
 
     return (
 
