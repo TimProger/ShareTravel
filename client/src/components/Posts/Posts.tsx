@@ -1,14 +1,15 @@
 import React from "react"
 import './Posts.css'
 import Post from "./Post/Post";
-import PostsLoading from "../Loadings/Posts/PostsLoading";
+import {IPostsProps} from "../../types/postType";
 
-function Posts(props: any){
+
+function Posts(props: IPostsProps){
     const [page, setPage] = React.useState(1)
     const [fetching, setFetching] = React.useState(true)
 
-    const scrollHandler = (e: any) => {
-        let scrollPos = e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)
+    const scrollHandler = () => {
+        let scrollPos = document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight)
         if(scrollPos < 200){
             document.removeEventListener('scroll', scrollHandler)
             setFetching(true)
@@ -45,7 +46,7 @@ function Posts(props: any){
                 Вывожу посты, создавая под каждого компоненту Post
                 А также передаю в них полученные ранее функции
             */}
-            {props.posts.map((el: any, index: number)=>{
+            {props.posts.map((el, index: number)=>{
                 return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}/>
             })}
             {props.loading ? <div id="loading">Идёт загрузка</div> : ""}

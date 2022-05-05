@@ -4,6 +4,7 @@ import './Profile.css';
 import { FiMapPin } from "react-icons/fi";
 import {isEmpty} from "../../utils/utils";
 import {Navigate} from "react-router-dom";
+
 // function Profile(props: any) {
 //     // Получение поля id из url при помощи useParams
 //     const {id} = useParams();

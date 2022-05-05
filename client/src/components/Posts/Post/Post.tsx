@@ -3,8 +3,9 @@ import {NavLink} from "react-router-dom";
 import './Post.css'
 import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
 import {VscComment} from "react-icons/vsc";
+import {IPostProps} from "../../../types/postType";
 
-function Post(props: any){
+function Post(props: IPostProps){
 
     return (
 

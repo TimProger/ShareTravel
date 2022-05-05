@@ -10,7 +10,7 @@ interface IComment {
     likes: number;
 }
 
-interface IPost {
+export interface IPost {
     id: number;
     uid: number;
     avatar: string;
@@ -80,3 +80,20 @@ export type PostAction = ILikePostAction
     | IFetchPostsAction
     | IFetchPostsSuccessAction
     | IFetchPostsErrorAction
+
+
+export interface IPostsProps {
+    fetchPosts: (id: number) => void;
+    likePost: (id: number) => void;
+    loadComments: (id: number) => void;
+    dropPosts: () => void;
+    posts: IPost[] | any[];
+    error: null | string;
+    loading: boolean;
+}
+
+export interface IPostProps {
+    likePost: (id: number) => void;
+    loadComments: (id: number) => void;
+    post: IPost | any;
+}
