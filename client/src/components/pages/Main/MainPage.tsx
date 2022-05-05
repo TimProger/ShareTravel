@@ -6,7 +6,7 @@ import Posts from "../../Posts/PostsContainer";
 import Followers from "../../Followers/FollowersContainer";
 import Profile from "../../Profile/ProfileContainer";
 
-function MainPage(props: any){
+function MainPage(){
 
 
     return (
