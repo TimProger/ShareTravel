@@ -16,10 +16,10 @@ export const fetchPosts = (page: number = 1) => {
                         payload: json
                     })
                 }).catch(e => dispatch({
-                        type: PostActionTypes.FETCH_POSTS_ERROR,
-                        payload: 'Произошла ошибка при загрузке постов'
-                    })
-                )
+                    type: PostActionTypes.FETCH_POSTS_ERROR,
+                    payload: 'Произошла ошибка при загрузке постов'
+                })
+            )
             // setTimeout(()=>(dispatch({
             //     type: PostActionTypes.FETCH_POSTS_SUCCESS,
             //     payload: [

@@ -63,7 +63,7 @@ export const fetchProfile = (id: string) => {
     }
 }
 
-export const dropProfile = (id: string) => {
+export const dropProfile = () => {
     return async (dispatch: Dispatch<ProfileAction>) => {
             dispatch({type: ProfileActionTypes.DROP_PROFILE})
     }

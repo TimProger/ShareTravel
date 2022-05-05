@@ -45,3 +45,13 @@ export type ProfileAction = IFETCH_PROFILE
     | IDROP_PROFILE
     | IFETCH_PROFILE_ERROR
     | IFETCH_PROFILE_SUCCESS
+
+
+export interface IProfileProps {
+    profile: IProfile | any;
+    error: null | string;
+    loading: boolean;
+    fetchProfile: (id: string) => void;
+    dropProfile: () => void;
+    id: string;
+}
