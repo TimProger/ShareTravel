@@ -10,7 +10,7 @@ export interface IUser {
 }
 
 export interface IUserState {
-    users: any[];
+    users: IUser[][] | any[][];
     loading: boolean;
     error: null | string;
 }
