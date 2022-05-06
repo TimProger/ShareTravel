@@ -23,6 +23,7 @@ const Followers: React.FC<IUsersProps> = (props) => {
     if (props.error) {
         return <h1>{props.error}</h1>
     }
+    
 
     return (
         <div className={'followers'}>
@@ -30,7 +31,9 @@ const Followers: React.FC<IUsersProps> = (props) => {
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
              */}
-            {props.users.map((user, index: number) => <Follower key={index} user={user} />)}
+             <div className='column'><h4 className='columnTitle'>Подписки</h4>{props.users[0].map((user:any, index: number) => <Follower key={index} user={user}/>)}</div>
+             <div className='column'><h4 className='columnTitle'>Подписчики</h4>{props.users[1].map((user:any, index: number) => <Follower key={index} user={user} />)}</div>
+            
         </div>
     );
 };

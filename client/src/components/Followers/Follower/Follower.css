@@ -4,28 +4,32 @@
 }
 
 .follower{
-    width: 100%;
-    height: 100px;
+    background-color: #FFFFFF;
+    border-radius: 1.5vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    width: 96%;
+    height: fit-content;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    margin: 10px;
-}
-
-.follower-content{
-    width: 95%;
-    height: 100%;
-    display: flex;
-    gap: 10px;
+    padding: 1vw 1vw;
+    margin: 1vh;
+    box-sizing: border-box;
 }
 
 .follower-header{
-    width: 100%;
-    height: 30px;
+    width: 50%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+}
+.follower-image{
+    height: 2vw;
+    width: 2vw;
+    border-radius: 50%;
 }
 
 .follower-profile{
@@ -34,15 +38,15 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .follower-profile-name{
+    width: 100%;
     margin: 0;
     text-align: left;
     text-decoration: none;
     color: var(--second-text-color);
-    font-size: 18px;
+    font-size: 1vw;
 }
 
 .follower-profile-text{
@@ -55,20 +59,22 @@
     text-align: left;
 }
 
-.follower-btn button{
+.follower-btn{
     outline: none;
-    letter-spacing: 0.2em;
     border: 1px solid;
+    font-size: calc(0.5vw + 0.5vw);
     border-color: var(--second-text-color);
     background: #ffffff;
     color: #3a3a3a;
-    padding: 2px;
+    padding: 0.5vw;
 }
 
-.follower-btn button:hover{
+.follower-btn:hover{
     cursor: pointer;
+    background: rgba(40, 95, 171, 0.05);
 }
 
-.follower-btn button:active{
-    color: var(--second-text-color);
+.follower-btn:active{
+    color:white;
+    background-color: var(--second-text-color);
 }
