@@ -4,8 +4,7 @@ import Follower from "./Follower/Follower";
 import {IUsersProps} from "../../types/userType";
 import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
-// * ANCHOR  Пришлось много чего поменять, чтобы работала подгрузка
-// Возможно переделаю
+// TODO Подгрузка НЕ работает нормально, надо переделать
 
 const Followers: React.FC<IUsersProps> = (props) => {
     const [followsPage, setfollowsPage] = React.useState(1)
@@ -14,11 +13,11 @@ const Followers: React.FC<IUsersProps> = (props) => {
 
     const scrollHandler = () => {
         let scrollPos = document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight)
-        if(scrollPos < Math.abs(props.leng)*80+60){
+        if(scrollPos < 600){
+        // if(scrollPos < Math.abs(props.follows.length-props.followers.length)*60+60){
             document.removeEventListener('scroll', scrollHandler)
             setFetching(true)
             setTimeout(()=>document.addEventListener('scroll', scrollHandler), 300)
-            console.log(props.follows)
         }
     }
 
@@ -33,18 +32,18 @@ const Followers: React.FC<IUsersProps> = (props) => {
     // Получаю пользователей
     React.useEffect(() => {
         if(fetching){
-            if(props.leng>10){
+            // if(props.follows.length>props.followers.length){
+            //     props.fetchUsers(followersPage, true)
+            //     setfollowersPage(prevState => prevState + 1)
+            // }else if(props.follows.length<props.followers.length){
+            //     props.fetchUsers(followsPage, false)
+            //     setfollowsPage(prevState => prevState + 1)
+            // }else{
                 props.fetchUsers(followersPage, true)
                 setfollowersPage(prevState => prevState + 1)
-            }else if(props.leng< -10){
                 props.fetchUsers(followsPage, false)
                 setfollowsPage(prevState => prevState + 1)
-            }else{
-                props.fetchUsers(followersPage, true)
-                setfollowersPage(prevState => prevState + 1)
-                props.fetchUsers(followsPage, false)
-                setfollowsPage(prevState => prevState + 1)
-            }
+            // }
             setFetching(false)
         }
     }, [fetching])

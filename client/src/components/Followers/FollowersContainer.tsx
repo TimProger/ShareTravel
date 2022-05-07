@@ -15,7 +15,6 @@ const FollowersContainer = () => {
                       followers={followers}
                       error={error}
                       loading={loading}
-                      leng={follows.length-followers.length}
                       dropUsers={dropUsers}
                       fetchUsers={fetchUsers}/>;
 };

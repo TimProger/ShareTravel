@@ -59,7 +59,6 @@ export interface IUsersProps {
     dropUsers: () => void;
     follows: IUser[] | any[];
     followers: IUser[] | any[];
-    leng:number;
     error: null | string;
     loading: boolean;
 }
