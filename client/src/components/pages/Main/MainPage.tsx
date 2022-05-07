@@ -8,7 +8,6 @@ import Profile from "../../Profile/ProfileContainer";
 
 function MainPage(){
 
-
     return (
         <div className='wrapper'>
             <div className="navbar">
@@ -27,6 +26,7 @@ function MainPage(){
             </div>
         </div>
     )
+
 }
 
 export default MainPage

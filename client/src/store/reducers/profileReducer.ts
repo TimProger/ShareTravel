@@ -2,7 +2,7 @@ import {ProfileAction, ProfileActionTypes, IProfileState} from "../../types/prof
 
 const initialState: IProfileState = {
     profile: null, // Профиль пользователя (Для страницы пользователя (Любого))
-    loading: true,
+    loading: true, // Ни в коем случае не переводить в false.
     error: null
 }
 

@@ -2,7 +2,7 @@ import {PostAction, PostActionTypes, IPostState} from "../../types/postType";
 
 const initialState: IPostState = {
     posts: [],
-    loading: false,
+    loading: true, // Ни в коем случае не переводить в false.
     error: null
 }
 

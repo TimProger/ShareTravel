@@ -2,7 +2,7 @@ import {UserAction, UserActionTypes, IUserState} from "../../types/userType";
 
 const initialState: IUserState = {
     users: [],
-    loading: false,
+    loading: true, // Ни в коем случае не переводить в false.
     error: null
 }
 

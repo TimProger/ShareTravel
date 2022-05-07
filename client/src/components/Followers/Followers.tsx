@@ -24,15 +24,20 @@ const Followers: React.FC<IUsersProps> = (props) => {
         return <h1>{props.error}</h1>
     }
     
-
     return (
         <div className={'followers'}>
             {/*
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
              */}
-             <div className='column'><h4 className='columnTitle'>Подписки</h4>{props.users[0].map((user:any, index: number) => <Follower key={index} user={user}/>)}</div>
-             <div className='column'><h4 className='columnTitle'>Подписчики</h4>{props.users[1].map((user:any, index: number) => <Follower key={index} user={user} />)}</div>
+             <div className='column'>
+                 <h4 className='columnTitle'>Подписки</h4>
+                 {props.users[0].map((user:any, index: number) => <Follower key={index} user={user}/>)}
+             </div>
+             <div className='column'>
+                 <h4 className='columnTitle'>Подписчики</h4>
+                 {props.users[1].map((user:any, index: number) => <Follower key={index} user={user} />)}
+             </div>
             
         </div>
     );
