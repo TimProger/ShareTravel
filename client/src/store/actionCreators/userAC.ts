@@ -1,22 +1,23 @@
 import {UserAction, UserActionTypes} from "../../types/userType";
 import {Dispatch} from "redux";
 
-export const fetchUsers = () => {
+export const fetchUsers = (page: number = 1) => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
-            fetch('https://randomuser.me/api/?page=3&results=20&seed=abc')
+            fetch(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
                 .then(response => response.json())
                 .then(json => {
+                    const json1 = json.results.slice(0, json.results.length / 2)
+                    const json2 = json.results.slice(json.results.length / 2, json.results.length)
                     dispatch({
                         type: UserActionTypes.FETCH_USERS_SUCCESS,
-                        // TODO Переделать! нужна подгрузка
-                        payload: [json.results.filter((user:{[key: string]:any})=>user.registered.age%2===0||!(user.registered.age%5)), json.results.filter((user:{[key: string]:any})=>user.registered.age%2===1||!(user.registered.age%5))]
-                    })
+                        payload: [json1, json2]
+                    });
                 }).catch(e => {
                     dispatch({
                         type: UserActionTypes.FETCH_USERS_ERROR,
-                        payload: 'Произошла ошибка при запросе к серверу'
+                        payload: 'Произошла ошибка при запросе к серверу' + e
                     })
                 }
             )
