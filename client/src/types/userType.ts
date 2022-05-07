@@ -10,9 +10,10 @@ export interface IUser {
 }
 
 export interface IUserState {
-    users: IUser[][] | any[][];
+    follows:{[key: string]:any}[];
+    followers:{[key: string]:any}[];
     loading: boolean;
-    error: null | string;
+    error: null | string
 }
 
 export enum UserActionTypes {
@@ -38,7 +39,7 @@ interface IDropUsersAction {
 
 interface IFetchUsersSuccessAction {
     type: UserActionTypes.FETCH_USERS_SUCCESS;
-    payload: any[]
+    payload: {[key:string]:any}
 }
 
 interface IFetchUsersErrorAction {
@@ -54,9 +55,11 @@ export type UserAction = IDropUsersAction
 
 
 export interface IUsersProps {
-    fetchUsers: () => void;
+    fetchUsers: (id:number, is:boolean) => void;
     dropUsers: () => void;
-    users: IUser[] | any[];
+    follows: IUser[] | any[];
+    followers: IUser[] | any[];
+    leng:number;
     error: null | string;
     loading: boolean;
 }
