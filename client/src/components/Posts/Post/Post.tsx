@@ -7,6 +7,10 @@ import {IPostProps} from "../../../types/postType";
 
 const Post: React.FC<IPostProps> = (props) => {
 
+    let [likes, setLikes] = React.useState(Math.floor(Math.random()*10))
+    let [comments, setComments] = React.useState(Math.floor(Math.random()*10))
+    let [liked, setLiked] = React.useState(false)
+
     return (
 
         // Рендеринг поста, который мы получаем с нашего сервера
@@ -97,6 +101,28 @@ const Post: React.FC<IPostProps> = (props) => {
                 </div>
                 <div className='post-text'>{props.post.text}</div>
                 <div className='post-text'>{props.post.body}</div>
+                <div className="line"/>
+                <div className="post-footer">
+                    <div className="post-likes">
+                        <div
+                            onClick={()=>{
+                                liked ? setLikes(prevState => prevState-1) : setLikes(prevState => prevState+1)
+                                setLiked(prevState => !prevState)
+                            }}
+                            className="like-btn">
+                            {liked ? <AiFillHeart className={'post-likes-icon post-liked'}/> : <AiOutlineHeart className={'post-likes-icon post-unliked'}/>}
+                        </div>
+                        <div className="likes">{likes}</div>
+                    </div>
+                    <div className="post-comment-btn">
+                        <div
+                            onClick={()=>console.log('Вывод комментариев')}
+                            className="comments-btn">
+                            <VscComment className={'post-comments-icon'}/>
+                        </div>
+                        <div className="comments">{comments}</div>
+                    </div>
+                </div>
             </div>
         </div>
     )
