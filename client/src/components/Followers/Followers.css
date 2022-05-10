@@ -5,22 +5,34 @@
 
 .followers{
     width: 100%;
-    height: min(100%);
+    min-height: 100%;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
 }
+
 .column{
-    background-color: #FFFFFF;
     width: 49%;
     height: 100%;
     border-radius: 20px;
-    box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+}
+
+.columnTitle{
+    margin: 0;
+    background-color: #FFFFFF;
+    border-radius: 1.5vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    width: 96%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    box-sizing: border-box;
 }
 

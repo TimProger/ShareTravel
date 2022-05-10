@@ -65,4 +65,5 @@ export interface IUsersProps {
 
 export interface IUserProps {
     user: IUser | any;
+    followed?: boolean;
 }

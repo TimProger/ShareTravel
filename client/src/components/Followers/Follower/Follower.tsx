@@ -34,7 +34,16 @@ const Follower: React.FC<IUserProps> = (props) =>{
                         </span>
                     </p>
                 </div>
-                <button onClick={()=>follow(props.user.login.uuid)} className="follower-btn">Подписаться</button>
+                {props.followed ? <button
+                    onClick={()=>follow(props.user.login.uuid)}
+                    className="follower-btn">
+                    Отписаться
+                </button> : <button
+                    onClick={()=>follow(props.user.login.uuid)}
+                    className="follower-btn">
+                    Подписаться
+                </button>}
+
             </div>
         </>
     )

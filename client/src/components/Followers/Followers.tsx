@@ -60,13 +60,13 @@ const Followers: React.FC<IUsersProps> = (props) => {
                 А также проверяю статус подписки (Временное решение)
              */}
              <div className='column'>
-                 <h4 className='columnTitle'>Подписки</h4>
+                 <h3 className='columnTitle'>Подписки</h3>
                  {props.follows.map((user:any, index: number) => <Follower key={index} user={user}/>)}
                  {props.loading ? <div className="load">Идёт загрузка</div> : ""}
              </div>
              <div className='column'>
-                 <h4 className='columnTitle'>Подписчики</h4>
-                 {props.followers.map((user:any, index: number) => <Follower key={index} user={user} />)}
+                 <h3 className='columnTitle'>Подписчики</h3>
+                 {props.followers.map((user:any, index: number) => <Follower key={index} user={user} followed={true} />)}
                  {props.loading ? <div className="load">Идёт загрузка</div> : ""}
              </div>
         </div>
