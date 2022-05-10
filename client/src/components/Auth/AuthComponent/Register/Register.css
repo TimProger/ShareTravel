@@ -1,16 +1,54 @@
+ .name-column{
+    float: left;
+    padding: 9.5px;
+    font: inherit;
+    height: 1.4375em;
+
+
+}
+
+.name-column input{
+    width: 90%;
+
+}
+
+.item_email{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    background: none;
+    height: 1.4375em;
+    margin: 0;
+    display: block;
+    width: 95%;
+    padding: 9.5px;
+}
+.item_pswrd{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    background: none;
+    height: 1.4375em;
+    margin: 0;
+    display: block;
+    width: 95%;
+    padding: 9.5px;
+}
+
+
+
+
 :root {
     --main-text-color: #1c1c1c;
     --second-text-color: rgb(40, 95, 171);
 }
 
 .registration-form{
-    width: 15%;
     min-width: 290px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 35px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
@@ -21,6 +59,7 @@
 .registration-form h1{
     margin: 0;
     color: var(--second-text-color);
+    font-size: 20px;
 }
 
 .registration-form .item{
@@ -30,23 +69,48 @@
 }
 
 .registration-form .item input{
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #00000050;
-    border-radius: 2px;
-    padding: 5px;
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    padding: 4px 0 5px;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0;
+    width: 95%;
+    -webkit-animation-name: mui-auto-fill-cancel;
+    animation-name: mui-auto-fill-cancel;
+    -webkit-animation-duration: 10ms;
+    animation-duration: 10ms;
+    padding: 9.5px;
 }
 
 .registration-form .submit{
     width: 100%;
-    display: flex;
+    /*display: flex;*/
+    text-align: right;
     justify-content: space-between;
 }
-
+.registration-form .submit a{
+    color: #1976d2;
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 118, 210, 0.4);
+}
+/* Кнопка отправить */
 .registration-form .submit input[type='submit']{
-    background: #ffffff;
-    border: 1px solid #00000050;
-    border-radius: 2px;
-    padding: 5px;
-    cursor: pointer;
+    background-color: #1976d2;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+
+    padding: 10px;
+    color: #fff;
+    background-color: #1976d2;
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    width: 100%;
+
+    margin-bottom: 16px;
 }
