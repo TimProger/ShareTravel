@@ -1,21 +1,21 @@
 :root {
     --main-text-color: #1c1c1c;
     --second-text-color: rgb(40, 95, 171);
-
+    --error-color: #ff3737
 }
 
 .item_name{
     display: flex;
+    justify-content: space-between;
     gap: 10px;
 }
 
 .name-column{
-    padding: 9.5px;
     font: inherit;
 }
 
 .name-column input{
-    width: 90%;
+    width: 100%;
 }
 
 .item_email{
@@ -25,19 +25,28 @@
     margin: 0;
     display: block;
     width: 95%;
-    padding: 9.5px;
+    padding: 9px;
 
 }
 
-.item_pswrd{
+.item_password{
     font: inherit;
     letter-spacing: inherit;
     color: currentColor;
     margin: 0;
     display: block;
     width: 95%;
-    padding: 9.5px;
+    padding: 9px;
+}
 
+.item_passwordRepeat{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    margin: 0;
+    display: block;
+    width: 95%;
+    padding: 9px;
 }
 
 .registration-form{
@@ -62,7 +71,13 @@
 .registration-form .item{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.registration-form .item span{
+    font-size: 14px;
+    color: var(--error-color);
 }
 
 .registration-form .item input{
@@ -74,12 +89,11 @@
     -webkit-tap-highlight-color: transparent;
     display: block;
     min-width: 0;
-    width: 95%;
     -webkit-animation-name: mui-auto-fill-cancel;
     animation-name: mui-auto-fill-cancel;
     -webkit-animation-duration: 10ms;
     animation-duration: 10ms;
-    padding: 9.5px;
+    padding: 9px;
 }
 
 .registration-form .submit{
@@ -104,4 +118,9 @@
     box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2);
     width: 100%;
     margin-bottom: 16px;
+}
+
+.error{
+    border: 1px solid var(--error-color);
+    outline: 1px solid var(--error-color);
 }

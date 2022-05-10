@@ -26,28 +26,62 @@ export default function Register() {
             console.log(formData)
         })}>
             <h1>Регистрация</h1>
-            <div className="item_name" >
+            <div className="item_name">
 
-                <input className="name-column" type={"text"} placeholder={'Имя*'} {...register("firstName", { required: true })} />
-                {errors.firstName ? <span>{errors.firstName.message}</span> : null}
+                <div className={'item'}>
+                    <input
+                        className={errors.secondName ?
+                            "item_firstName name-column error error_firstName"
+                            : "item_firstName name-column"}
+                        type={"text"}
+                        placeholder={'Имя*'}
+                        {...register("firstName",
+                            {
+                                required: 'Пожалуйста, введите имя'
+                            })}
+                    />
+                    {errors.firstName ? <span>{errors.firstName.message}</span> : null}
+                </div>
 
-                <input className="name-column" type={"text"} placeholder={'Фамилия*'} {...register("secondName", { required: true })} />
-                {errors.secondName ? <span>{errors.secondName.message}</span> : null}
+                <div className={'item'}>
+                    <input
+                        className={errors.secondName ?
+                            "item_secondName name-column error error_secondName"
+                            : "item_secondName name-column"}
+                        type={"text"}
+                        placeholder={'Фамилия*'}
+                        {...register("secondName",
+                            {
+                                required: 'Пожалуйста, введите фамилию'
+                            })}
+                    />
+                    {errors.secondName ? <span>{errors.secondName.message}</span> : null}
+                </div >
 
             </div>
-
-
-            <div >
-                <input className="item_email" type={"email"} placeholder={'Почта*'} {...register("email", { required: true })} />
+            <div className={'item'}>
+                <input
+                    className={errors.email ?
+                        "item_email error error_email"
+                        : "item_email"}
+                    type={"email"}
+                    placeholder={'Почта*'}
+                    {...register("email",
+                        {
+                            required: 'Пожалуйста, введите почту'
+                        })}
+                />
                 {errors.email ? <span>{errors.email.message}</span> : null}
             </div>
-            <div >
+            <div className={'item'}>
                 <input
-                    className="item_pswrd"
+                    className={errors.password ?
+                        "item_password error error_password"
+                        : "item_password"}
                     type={"password"}
                     placeholder={'Пароль*'}
                     {...register("password",{
-                            required: true,
+                            required: 'Пожалуйста, введите пароль',
                             minLength: {
                                 value: 8,
                                 message: 'Пароль должен иметь больше 8 символов'
@@ -66,12 +100,20 @@ export default function Register() {
             </div>
             <div className="item password passwordRepeat">
                 <input
+                    className={errors.passwordRepeat ?
+                        "item_passwordRepeat error error_password"
+                        : "item_passwordRepeat"}
                     type={"password"}
-                    className="item_pswrd"
-                    placeholder={'Подтвердите пароль*'} {...register("passwordRepeat", { required: true })} />
+                    placeholder={'Подтвердите пароль*'}
+                    {...register("passwordRepeat",
+                        {
+                            required: 'Пожалуйста, подтвердите пароль'
+                        })}
+                />
                 {errors.passwordRepeat ? <span>{errors.passwordRepeat.message}</span> : null}
             </div>
-            <div className="submit"><input type="submit" />
+            <div className="submit">
+                <input type="submit" />
                 Уже есть аккаунт? <NavLink to={'/auth'}>Авторизуйтесь</NavLink>
             </div>
         </form>
