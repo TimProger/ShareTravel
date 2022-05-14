@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './Register.css'
 import { useForm } from "react-hook-form";
 import {NavLink} from "react-router-dom";
@@ -12,7 +12,8 @@ interface FormData {
 }
 
 export default function Register() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+
+    const { register, handleSubmit, getValues, formState: { errors } } = useForm<FormData>({
         // defaultValues: {
         //     firstName:"Freddy",
         //     secondName:"Fazbear",
@@ -20,9 +21,10 @@ export default function Register() {
         //     password: "P@ssw0rd!",
         //     passwordRepeat: "P@ssw0rd!",
         // }
+        mode: "onBlur"
     });
     return (
-        <form className={'registration-form'} onSubmit={handleSubmit((formData):void => {
+        <form className={'registration-form'} onSubmit={handleSubmit((formData): void => {
             console.log(formData)
         })}>
             <h1>Регистрация</h1>
@@ -107,7 +109,11 @@ export default function Register() {
                     placeholder={'Подтвердите пароль*'}
                     {...register("passwordRepeat",
                         {
-                            required: 'Пожалуйста, подтвердите пароль'
+                            required: 'Пожалуйста, подтвердите пароль',
+                            validate: (value) => {
+                                const {password} = getValues();
+                                return value === password || "Пароли не совпадают"
+                            }
                         })}
                 />
                 {errors.passwordRepeat ? <span>{errors.passwordRepeat.message}</span> : null}
