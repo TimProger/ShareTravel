@@ -1,14 +1,21 @@
- .name-column{
-    float: left;
-    padding: 9.5px;
+:root {
+    --main-text-color: #1c1c1c;
+    --second-text-color: rgb(40, 95, 171);
+    --error-color: #ff3737
+}
+
+.item_name{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.name-column{
     font: inherit;
-    height: 1.4375em;
-
-
 }
 
 .name-column input{
-    width: 90%;
+    width: 100%;
 
 }
 
@@ -16,31 +23,31 @@
     font: inherit;
     letter-spacing: inherit;
     color: currentColor;
-    background: none;
-    height: 1.4375em;
     margin: 0;
     display: block;
     width: 95%;
-    padding: 9.5px;
+    padding: 9px;
+
 }
-.item_pswrd{
+
+.item_password{
     font: inherit;
     letter-spacing: inherit;
     color: currentColor;
-    background: none;
-    height: 1.4375em;
     margin: 0;
     display: block;
     width: 95%;
-    padding: 9.5px;
+    padding: 9px;
 }
 
-
-
-
-:root {
-    --main-text-color: #1c1c1c;
-    --second-text-color: rgb(40, 95, 171);
+.item_passwordRepeat{
+    font: inherit;
+    letter-spacing: inherit;
+    color: currentColor;
+    margin: 0;
+    display: block;
+    width: 95%;
+    padding: 9px;
 }
 
 .registration-form{
@@ -65,27 +72,29 @@
 .registration-form .item{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.registration-form .item span{
+    font-size: 14px;
+    color: var(--error-color);
 }
 
 .registration-form .item input{
     font: inherit;
     letter-spacing: inherit;
-    color: currentColor;
-    padding: 4px 0 5px;
     box-sizing: content-box;
-    background: none;
-    height: 1.4375em;
+    height: 20px;
     margin: 0;
     -webkit-tap-highlight-color: transparent;
     display: block;
     min-width: 0;
-    width: 95%;
     -webkit-animation-name: mui-auto-fill-cancel;
     animation-name: mui-auto-fill-cancel;
     -webkit-animation-duration: 10ms;
     animation-duration: 10ms;
-    padding: 9.5px;
+    padding: 9px;
 }
 
 .registration-form .submit{
@@ -101,16 +110,23 @@
 }
 /* Кнопка отправить */
 .registration-form .submit input[type='submit']{
-    background-color: #1976d2;
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.75;
-
     padding: 10px;
     color: #fff;
-    background-color: #1976d2;
-    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: var(--second-text-color);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2);
     width: 100%;
-
     margin-bottom: 16px;
+}
+
+.error{
+    border: 1px solid var(--error-color);
+    outline: 1px solid var(--error-color);
+}
+
+.item_input_agree{
+    width: 26px;
+    height: 15px;
 }
