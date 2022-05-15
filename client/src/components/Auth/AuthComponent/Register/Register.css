@@ -16,6 +16,7 @@
 
 .name-column input{
     width: 100%;
+
 }
 
 .item_email{
@@ -123,4 +124,9 @@
 .error{
     border: 1px solid var(--error-color);
     outline: 1px solid var(--error-color);
+}
+
+.item_input_agree{
+    width: 26px;
+    height: 15px;
 }
