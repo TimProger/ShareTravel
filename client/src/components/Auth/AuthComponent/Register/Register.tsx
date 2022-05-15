@@ -118,8 +118,16 @@ export default function Register() {
                 />
                 {errors.passwordRepeat ? <span>{errors.passwordRepeat.message}</span> : null}
             </div>
+            <div className="input-agree">
+                <input className={'item_input_agree'} type="checkbox"/>
+                <label>
+                    Я полностью доверяю свои данные
+                </label>
+            </div>
+
+
             <div className="submit">
-                <input type="submit" />
+                <input type="submit"/>
                 Уже есть аккаунт? <NavLink to={'/auth'}>Авторизуйтесь</NavLink>
             </div>
         </form>
