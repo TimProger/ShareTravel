@@ -35,13 +35,21 @@
     color: var(--error-color);
 }
 
-
 .auth-form .item input{
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #00000050;
-    border-radius: 2px;
-    padding: 5px;
+    font: inherit;
+    letter-spacing: inherit;
+    box-sizing: content-box;
+    height: 20px;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0;
+    -webkit-animation-name: mui-auto-fill-cancel;
+    animation-name: mui-auto-fill-cancel;
+    -webkit-animation-duration: 10ms;
+    animation-duration: 10ms;
+    padding: 9px;
+    width: 92%;
 }
 
 .auth-form .submit{
@@ -54,17 +62,14 @@
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.75;
-    padding: 11px;
+    padding: 10px;
     color: #fff;
     background-color: var(--second-text-color);
     box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2);
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
 }
 
-.auth-form input:focus{
-    outline: 1px solid var(--second-text-color);
-}
 .auth-form .submit a{
     color: #1976d2;
     text-decoration: underline;

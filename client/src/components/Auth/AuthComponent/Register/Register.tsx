@@ -9,6 +9,7 @@ interface FormData {
     email: string;
     password: string;
     passwordRepeat: string;
+    checkbox: boolean;
 }
 
 export default function Register() {
@@ -20,7 +21,7 @@ export default function Register() {
         //     email: "email@email.com",
         //     password: "P@ssw0rd!",
         //     passwordRepeat: "P@ssw0rd!",
-        // }
+        // },
         mode: "onBlur"
     });
     return (
@@ -28,13 +29,13 @@ export default function Register() {
             console.log(formData)
         })}>
             <h1>Регистрация</h1>
-            <div className="item_name">
+            <div className="item_reg_name">
 
                 <div className={'item'}>
                     <input
                         className={errors.secondName ?
-                            "item_firstName name-column error error_firstName"
-                            : "item_firstName name-column"}
+                            "item_reg_firstName name-column error error_firstName"
+                            : "item_reg_firstName name-column"}
                         type={"text"}
                         placeholder={'Имя*'}
                         {...register("firstName",
@@ -48,8 +49,8 @@ export default function Register() {
                 <div className={'item'}>
                     <input
                         className={errors.secondName ?
-                            "item_secondName name-column error error_secondName"
-                            : "item_secondName name-column"}
+                            "item_reg_secondName name-column error error_secondName"
+                            : "item_reg_secondName name-column"}
                         type={"text"}
                         placeholder={'Фамилия*'}
                         {...register("secondName",
@@ -64,8 +65,8 @@ export default function Register() {
             <div className={'item'}>
                 <input
                     className={errors.email ?
-                        "item_email error error_email"
-                        : "item_email"}
+                        "item_reg_email error error_email"
+                        : "item_reg_email"}
                     type={"email"}
                     placeholder={'Почта*'}
                     {...register("email",
@@ -78,8 +79,8 @@ export default function Register() {
             <div className={'item'}>
                 <input
                     className={errors.password ?
-                        "item_password error error_password"
-                        : "item_password"}
+                        "item_reg_password error error_password"
+                        : "item_reg_password"}
                     type={"password"}
                     placeholder={'Пароль*'}
                     {...register("password",{
@@ -90,11 +91,10 @@ export default function Register() {
                             },
                             validate: (value) => {
                                 return [
-                                    /[a-z]/,
-                                    /[A-Z]/,
+                                    /([a-z]*[A-Z]*)/,
                                     /[0-9]/,
                                 ].every((pattern)=>pattern.test(value))
-                                    || "Пароль должен состоять из букв и цифр"
+                                    || "Пароль должен состоять из латинских букв и цифр"
                             }
                         })
                     } />
@@ -103,8 +103,8 @@ export default function Register() {
             <div className="item password passwordRepeat">
                 <input
                     className={errors.passwordRepeat ?
-                        "item_passwordRepeat error error_password"
-                        : "item_passwordRepeat"}
+                        "item_reg_passwordRepeat error error_password"
+                        : "item_reg_passwordRepeat"}
                     type={"password"}
                     placeholder={'Подтвердите пароль*'}
                     {...register("passwordRepeat",
@@ -118,11 +118,15 @@ export default function Register() {
                 />
                 {errors.passwordRepeat ? <span>{errors.passwordRepeat.message}</span> : null}
             </div>
+
             <div className="input-agree">
-                <input className={'item_input_agree'} type="checkbox"/>
-                <label>
-                    Я полностью доверяю свои данные
-                </label>
+                <div className="input-agree-container">
+                    <input className={'item_reg_input_agree'} type="checkbox"{...register("checkbox",{
+                        required: 'Пожалуйста, отдайте нам свои данные'})
+                    }/>
+                    <label className={'item_reg_input_agree_label'}>Я полностью доверяю свои данные</label>
+                </div>
+                {errors.checkbox ? <span>{errors.checkbox.message}</span> : null}
             </div>
 
 
