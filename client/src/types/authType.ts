@@ -25,11 +25,16 @@ export interface IAuthFormData {
 export enum AuthActionTypes {
     AUTH_USER = 'AUTH_PROFILE',
     AUTH_USER_ERROR = 'AUTH_PROFILE_ERROR',
-    AUTH_USER_SUCCESS = 'AUTH_PROFILE_SUCCESS'
+    AUTH_USER_SUCCESS = 'AUTH_PROFILE_SUCCESS',
+    AUTH_EXIT='AUTH_EXIT'
 }
 
 interface IAUTH_USER {
     type: AuthActionTypes.AUTH_USER;
+}
+
+interface IAUTH_EXIT {
+    type: AuthActionTypes.AUTH_EXIT;
 }
 
 interface IAUTH_USER_ERROR {
@@ -45,3 +50,4 @@ interface IAUTH_USER_SUCCESS {
 export type AuthAction = IAUTH_USER
     | IAUTH_USER_ERROR
     | IAUTH_USER_SUCCESS
+    | IAUTH_EXIT

@@ -5,8 +5,11 @@ import Navbar from "../../Navigation/NavbarContainer";
 import Posts from "../../Posts/PostsContainer";
 import Followers from "../../Followers/FollowersContainer";
 import Profile from "../../Profile/ProfileContainer";
+import {useActions} from "../../../hooks/useActions";
+import Exit from "../../Exit/Exit";
 
 function MainPage(){
+    const {logout} = useActions()
 
     return (
         <div className='wrapper'>
@@ -21,6 +24,8 @@ function MainPage(){
                     <Route path='/' element={<Posts />} />
                     <Route path='/followers' element={<Followers />} />
                     <Route path='/user/:id' element={<Profile />} />
+                    <Route path='/exit' element={<Exit />} />
+
                     {/*<Route path='/dialogs/*' element={<Dialogs />} />*/}
                 </Routes>
             </div>

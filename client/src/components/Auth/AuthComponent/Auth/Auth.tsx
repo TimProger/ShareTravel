@@ -10,7 +10,7 @@ interface FormData {
 }
 
 export default function Auth() {
-    const {formAuth} = useActions()
+    const {login} = useActions()
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         defaultValues: {
             email: "1email1@mail.ru",
@@ -21,7 +21,7 @@ export default function Auth() {
         <form
             className={'auth-form'}
             onSubmit={handleSubmit((formData):void => {
-                formAuth(formData)
+                login(formData)
             }
         )}>
             <h1>Авторизация</h1>

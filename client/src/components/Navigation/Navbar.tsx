@@ -1,7 +1,16 @@
 import React from "react";
 import './Navbar.css'
 import { NavLink } from "react-router-dom";
-import { IoNewspaperOutline, IoPeopleOutline, IoChatbubblesOutline, IoStarOutline, IoHeartOutline, IoSettingsOutline, IoHelpSharp, IoMapOutline} from "react-icons/io5";
+import {
+    IoNewspaperOutline,
+    IoPeopleOutline,
+    IoChatbubblesOutline,
+    IoStarOutline,
+    IoHeartOutline,
+    IoSettingsOutline,
+    IoHelpSharp,
+    IoMapOutline,
+    IoExitOutline} from "react-icons/io5";
 
 function Navbar(props: any){
 
@@ -66,11 +75,15 @@ function Navbar(props: any){
                     <p className="menu_text">Настройки</p>
                 </NavLink>
 
+                <NavLink to='exit'>
+                    <IoExitOutline className="icons" />
+                    <p className="menu_text">Выйти</p>
+                </NavLink>
+
                 <NavLink to='help'>
                     <IoHelpSharp className="icons" />
                     <p className="menu_text">Помощь</p>
                 </NavLink>
-
 
             </div>
         </div>

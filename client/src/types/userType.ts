@@ -7,6 +7,7 @@ export interface IUser {
     surname: string;
     text: string;
     age: number;
+    isActivated: boolean;
 }
 
 export interface IUserState {

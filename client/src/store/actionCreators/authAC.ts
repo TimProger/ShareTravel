@@ -1,6 +1,6 @@
 import {AuthAction, AuthActionTypes, IAuthFormData} from "../../types/authType";
 import {Dispatch} from "redux";
-import {getCookie, setCookie} from "../../utils/cookies";
+import AuthService from "../../components/Auth/AuthService";
 
 const users = [
     {
@@ -33,13 +33,13 @@ const users = [
 ]
 
 // Получаю данные с формы, нахожу по ним пользователя и сохраняю токен в куку
-export const formAuth = (data: IAuthFormData) => {
+export const login = (data: IAuthFormData) => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
             dispatch({type: AuthActionTypes.AUTH_USER})
             setTimeout(()=> {
                 const user = users.find(user=>user.email === data.email) || users[0]
-                setCookie('auth_token', user.email, {secure: true, 'max-age': 3600});
+                localStorage.setItem('token', 'response.data.accessToken');
                 dispatch({
                     type: AuthActionTypes.AUTH_USER_SUCCESS,
                     payload: user
@@ -54,33 +54,60 @@ export const formAuth = (data: IAuthFormData) => {
     }
 }
 
+// Получаю данные с формы, нахожу по ним пользователя и сохраняю токен в куку
+export const logout = () => {
+    return async (dispatch: Dispatch<AuthAction>) => {
+        try {
+            dispatch({type: AuthActionTypes.AUTH_EXIT})
+            localStorage.removeItem('token');
+            // await AuthService.logout();
+        } catch (e) {
+            dispatch({
+                type: AuthActionTypes.AUTH_USER_ERROR,
+                payload: 'Произошла ошибка при выходе из аккаунта'
+            })
+        }
+    }
+}
+
 // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
-export const checkCookie = () => {
+export const checkAuth = () => {
     return async (dispatch: Dispatch<AuthAction>) => {
         dispatch({
             type: AuthActionTypes.AUTH_USER,
         })
-        const email = getCookie('auth_token')
-        if(email){
-            setTimeout(()=> {
-                try {
-                    const user = users.find(user=>user.email === email) || users[0]
-                    dispatch({
-                        type: AuthActionTypes.AUTH_USER_SUCCESS,
-                        payload: user
-                    })
-                } catch (e) {
-                    dispatch({
-                        type: AuthActionTypes.AUTH_USER_ERROR,
-                        payload: 'Произошла ошибка при поиске пользователя'
-                    })
-                }
-            }, 500)
-        }else{
+        try {
+            // const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+            // console.log(response);
+            localStorage.setItem('token', 'response.data.accessToken response.data.user');
             dispatch({
-                type: AuthActionTypes.AUTH_USER_ERROR,
-                payload: 'Произошла ошибка при поиске куки авторизации'
+                type: AuthActionTypes.AUTH_USER_SUCCESS,
+                payload: users[0]
             })
+        } catch (e) {
+            console.log(e);
         }
+        // const email = getCookie('auth_token')
+        // if(email){
+        //     setTimeout(()=> {
+        //         try {
+        //             const user = users.find(user=>user.email === email) || users[0]
+        //             dispatch({
+        //                 type: AuthActionTypes.AUTH_USER_SUCCESS,
+        //                 payload: user
+        //             })
+        //         } catch (e) {
+        //             dispatch({
+        //                 type: AuthActionTypes.AUTH_USER_ERROR,
+        //                 payload: 'Произошла ошибка при поиске пользователя'
+        //             })
+        //         }
+        //     }, 500)
+        // }else{
+        //     dispatch({
+        //         type: AuthActionTypes.AUTH_USER_ERROR,
+        //         payload: 'Произошла ошибка при поиске куки авторизации'
+        //     })
+        // }
     }
 }
