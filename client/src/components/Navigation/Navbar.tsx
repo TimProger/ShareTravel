@@ -17,7 +17,7 @@ function Navbar(props: any){
     // Создание навигационной панели с блоком пользователя полученным через props
     return (
         <div className="navbar-container">
-            <p className="navbar-logo">ShareTravel</p>
+            <p className="navbar-logo">Hike</p>
 
             <div className="navbar-profile">
                 {/* Ссылка ведущая на страницу профиля */}
