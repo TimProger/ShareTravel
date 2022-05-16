@@ -13,22 +13,22 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1vw 1vw;
-    margin: 1vh;
+    padding: 20px;
+    margin: 10px;
     box-sizing: border-box;
+    gap: 10px;
 }
 
 .follower-header{
     width: 50%;
     height: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    flex-direction: column;
 }
 .follower-image{
-    height: 2vw;
-    width: 2vw;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
 
@@ -41,17 +41,16 @@
 }
 
 .follower-profile-name{
-    width: 100%;
     margin: 0;
     text-align: left;
     text-decoration: none;
     color: var(--second-text-color);
-    font-size: 1vw;
+    font-size: 18px;
 }
 
 .follower-profile-text{
     color: #6c6c6c;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .follower-text{
@@ -62,11 +61,11 @@
 .follower-btn{
     outline: none;
     border: 1px solid;
-    font-size: calc(0.5vw + 0.5vw);
+    font-size: 15px;
     border-color: var(--second-text-color);
     background: #ffffff;
     color: #3a3a3a;
-    padding: 0.5vw;
+    padding: 5px;
 }
 
 .follower-btn:hover{
