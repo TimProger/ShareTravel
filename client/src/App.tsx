@@ -3,8 +3,8 @@ import './App.css';
 import {useTypedSelector} from "./hooks/useTypedSelector";
 import AuthPage from "./components/pages/Auth/AuthPage";
 import MainPage from "./components/pages/Main/MainPage";
-import {useActions} from "./hooks/useActions";
 import PageLoading from "./components/Loadings/Page/PageLoading";
+import {useActions} from "./hooks/useActions";
 
 function App(){
     // Получение куки для аутентификации

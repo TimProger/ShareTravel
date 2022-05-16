@@ -1,4 +1,4 @@
-import $api from "../../http";
+import $api from "../../http/axios";
 import {AxiosResponse} from "axios";
 import {AuthResponse} from "../../types/httpTypes";
 

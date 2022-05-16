@@ -39,6 +39,7 @@ export const login = (data: IAuthFormData) => {
             dispatch({type: AuthActionTypes.AUTH_USER})
             setTimeout(()=> {
                 const user = users.find(user=>user.email === data.email) || users[0]
+                AuthService.login(data.email, data.password)
                 localStorage.setItem('token', 'response.data.accessToken');
                 dispatch({
                     type: AuthActionTypes.AUTH_USER_SUCCESS,

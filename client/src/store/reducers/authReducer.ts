@@ -4,7 +4,7 @@ const initialState: IAuthState = {
     user: null, // Объект авторизованного пользователя
     loading: false,
     error: null,
-    isAuth: false,
+    isAuth: false
 }
 
 export const AuthReducer = (state: IAuthState = initialState, action: AuthAction): IAuthState => {
@@ -12,7 +12,7 @@ export const AuthReducer = (state: IAuthState = initialState, action: AuthAction
         case AuthActionTypes.AUTH_USER:
             return {...state, loading: true, error: null, isAuth: false}
         case AuthActionTypes.AUTH_EXIT:
-            return {user: null, loading: false, error: null, isAuth: false}
+            return {...state, user: null, loading: false, error: null, isAuth: false}
         case AuthActionTypes.AUTH_USER_ERROR:
             return {...state, loading: false, error: action.payload, user: null, isAuth: false}
         case AuthActionTypes.AUTH_USER_SUCCESS:
