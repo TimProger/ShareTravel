@@ -8,7 +8,7 @@ import {
     IoStarOutline,
     IoHeartOutline,
     IoSettingsOutline,
-    IoHelpSharp,
+    IoHelpCircleOutline,
     IoMapOutline,
     IoExitOutline} from "react-icons/io5";
 
@@ -81,7 +81,7 @@ function Navbar(props: any){
                 </NavLink>
 
                 <NavLink to='help'>
-                    <IoHelpSharp className="icons" />
+                    <IoHelpCircleOutline className="icons" />
                     <p className="menu_text">Помощь</p>
                 </NavLink>
 
