@@ -47,9 +47,9 @@ function Profile(props: IProfileProps) {
                 </div>
                 <div className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</div>
                 <div className="profile-info">
-                    <div className="profile-username">Логин: {props.profile.login.username}</div>
-                    <div className="profile-email">Почта: {props.profile.email}</div>
-                    <div className="profile-email">Номер телефона: {props.profile.cell}</div>
+                    <div className="profile-username"><span>Логин:</span> {props.profile.login.username}</div>
+                    <div className="profile-email"><span>Почта:</span> {props.profile.email}</div>
+                    <div className="profile-email"><span>Номер телефона:</span> {props.profile.cell}</div>
                 </div>
                 <div className="profile-city-text"><FiMapPin/>{props.profile.location.street.name} {props.profile.location.street.number}</div>
                 <div className="sub_follow">
