@@ -34,10 +34,11 @@
  }
 
 .navbar-profile{
-    width: 70%;
+    width: 150px;
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-right: 5px;
 }
 
 .navbar-profile-avatar{
@@ -66,7 +67,7 @@
 }
 
 .menu_links{
-    width: 70%;
+    width: 150px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
