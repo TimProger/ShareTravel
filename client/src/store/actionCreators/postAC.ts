@@ -1,6 +1,6 @@
 import {IPost, PostAction, PostActionTypes} from "../../types/postType";
 import {Dispatch} from "redux";
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 
 // AC который в начале начинает загрузку постов при помощи FETCH_POSTS
 // А затем обращается за ними на сервер
@@ -9,12 +9,10 @@ export const fetchPosts = (page: number = 1) => {
     return async (dispatch: Dispatch<PostAction>) => {
         try {
             dispatch({type: PostActionTypes.FETCH_POSTS})
-            axios.get<AxiosResponse<IPost[]>>(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
+            axios.get<IPost[]>(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
                 .then(response=>{
                     dispatch({
                         type: PostActionTypes.FETCH_POSTS_SUCCESS,
-                        // @ts-ignore
-                        // По неведомым причинам он ругается на тип входящих данных
                         payload: response.data
                     })
                 }).catch(e => {

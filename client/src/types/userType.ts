@@ -68,3 +68,31 @@ export interface IUserProps {
     user: IUser | any;
     followed?: boolean;
 }
+
+
+// User Get Interfaces
+
+interface IUserResponseHeaders{
+    'cache-control': string;
+    'content-type': string;
+}
+
+interface IUserResponseDataInfo{
+    page: number;
+    results: number;
+    seed: string;
+    version: string;
+}
+
+interface IUserResponseData{
+    results: IUser[];
+    info: IUserResponseDataInfo;
+}
+
+export interface IUserResponse {
+    data: IUserResponseData;
+    headers: IUserResponseHeaders;
+    request: XMLHttpRequest;
+    status: number;
+    statusText: string;
+}

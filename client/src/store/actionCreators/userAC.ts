@@ -1,4 +1,4 @@
-import {UserAction, UserActionTypes} from "../../types/userType";
+import {IUserResponse, UserAction, UserActionTypes} from "../../types/userType";
 import {Dispatch} from "redux";
 import axios, {AxiosResponse} from 'axios';
 
@@ -6,12 +6,12 @@ export const fetchUsers = (page: number = 1) => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
-            axios.get<AxiosResponse<any[]>>(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
+            axios.get<IUserResponse>(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
                 .then(response => {
-                    // @ts-ignore
-                    const json1 = response.data.results.slice(0, response.data.results.length / 2)
-                    // @ts-ignore
-                    const json2 = response.data.results.slice(response.data.results.length / 2, response.data.results.length)
+                    // Response -> data -> data -> results
+                    // Ответ -> объект от axios -> объект от api -> массив данных пользователей
+                    const json1 = response.data.data.results.slice(0, response.data.data.results.length / 2)
+                    const json2 = response.data.data.results.slice(response.data.data.results.length / 2, response.data.data.results.length)
                     dispatch({
                         type: UserActionTypes.FETCH_USERS_SUCCESS,
                         payload: [json1, json2]
