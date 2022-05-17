@@ -15,6 +15,7 @@ export interface IAuthState {
     isAuth: boolean;
     loading: boolean;
     error: null | string;
+    theme: string;
 }
 
 export interface IAuthFormData {

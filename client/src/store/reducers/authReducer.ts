@@ -4,7 +4,8 @@ const initialState: IAuthState = {
     user: null, // Объект авторизованного пользователя
     loading: false,
     error: null,
-    isAuth: false
+    isAuth: false,
+    theme: 'light'
 }
 
 export const AuthReducer = (state: IAuthState = initialState, action: AuthAction): IAuthState => {

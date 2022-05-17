@@ -9,27 +9,15 @@ export interface AuthResponse {
 
 // Axios Get Interfaces
 
-interface IAxiosResponseHeaders{
-    'cache-control': string;
-    'content-type': string;
-}
-
-interface IApiResponseDataInfo{
+// Api Get Users
+interface IApiUsersResponseDataInfo{
     page: number;
     results: number;
     seed: string;
     version: string;
 }
 
-interface IApiResponseData<T=any>{
-    results: T;
-    info: IApiResponseDataInfo;
-}
-
-export interface IAxiosResponse<T=any> {
-    data: IApiResponseData<T>;
-    headers: IAxiosResponseHeaders;
-    request: XMLHttpRequest;
-    status: number;
-    statusText: string;
+export interface IApiUsersResponseData<T=any>{
+    info: IApiUsersResponseDataInfo;
+    results: IUser[];
 }

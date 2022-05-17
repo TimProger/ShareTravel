@@ -54,4 +54,5 @@ export interface IProfileProps {
     fetchProfile: (id: string) => void;
     dropProfile: () => void;
     id: string;
+    theme: string
 }

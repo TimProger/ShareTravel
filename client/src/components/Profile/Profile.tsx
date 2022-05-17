@@ -36,7 +36,7 @@ function Profile(props: IProfileProps) {
     }
 
     return (
-        <div className="profile">
+        <div className={props.theme === 'light' ? "profile profile-light" : "profile profile-dark"}>
             <div className="profile-background">
                 <img className="profile-background-img" src="https://images.unsplash.com/photo-1585170466274-9e8dc02e14d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXdlc29tZSUyMHBpY3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="background"/>
                 <div className="">
