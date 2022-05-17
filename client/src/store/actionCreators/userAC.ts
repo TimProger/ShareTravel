@@ -9,7 +9,6 @@ export const fetchUsers = (page: number = 1) => {
             dispatch({type: UserActionTypes.FETCH_USERS})
             axios.get<IApiUsersResponseData>(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
                 .then(response => {
-                    console.log(response.data)
                     // Response -> data -> results
                     // Response -> data от axios -> results от api -> массив пользователей
                     const json1 = response.data.results.slice(0, response.data.results.length / 2)
