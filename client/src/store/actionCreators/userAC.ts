@@ -7,6 +7,7 @@ export const fetchUsers = (page: number = 1) => {
     return async (dispatch: Dispatch<UserAction>) => {
         try {
             dispatch({type: UserActionTypes.FETCH_USERS})
+            // Типы, которые мы задаём в дженерике относятся не к самому объекту ответа, а лишь к его полю data
             axios.get<IApiUsersResponseData>(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
                 .then(response => {
                     // Response -> data -> results
