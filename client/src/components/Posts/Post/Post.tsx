@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {NavLink} from "react-router-dom";
 import './Post.css'
 import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
@@ -10,6 +10,8 @@ const Post: React.FC<IPostProps> = (props) => {
     let [likes, setLikes] = React.useState(Math.floor(Math.random()*10))
     let [comments, setComments] = React.useState(Math.floor(Math.random()*10))
     let [liked, setLiked] = React.useState(false)
+    let [textIndex, setTextIndex] = React.useState(0)
+
     let texts = [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus sit amet dictum sit amet justo. Dignissim cras tincidunt lobortis feugiat vivamus. Odio morbi quis commodo odio aenean sed adipiscing. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Quis eleifend quam adipiscing vitae proin sagittis.',
         'Dui ut ornare lectus sit amet. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Sit amet massa vitae tortor condimentum lacinia.',
@@ -22,6 +24,10 @@ const Post: React.FC<IPostProps> = (props) => {
         'Sit amet tellus cras adipiscing. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Magna sit amet purus gravida quis.',
         'Consequat ac felis donec et odio pellentesque diam volutpat.',
     ]
+
+    useEffect(()=>{
+        setTextIndex(Math.floor(Math.random()*10))
+    }, [textIndex])
 
     return (
 
@@ -42,7 +48,7 @@ const Post: React.FC<IPostProps> = (props) => {
                         </NavLink>
                     </div>
                 </div>
-                <div className='post-text'>{texts[Math.floor(Math.random()*10)]}</div>
+                <div className='post-text'>{texts[textIndex]}</div>
                 <div className="line"/>
                 <div className="post-footer">
                     <div className="post-likes">

@@ -43,7 +43,11 @@ function Profile(props: IProfileProps) {
                     <img className="profile-avatar-img" src={props.profile.picture.large || "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg"} alt="avatar"/>
                 </div>
                 <div className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</div>
-                <div className="profile-text">{props.profile.login.username}</div>
+                <div className="profile-info">
+                    <div className="profile-username">Логин: {props.profile.login.username}</div>
+                    <div className="profile-email">Почта: {props.profile.email}</div>
+                    <div className="profile-email">Номер телефона: {props.profile.cell}</div>
+                </div>
                 <div className="profile-city-text"><FiMapPin/>{props.profile.location.street.name} {props.profile.location.street.number}</div>
                 <div className="sub_follow">
                     <div className="sub_follow__btn sub"><span>followers</span>1000</div>
