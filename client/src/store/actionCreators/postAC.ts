@@ -1,6 +1,8 @@
 import {IPost, PostAction, PostActionTypes} from "../../types/postType";
 import {Dispatch} from "redux";
 import axios from 'axios';
+import {UserActionTypes} from "../../types/userType";
+import {IApiUsersResponseData} from "../../types/httpTypes";
 
 // AC который в начале начинает загрузку постов при помощи FETCH_POSTS
 // А затем обращается за ними на сервер
@@ -9,16 +11,19 @@ export const fetchPosts = (page: number = 1) => {
     return async (dispatch: Dispatch<PostAction>) => {
         try {
             dispatch({type: PostActionTypes.FETCH_POSTS})
-            axios.get<IPost[]>(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
-                .then(response=>{
+            // Типы, которые мы задаём в дженерике относятся не к самому объекту ответа, а лишь к его полю data
+            axios.get<IApiUsersResponseData>(`https://randomuser.me/api/?page=${page}&results=10&seed=abc`)
+                .then(response => {
+                    // Response -> data -> results
+                    // Response -> data от axios -> results от api -> массив пользователей
                     dispatch({
                         type: PostActionTypes.FETCH_POSTS_SUCCESS,
-                        payload: response.data
+                        payload: response.data.results
                     })
                 }).catch(e => {
                     dispatch({
                         type: PostActionTypes.FETCH_POSTS_ERROR,
-                        payload: 'Произошла ошибка при загрузке постов'
+                        payload: 'Произошла ошибка при запросе к серверу' + e
                     })
                 }
             )

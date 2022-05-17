@@ -65,7 +65,7 @@ interface IFetchCommentsAction {
 
 interface IFetchPostsSuccessAction {
     type: PostActionTypes.FETCH_POSTS_SUCCESS;
-    payload: IPost[]
+    payload: IPost[] | any[]
 }
 
 interface IFetchPostsErrorAction {

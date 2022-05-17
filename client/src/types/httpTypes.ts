@@ -17,7 +17,7 @@ interface IApiUsersResponseDataInfo{
     version: string;
 }
 
-export interface IApiUsersResponseData<T=any>{
+export interface IApiUsersResponseData{
     info: IApiUsersResponseDataInfo;
     results: IUser[];
 }

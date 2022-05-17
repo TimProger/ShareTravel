@@ -10,97 +10,39 @@ const Post: React.FC<IPostProps> = (props) => {
     let [likes, setLikes] = React.useState(Math.floor(Math.random()*10))
     let [comments, setComments] = React.useState(Math.floor(Math.random()*10))
     let [liked, setLiked] = React.useState(false)
+    let texts = [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus sit amet dictum sit amet justo. Dignissim cras tincidunt lobortis feugiat vivamus. Odio morbi quis commodo odio aenean sed adipiscing. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Quis eleifend quam adipiscing vitae proin sagittis.',
+        'Dui ut ornare lectus sit amet. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Sit amet massa vitae tortor condimentum lacinia.',
+        'Tincidunt praesent semper feugiat nibh. Suspendisse interdum consectetur libero id faucibus nisl. Et netus et malesuada fames ac turpis egestas sed tempus.',
+        'Mollis nunc sed id semper risus in hendrerit gravida rutrum. Pellentesque nec nam aliquam sem et tortor. Aliquet risus feugiat in ante metus dictum at tempor commodo.',
+        'Ultrices dui sapien eget mi proin sed libero. Amet massa vitae tortor condimentum lacinia quis vel eros donec. In dictum non consectetur a erat nam at lectus urna.',
+        'Cursus sit amet dictum sit amet justo donec enim. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Viverra nam libero justo laoreet sit amet cursus.',
+        'Consequat ac felis donec et odio pellentesque diam volutpat. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo. In pellentesque massa placerat duis ultricies lacus sed.',
+        'Viverra nam libero justo laoreet sit amet cursus. Aenean sed adipiscing diam donec adipiscing tristique.',
+        'Sit amet tellus cras adipiscing. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Magna sit amet purus gravida quis.',
+        'Consequat ac felis donec et odio pellentesque diam volutpat.',
+    ]
 
     return (
 
-        // Рендеринг поста, который мы получаем с нашего сервера
-        // <div className="post">
-        //     <div className="post-content">
-        //         <div className="post-header">
-        //             <div className="post-profile">
-        //                 <NavLink
-        //                     to={'/user/'+props.post.uid}
-        //                     className='post-profile-avatar'>
-        //                     <img src={props.post.avatar} alt={props.post.name} />
-        //                 </NavLink>
-        //                 <NavLink
-        //                     to={'/user/'+props.post.uid}
-        //                     className='post-profile-text'>
-        //                     {props.post.name} {props.post.surname}
-        //                 </NavLink>
-        //             </div>
-        //         </div>
-        //         {props.post.text ? <div className='post-text'>{props.post.text}</div> : '' }
-        //         {props.post.image ? <img className='post-img' src={props.post.image} alt={props.post.name + ' img'} /> : '' }
-        //         <div className="post-footer">
-        //             <div className="post-likes">
-        //                 <div
-        //                     onClick={()=>props.likePost(props.post.id)}
-        //                     className="like-btn">
-        //                     {props.post.liked ? <AiFillHeart className={'post-likes-icon post-liked'}/> : <AiOutlineHeart className={'post-likes-icon post-unliked'}/>}
-        //                 </div>
-        //                 <div className="likes">{props.post.likes}</div>
-        //             </div>
-        //             <div className="post-comment-btn">
-        //                 <div
-        //                     onClick={()=>props.loadComments(props.post.id)}
-        //                     className="comments-btn">
-        //                     <VscComment className={'post-comments-icon'}/>
-        //                 </div>
-        //                 <div className="comments">{props.post.totalComments}</div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //
-        //     {props.post.comments.length > 0 ?
-        //         <>
-        //             <div className="line"/>
-        //             <div className="post-comment-blocks">
-        //                 {props.post.comments.map((el: any, index: number) => {
-        //                     return (
-        //                         <div key={index} className={'post-comment-block'}>
-        //                             <div className="comment-header">
-        //                                 <div className="comment-profile">
-        //                                     <NavLink
-        //                                         to={'/user/'+el.uid}
-        //                                         className='comment-profile-text'>
-        //                                         {el.name} {el.surname}
-        //                                     </NavLink>
-        //                                 </div>
-        //                             </div>
-        //                             <div className="comment-content">
-        //                                 {el.text ? <div className='comment-text'>{el.text}</div> : '' }
-        //                                 {el.image ? <img className='comment-img' src={el.image} alt={el.name + ' img'} /> : '' }
-        //                             </div>
-        //                         </div>
-        //                     )
-        //                 })}
-        //             </div>
-        //         </>
-        //         :
-        //         ''
-        //     }
-        // </div>
-
-        // Рендеринг поста, который мы получаем с fake api
+        // Рендеринг поста
         <div className="post">
             <div className="post-content">
                 <div className="post-header">
                     <div className="post-profile">
                         <NavLink
-                            to={'/user/'+props.post.userId}
+                            to={'/user/'+props.post.login.uuid}
                             className='post-profile-avatar'>
-                            <img src={props.post.avatar} alt={props.post.userId} />
+                            <img src={props.post.picture.large} alt={props.post.userId} />
                         </NavLink>
                         <NavLink
-                            to={'/user/'+props.post.userId}
+                            to={'/user/'+props.post.login.uuid}
                             className='post-profile-text'>
-                            Пользователь {props.post.userId}
+                            {props.post.name.first} {props.post.name.last}
                         </NavLink>
                     </div>
                 </div>
-                <div className='post-text'>{props.post.text}</div>
-                <div className='post-text'>{props.post.body}</div>
+                <div className='post-text'>{texts[Math.floor(Math.random()*10)]}</div>
                 <div className="line"/>
                 <div className="post-footer">
                     <div className="post-likes">
