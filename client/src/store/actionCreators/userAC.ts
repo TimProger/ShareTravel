@@ -12,6 +12,7 @@ export const fetchUsers = (page: number = 1) => {
                 .then(response => {
                     // Response -> data -> results
                     // Response -> data от axios -> results от api -> массив пользователей
+                    response.data.results.forEach(el=>el.page=page)
                     const json1 = response.data.results.slice(0, response.data.results.length / 2)
                     const json2 = response.data.results.slice(response.data.results.length / 2, response.data.results.length)
                     dispatch({

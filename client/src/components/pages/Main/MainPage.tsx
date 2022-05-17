@@ -24,7 +24,7 @@ function MainPage(){
                     <Route path='*' element={<NotFound />} />
                     <Route path='/' element={<Posts />} />
                     <Route path='/followers' element={<Followers />} />
-                    <Route path='/user/:id' element={<Profile />} />
+                    <Route path='/user/:id/*' element={<Profile />} />
                     <Route path='/exit' element={<Exit />} />
                     {/*<Route path='/dialogs/*' element={<Dialogs />} />*/}
                 </Routes>

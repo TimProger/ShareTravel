@@ -10,7 +10,6 @@ export const fetchProfile = (id: string, page:number=1) => {
             axios.get<IApiUsersResponseData>(`https://randomuser.me/api/?page=${page}&results=40&seed=abc`)
                 .then(response => {
                     const json = response.data.results.filter((el:any)=>el.login.uuid===id)[0]
-                    console.log(json)
                     dispatch({
                         type: ProfileActionTypes.FETCH_PROFILE_SUCCESS,
                         payload: json
