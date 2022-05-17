@@ -40,11 +40,11 @@ function Profile(props: IProfileProps) {
             <div className="profile-background">
                 <img className="profile-background-img" src="https://images.unsplash.com/photo-1585170466274-9e8dc02e14d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXdlc29tZSUyMHBpY3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="background"/>
                 <div className="">
-                    <img className="profile-avatar-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg" alt="avatar"/>
+                    <img className="profile-avatar-img" src={props.profile.picture.large || "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg"} alt="avatar"/>
                 </div>
-                <div className="profile-name-surname">{props.profile.name}</div>
-                <div className="profile-text">{props.profile.company.catchPhrase}</div>
-                <div className="profile-city-text"><FiMapPin/>{props.profile.address.street} {props.profile.address.suite}</div>
+                <div className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</div>
+                <div className="profile-text">{props.profile.login.username}</div>
+                <div className="profile-city-text"><FiMapPin/>{props.profile.location.street.name} {props.profile.location.street.number}</div>
                 <div className="sub_follow">
                     <div className="sub_follow__btn sub"><span>followers</span>1000</div>
                     <div className="sub_follow__btn follow"><span>following</span>1000 </div>
