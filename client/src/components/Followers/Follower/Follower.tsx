@@ -22,7 +22,7 @@ const Follower: React.FC<IUserProps> = (props) =>{
                     <p className="follower-profile" >
                         {/* Создаю ссылку ведущую на страницу профиля */}
                         <NavLink
-                            to={'/user/'+props.user.login.uuid}
+                            to={'/user/'+props.user.login.uuid+'/?page='+props.user.page}
                             className='follower-profile-name'
                         >
                             {/* Имя и фамиля пользователя */}

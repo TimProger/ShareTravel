@@ -5,12 +5,15 @@ import { FiMapPin } from "react-icons/fi";
 import {isEmpty} from "../../utils/utils";
 import {IProfileProps} from "../../types/profileType";
 import NotFound from "../NotFound/NotFound";
+import { useSearchParams } from "react-router-dom";
 
 function Profile(props: IProfileProps) {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const page = searchParams.get("page")
 
     // Получаю пользователя используя полученный id
     React.useEffect(() => {
-        props.fetchProfile(props.id)
+        page?props.fetchProfile(props.id, + page):props.fetchProfile(props.id)
         return function (){
             props.dropProfile()
         }

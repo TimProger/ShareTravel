@@ -51,7 +51,7 @@ export interface IProfileProps {
     profile: IProfile | any;
     error: null | string;
     loading: boolean;
-    fetchProfile: (id: string) => void;
+    fetchProfile: (id: string, page?:number) => void;
     dropProfile: () => void;
     id: string;
     theme: string

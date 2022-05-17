@@ -19,5 +19,5 @@ interface IApiUsersResponseDataInfo{
 
 export interface IApiUsersResponseData{
     info: IApiUsersResponseDataInfo;
-    results: IUser[];
+    results: IUser[] | any[];
 }
