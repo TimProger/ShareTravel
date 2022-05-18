@@ -1,0 +1,33 @@
+.searchContainer{
+    position: relative;
+    width: 98%;
+    height:25px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.icon{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    z-index: 99;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.searchBar{
+    box-sizing: border-box;
+    width: 100%;
+    height: 25px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    text-indent: 5%;
+    border: none;
+}
+.dropdown{
+    z-index: 99;
+    width:fit-content;
+    padding: 5px 20px 5px 5px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}

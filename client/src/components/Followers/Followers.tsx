@@ -2,6 +2,7 @@ import React from 'react';
 import './Followers.css'
 import Follower from "./Follower/Follower";
 import {IUsersProps} from "../../types/userType";
+import SearchContainer from './Search/SearchContainer';
 import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
 // TODO Подгрузка НЕ работает нормально, надо переделать
@@ -55,20 +56,23 @@ const Followers: React.FC<IUsersProps> = (props) => {
 
     return (
         <div className={'followers'}>
+        <SearchContainer/>
             {/*
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
-             */}
-             <div className='column'>
-                 <h3 className='columnTitle'>Подписки</h3>
-                 {props.follows.map((user:any, index: number) => <Follower key={index} user={user}/>)}
-                 {props.loading ? <div className="load">Идёт загрузка</div> : ""}
-             </div>
-             <div className='column'>
-                 <h3 className='columnTitle'>Подписчики</h3>
-                 {props.followers.map((user:any, index: number) => <Follower key={index} user={user} followed={true} />)}
-                 {props.loading ? <div className="load">Идёт загрузка</div> : ""}
-             </div>
+            */}
+            <div className="container">
+                <div className='column'>
+                    <h3 className='columnTitle'>Подписки</h3>
+                    {props.follows.map((user:any, index: number) => <Follower key={index} user={user}/>)}
+                    {props.loading ? <div className="load">Идёт загрузка</div> : ""}
+                </div>
+                <div className='column'>
+                    <h3 className='columnTitle'>Подписчики</h3>
+                    {props.followers.map((user:any, index: number) => <Follower key={index} user={user} followed={true} />)}
+                    {props.loading ? <div className="load">Идёт загрузка</div> : ""}
+                </div>
+            </div>
         </div>
     );
 };

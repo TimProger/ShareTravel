@@ -51,7 +51,7 @@ function Profile(props: IProfileProps) {
                     <div className="profile-email"><span>Почта:</span> {props.profile.email}</div>
                     <div className="profile-email"><span>Номер телефона:</span> {props.profile.cell}</div>
                 </div>
-                <div className="profile-city-text"><FiMapPin/>{props.profile.location.street.name} {props.profile.location.street.number}</div>
+                <div className="profile-city-text"><FiMapPin/>{props.profile.location.city}, {props.profile.location.street.name}</div>
                 <div className="sub_follow">
                     <div className="sub_follow__btn sub"><span>followers</span>1000</div>
                     <div className="sub_follow__btn follow"><span>following</span>1000 </div>
