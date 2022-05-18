@@ -20,7 +20,7 @@ function Navbar(props: any){
     return (
         <div className={props.theme === 'light' ? "navbar navbar-light" : "navbar navbar-dark"}>
             <div className="navbar-container">
-                <p className="navbar-logo">Hike</p>
+                <NavLink to='/' className="navbar-logo">Hike</NavLink>
 
                 <div className="navbar-profile">
                     {/* Ссылка ведущая на страницу профиля */}

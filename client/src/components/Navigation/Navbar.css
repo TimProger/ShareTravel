@@ -18,7 +18,12 @@
     background-color: var(--dark-theme-background-color);
     color: var(--dark-theme-text-color);
 }
+
 .navbar-dark .navbar-logo{
+    color: var(--dark-theme-text-second-color);
+}
+
+.navbar-light .navbar-logo{
     color: var(--dark-theme-text-second-color);
 }
 
@@ -47,6 +52,7 @@
     line-height: 46px;
     margin: 0;
     color: var(--light-theme-text-second-color);
+    text-decoration: none;
  }
 
 .navbar-profile{
