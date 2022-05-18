@@ -8,17 +8,23 @@ import {useActions} from "./hooks/useActions";
 
 function App(){
     // Получение куки для аутентификации
-    const {checkAuth} = useActions()
+    const {checkAuth, checkTheme} = useActions()
 
     // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
     useEffect(() => {
+        let theme = localStorage.getItem('theme')
+        if(theme === 'light' || theme === 'dark'){
+            checkTheme(theme)
+        }
         if (localStorage.getItem('token')) {
             checkAuth()
         }
     }, [])
 
     const {isAuth, loading} = useTypedSelector(state => state.auth)
-    const {theme} = useTypedSelector(state => state.profile)
+
+    // Получение темы
+    const {theme} = useTypedSelector(state => state.theme)
 
     if(loading){
         return <PageLoading />

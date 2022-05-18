@@ -70,9 +70,3 @@ export const dropProfile = () => {
         dispatch({type: ProfileActionTypes.DROP_PROFILE})
     }
 }
-
-export const changeTheme = () => {
-    return (dispatch: Dispatch<ProfileAction>) => {
-        dispatch({type: ProfileActionTypes.CHANGE_THEME})
-    }
-}

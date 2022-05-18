@@ -6,7 +6,10 @@ import Profile from "./Profile";
 
 function ProfileContainer() {
     // Получение пользователя, ошибки и статуса загрузки
-    const {profile, error, loading, theme} = useTypedSelector(state => state.profile)
+    const {profile, error, loading} = useTypedSelector(state => state.profile)
+
+    // Получение темы
+    const {theme} = useTypedSelector(state => state.theme)
 
     // Получаю функцию для получения пользователя
     const {fetchProfile, dropProfile} = useActions()

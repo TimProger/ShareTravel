@@ -9,7 +9,7 @@ function NavbarContainer(){
     const {user} = useTypedSelector(state => state.auth)
 
     // Получение темы
-    const {theme} = useTypedSelector(state => state.profile)
+    const {theme} = useTypedSelector(state => state.theme)
 
     const {logout, changeTheme} = useActions()
 

@@ -10,8 +10,9 @@ import {
     IoSettingsOutline,
     IoHelpCircleOutline,
     IoMapOutline,
-    IoExitOutline} from "react-icons/io5";
-import {BiSun, BiMoon} from "react-icons/bi";
+    IoExitOutline,
+    IoMoonOutline,
+    IoSunnyOutline,} from "react-icons/io5";
 
 function Navbar(props: any){
 
@@ -87,11 +88,14 @@ function Navbar(props: any){
                         <p className="menu_text">Помощь</p>
                     </NavLink>
 
-                    <div className="changeTheme" onClick={()=>props.changeTheme()}>
+                    <div className="changeTheme" onClick={()=>{
+                        props.changeTheme()
+                        localStorage.setItem('theme', props.theme === 'light' ? 'dark' : 'light')
+                    }}>
                         {props.theme === 'light' ?
-                            <><BiSun className={'icons'}/> Theme</>
+                            <><IoMoonOutline className={'icons'}/> Theme</>
                             :
-                            <><BiMoon className={'icons'}/> Theme</>
+                            <><IoSunnyOutline className={'icons'}/> Theme</>
                         }
                     </div>
 

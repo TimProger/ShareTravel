@@ -7,7 +7,10 @@ import Followers from "./Followers";
 const FollowersContainer = () => {
     // Получение пользователей, ошибки и статуса загрузки
     const {follows, followers, error, loading} = useTypedSelector(state => state.user)
-    const {theme} = useTypedSelector(state => state.profile)
+
+    // Получение темы
+    const {theme} = useTypedSelector(state => state.theme)
+
     // Получаю функцию для получения пользователей
     const {fetchUsers, dropUsers} = useActions()
 
