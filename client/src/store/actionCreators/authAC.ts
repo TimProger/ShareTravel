@@ -1,4 +1,4 @@
-import {AuthAction, AuthActionTypes, IAuthFormData} from "../../types/authType";
+import {AuthAction, AuthActionTypes, IAuthFormData, IRegisterFormData} from "../../types/authType";
 import {Dispatch} from "redux";
 import AuthService from "../../components/Auth/AuthService";
 
@@ -37,19 +37,37 @@ export const login = (data: IAuthFormData) => {
     return async (dispatch: Dispatch<AuthAction>) => {
         try {
             dispatch({type: AuthActionTypes.AUTH_USER})
-            setTimeout(()=> {
-                const user = users.find(user=>user.email === data.email) || users[0]
-                AuthService.login(data.email, data.password)
-                localStorage.setItem('token', 'response.data.accessToken');
-                dispatch({
-                    type: AuthActionTypes.AUTH_USER_SUCCESS,
-                    payload: user
-                })
-            }, 500)
+            const response = await AuthService.login(data.email, data.password)
+            localStorage.setItem('token', response.data.accessToken);
+            dispatch({
+                type: AuthActionTypes.AUTH_USER_SUCCESS,
+                payload: response.data.user
+            })
         } catch (e) {
             dispatch({
                 type: AuthActionTypes.AUTH_USER_ERROR,
                 payload: 'Произошла ошибка при авторизации'
+            })
+        }
+    }
+}
+
+// Получаю данные с формы, нахожу по ним пользователя и сохраняю токен в куку
+export const register = (data: IRegisterFormData) => {
+    return async (dispatch: Dispatch<AuthAction>) => {
+        try {
+            dispatch({type: AuthActionTypes.AUTH_USER})
+            const user = users.find(user=>user.email === data.email) || users[0]
+            const response = await AuthService.register(data.name, data.surname, data.email, data.password, data.passwordRepeat)
+            localStorage.setItem('token', response.data.accessToken);
+            dispatch({
+                type: AuthActionTypes.AUTH_USER_SUCCESS,
+                payload: response.data.user
+            })
+        } catch (e) {
+            dispatch({
+                type: AuthActionTypes.AUTH_USER_ERROR,
+                payload: 'Произошла ошибка при авторизации: ' + e
             })
         }
     }

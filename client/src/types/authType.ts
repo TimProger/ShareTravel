@@ -15,12 +15,21 @@ export interface IAuthState {
     isAuth: boolean;
     loading: boolean;
     error: null | string;
+    registerError: null | string;
     theme: string;
 }
 
 export interface IAuthFormData {
     email: string;
     password: string;
+}
+
+export interface IRegisterFormData {
+    name: string;
+    surname: string
+    email: string;
+    password: string;
+    passwordRepeat: string;
 }
 
 export enum AuthActionTypes {

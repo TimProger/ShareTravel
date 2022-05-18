@@ -4,6 +4,7 @@ const initialState: IAuthState = {
     user: null, // Объект авторизованного пользователя
     loading: false,
     error: null,
+    registerError: null,
     isAuth: false,
     theme: 'light'
 }

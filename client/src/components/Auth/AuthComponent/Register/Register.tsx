@@ -71,7 +71,13 @@ export default function Register() {
                     placeholder={'Почта*'}
                     {...register("email",
                         {
-                            required: 'Пожалуйста, введите почту'
+                            required: 'Пожалуйста, введите почту',
+                            validate: (value) => {
+                                return [
+                                        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                    ].every((pattern)=>pattern.test(value))
+                                    || "Пожалуйста, введите корректную почту!"
+                            }
                         })}
                 />
                 {errors.email ? <span>{errors.email.message}</span> : null}
