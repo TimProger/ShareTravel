@@ -14,6 +14,7 @@ export interface IProfileState {
     profile: IProfile | null | any; // Убрать any после подключения бд
     loading: boolean;
     error: null | string;
+    theme: string;
 }
 
 export enum ProfileActionTypes {
@@ -21,6 +22,11 @@ export enum ProfileActionTypes {
     FETCH_PROFILE = 'FETCH_PROFILE',
     FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR',
     FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS',
+    CHANGE_THEME = 'CHANGE_THEME',
+}
+
+interface ICHANGE_THEME {
+    type: ProfileActionTypes.CHANGE_THEME;
 }
 
 interface IFETCH_PROFILE {
@@ -45,6 +51,7 @@ export type ProfileAction = IFETCH_PROFILE
     | IDROP_PROFILE
     | IFETCH_PROFILE_ERROR
     | IFETCH_PROFILE_SUCCESS
+    | ICHANGE_THEME
 
 
 export interface IProfileProps {

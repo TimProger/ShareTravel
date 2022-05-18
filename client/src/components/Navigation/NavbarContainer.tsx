@@ -8,11 +8,16 @@ function NavbarContainer(){
     // Получение пользователя
     const {user} = useTypedSelector(state => state.auth)
 
-    const {logout} = useActions()
+    // Получение темы
+    const {theme} = useTypedSelector(state => state.profile)
+
+    const {logout, changeTheme} = useActions()
 
     // Создание навигационной панели с переданным пользователем
     return <Navbar user={user}
                    logout={logout}
+                   changeTheme={changeTheme}
+                   theme={theme}
     />
 }
 

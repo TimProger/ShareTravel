@@ -1,6 +1,7 @@
 :root {
-    --main-text-color: #1c1c1c;
-    --second-text-color: rgb(40, 95, 171);
+    --light-theme-text-color: #1c1c1c;
+    --dark-theme-text-color: #ffffff;
+    --second-text-color: rgb(80, 138, 218);
 }
 
 .navbar{
@@ -11,7 +12,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 10px;
+}
+
+.navbar-light{
     background-color: #FFFFFF;
+    color: var(--light-theme-text-color);
+}
+
+.navbar-dark{
+    background-color: #262626;
+    color: var(--dark-theme-text-color);
+}
+
+.navbar-light a{
+    color: var(--light-theme-text-color);
+}
+
+.navbar-dark a{
+    color: var(--dark-theme-text-color);
 }
 
 .navbar-container{
@@ -29,8 +48,8 @@
     font-weight: bold;
     font-size: 25px;
     line-height: 46px;
-    color: var(--second-text-color);
     margin: 0;
+    color: var(--second-text-color);
  }
 
 .navbar-profile{
@@ -62,7 +81,6 @@
 
 .profile-name{
     margin: 0;
-    color: var(--main-text-color);
     text-align: left;
 }
 
@@ -84,13 +102,28 @@
 
 .menu_links a{
     text-decoration: none;
-    color: var(--main-text-color);
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
 .menu_links a:hover{
+    text-decoration: none;
+    color: var(--second-text-color);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.changeTheme{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.changeTheme:hover{
     text-decoration: none;
     color: var(--second-text-color);
     display: flex;

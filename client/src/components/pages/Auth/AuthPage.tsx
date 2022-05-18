@@ -1,8 +1,8 @@
 import React from "react";
 import './AuthPage.css'
 import { Route, Routes, Navigate } from "react-router-dom";
-import Auth from '../../Auth/AuthComponent/Auth/Auth'
-import Register from '../../Auth/AuthComponent/Register/Register'
+import Auth from '../../Auth/AuthComponent/Auth/AuthContainer'
+import Register from '../../Auth/AuthComponent/Register/RegisterContainer'
 
 export default function AuthPage() {
 

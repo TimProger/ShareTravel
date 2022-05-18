@@ -5,8 +5,7 @@ const initialState: IAuthState = {
     loading: false,
     error: null,
     registerError: null,
-    isAuth: false,
-    theme: 'light'
+    isAuth: false
 }
 
 export const AuthReducer = (state: IAuthState = initialState, action: AuthAction): IAuthState => {

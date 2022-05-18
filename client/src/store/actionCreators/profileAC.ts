@@ -67,6 +67,12 @@ export const fetchProfile = (id: string, page:number=1) => {
 
 export const dropProfile = () => {
     return async (dispatch: Dispatch<ProfileAction>) => {
-            dispatch({type: ProfileActionTypes.DROP_PROFILE})
+        dispatch({type: ProfileActionTypes.DROP_PROFILE})
+    }
+}
+
+export const changeTheme = () => {
+    return (dispatch: Dispatch<ProfileAction>) => {
+        dispatch({type: ProfileActionTypes.CHANGE_THEME})
     }
 }

@@ -16,7 +16,6 @@ export interface IAuthState {
     loading: boolean;
     error: null | string;
     registerError: null | string;
-    theme: string;
 }
 
 export interface IAuthFormData {
