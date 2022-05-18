@@ -1,3 +1,8 @@
+:root {
+    --main-text-color: #1c1c1c;
+    --second-text-color: rgb(40, 95, 171);
+}
+
 .element{
     position: relative;
     z-index: 99;
@@ -8,10 +13,11 @@
     width: 96%;
     height: fit-content;
     padding: 10px;
-    background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     margin-top: 10px;
+    color: var(--second-text-color);
+    text-decoration: none;
 }
 
 .element>p{
@@ -21,4 +27,14 @@
 .elementImage{
     height: 20px;
     width: 20px;
+}
+
+.dropdown{
+    z-index: 99;
+    width: 200px;
+    padding: 1px 20px 10px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-top: 5px;
 }

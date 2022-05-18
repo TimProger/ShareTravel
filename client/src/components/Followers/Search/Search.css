@@ -24,10 +24,3 @@ textarea:focus, input:focus{
     text-indent: 5%;
     border: none;
 }
-.dropdown{
-    z-index: 99;
-    width:fit-content;
-    padding: 5px 20px 5px 5px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-}
