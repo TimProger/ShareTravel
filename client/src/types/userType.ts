@@ -55,6 +55,7 @@ export type UserAction = IDropUsersAction
     | IFetchUsersSuccessAction
 
 
+
 export interface IUsersProps {
     fetchUsers: (id:number) => void;
     dropUsers: () => void;
@@ -62,9 +63,11 @@ export interface IUsersProps {
     followers: IUser[] | any[];
     error: null | string;
     loading: boolean;
+    theme:string;
 }
 
 export interface IUserProps {
     user: IUser | any;
     followed?: boolean;
+    theme:string;
 }

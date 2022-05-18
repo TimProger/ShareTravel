@@ -16,7 +16,7 @@ const Follower: React.FC<IUserProps> = (props) =>{
     // Вывожу блок с данными переданными через props
     return (
         <>
-            <div className="follower">
+            <div className={props.theme === 'light' ? "follower follower-light" : "follower follower-dark"}>
                 <img className="follower-image" alt={props.user.name.first + props.user.name.last + "profile picture"} src={props.user.picture.medium || "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"}/>
                 <div className="follower-header">
                     <p className="follower-profile" >

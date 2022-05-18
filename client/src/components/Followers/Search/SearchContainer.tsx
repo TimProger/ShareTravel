@@ -4,6 +4,7 @@ import Search from "./Search";
 
 const SearchContainer = () => {
     // Получение пользователей, ошибки и статуса загрузки
+    const {theme} = useTypedSelector(state => state.profile)
     const {follows, followers, error, loading} = useTypedSelector(state => state.user)
     const [filtered, setFiltered] = React.useState([...follows, ...followers])
     const filterUsers =(value:any)=>{
@@ -15,7 +16,10 @@ const SearchContainer = () => {
                       users={filtered}
                       error={error}
                       loading={loading}
-                      filterUsers={filterUsers}/>;
+                      filterUsers={filterUsers}
+                      theme={theme}
+
+    />;
 };
 
 export default SearchContainer;

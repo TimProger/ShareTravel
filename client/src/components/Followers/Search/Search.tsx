@@ -25,7 +25,7 @@ const Search: React.FC<ISearchProps> = (props) => {
         document.addEventListener("click", clickHandler);
         document.addEventListener("keydown", clickHandler);
     };
-    
+
     const clickHandler = (e:any) => {
         console.log(e)
         if(!ref.current.contains(e.target) || e.key == "Enter") {
@@ -43,15 +43,18 @@ const Search: React.FC<ISearchProps> = (props) => {
     }
 
     return (
-        <div className={'searchContainer'}>
-            <div className='search' onFocus={focusHandler} ref={ref}>
-                <input type="text" onChange={changeHandler} value={text} placeholder='Поиск пользователя...' className='searchBar'/>
-                <FiSearch className='icon'/>
+        <div className={props.theme === 'light' ? "search search-light" : "search search-dark"}>
+            <div className={'searchContainer'}>
+                <div className='search' onFocus={focusHandler} ref={ref}>
+                    <input type="text" onChange={changeHandler} value={text} placeholder='Поиск пользователя...' className='searchBar'/>
+                    <FiSearch className='icon'/>
+                </div>
+                {isDisplayed && props.users.length>0?<div className="dropdown">
+                    {props.users.slice(0, 10).map(el=><Dropdown key={el.login.uuid} user={el}/>)}
+                </div>:<></>}
             </div>
-            {isDisplayed && props.users.length>0?<div className="dropdown">
-                {props.users.slice(0, 10).map(el=><Dropdown key={el.login.uuid} user={el}/>)}
-            </div>:<></>}
         </div>
+
     );
 };
 

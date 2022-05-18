@@ -47,7 +47,7 @@ const Posts: React.FC<IPostsProps> = (props) => {
                 А также передаю в них полученные ранее функции
             */}
             {props.posts.map((el, index: number)=>{
-                return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el} />
+                return <Post loadComments={props.loadComments} likePost={props.likePost} key={index} post={el}  theme={props.theme}/>
             })}
             {props.loading ? <div id="loading">Идёт загрузка</div> : ""}
         </div>

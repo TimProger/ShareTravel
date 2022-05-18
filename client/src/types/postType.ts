@@ -90,10 +90,13 @@ export interface IPostsProps {
     posts: IPost[] | any[];
     error: null | string;
     loading: boolean;
+    theme:string;
+
 }
 
 export interface IPostProps {
     likePost: (id: number) => void;
     loadComments: (id: number) => void;
     post: IPost | any;
+    theme:string;
 }

@@ -24,3 +24,13 @@ textarea:focus, input:focus{
     text-indent: 5%;
     border: none;
 }
+.search-dark{
+    color: #77BCFF;
+}
+
+.search-dark .searchBar{
+    background-color: #1c1c1c;
+}
+.search-dark {
+
+}

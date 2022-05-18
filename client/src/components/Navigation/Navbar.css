@@ -1,7 +1,7 @@
 :root {
     --light-theme-text-color: #1c1c1c;
     --dark-theme-text-color: #ffffff;
-    --second-text-color: rgb(80, 138, 218);
+    --second-text-color: rgb(116, 141, 182);
 }
 
 .navbar{
@@ -21,8 +21,11 @@
 }
 
 .navbar-dark{
-    background-color: #262626;
+    background-color: #1e1e2c;
     color: var(--dark-theme-text-color);
+}
+.navbar-dark .navbar-logo{
+    color: #77BCFF;
 }
 
 .navbar-light a{
