@@ -29,13 +29,14 @@
     margin: -40px 0 5px 0;
 }
 .profile-name-surname{
-    background: linear-gradient(180deg, rgb(80, 141, 208) 0%, rgba(9,58,121,1) 100%);
+    background: linear-gradient(180deg, rgb(80, 141, 208) 0%, rgb(3, 33, 70) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: black;
     font-weight: bold;
     margin: 5px 0 20px 0;
 }
+
 .profile-text{
     font-weight: 600;
     font-size: 15px;
@@ -115,3 +116,22 @@
     text-align: center;
     transition: background 600ms ease, color 600ms ease;
 }
+
+/*темная тема*/
+.profile-dark{
+    color: var(--dark-theme-text-color);
+    background-color:#1e1e2c ;
+}
+.profile-dark .profile-name-surname{
+    background: linear-gradient(180deg, rgb(51, 151, 251) 0%, rgb(63, 145, 244) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.profile-dark .btn-follow{
+    background: linear-gradient(to right, #41151e, #ab351f);
+    color: var(--dark-theme-text-color);
+}
+.profile-dark span{
+    color: var(--dark-theme-text-color);
+}
+

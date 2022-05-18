@@ -173,3 +173,17 @@
     -webkit-user-select: none;
     -o-user-select: none;
 }
+.post-light{
+    background-color: #FFFFFF;
+    color: var(--light-theme-text-color);
+}
+.post-dark{
+    background-color: #1e1e2c;
+    color: var(--dark-theme-text-color);
+}
+.post-dark .post-likes-icon{
+    color: var(--dark-theme-text-color);
+}
+.post-dark .post-profile-text{
+    color: #77BCFF;
+}

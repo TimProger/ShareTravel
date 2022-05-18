@@ -77,3 +77,20 @@
     color:white;
     background-color: var(--second-text-color);
 }
+.follower-dark{
+    color: #77BCFF;
+    background-color:#1e1e2c ;
+}
+.follower-dark .follower-profile-name{
+    color: #77BCFF;
+    background-color:#1e1e2c ;
+}
+.follower-dark .follower-btn{
+
+    color: #1c1c1c;
+}
+.follower-dark .follower-btn:hover{
+    background-color: #4898f1;
+    color: #1c1c1c;
+}
+

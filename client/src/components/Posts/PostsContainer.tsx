@@ -7,6 +7,7 @@ import Posts from "./Posts";
 function PostsContainer(){
     // Получение постов, ошибки и статуса загрузки
     const {posts, error, loading} = useTypedSelector(state => state.post)
+    const {theme} = useTypedSelector(state => state.profile)
 
     // Получаю функции для получения постов, для лайков и для подгрузки комментариев
     const {fetchPosts, likePost, loadComments, dropPosts} = useActions()
@@ -17,7 +18,9 @@ function PostsContainer(){
                   loadComments={loadComments}
                   posts={posts}
                   error={error}
-                  loading={loading}/>
+                  loading={loading}
+                  theme={theme}
+    />
 }
 
 export default PostsContainer;

@@ -5,6 +5,7 @@ export interface ISearchProps {
     error: null | string;
     loading: boolean;
     filterUsers: (value:any)=>void
+    theme:string;
 }
 
 export interface IDropdownProps {

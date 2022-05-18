@@ -4,7 +4,7 @@ const initialState: IProfileState = {
     profile: null, // Профиль пользователя (Для страницы пользователя (Любого))
     loading: true, // Ни в коем случае не переводить в false.
     error: null,
-    theme: 'light'
+    theme: 'dark'
 }
 
 export const ProfileReducer = (state: IProfileState = initialState, action: ProfileAction): IProfileState => {

@@ -43,3 +43,10 @@
     margin: 0 0 15px 0;
 }
 
+.container-dark{
+    color: white;
+
+}
+.container-dark .columnTitle{
+    background-color: #1e1e2c;
+}

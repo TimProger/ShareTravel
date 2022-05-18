@@ -32,7 +32,7 @@ const Post: React.FC<IPostProps> = (props) => {
     return (
 
         // Рендеринг поста
-        <div className="post">
+        <div className={props.theme === 'light' ? "post post-light" : "post post-dark"}>
             <div className="post-content">
                 <div className="post-header">
                     <div className="post-profile">
