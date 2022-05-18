@@ -45,7 +45,7 @@ function Profile(props: IProfileProps) {
                 <div className="">
                     <img className="profile-avatar-img" src={props.profile.picture.large || "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg"} alt="avatar"/>
                 </div>
-                <div className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</div>
+                <h1 className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</h1>
                 <div className="profile-info">
                     <div className="profile-username"><span>Логин:</span> {props.profile.login.username}</div>
                     <div className="profile-email"><span>Почта:</span> {props.profile.email}</div>

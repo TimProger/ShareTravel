@@ -1,10 +1,10 @@
 .profile{
     width: 90%;
-    height: 500px;
+    height: 540px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #ffffff;
+    background-color: var(--light-theme-background-color);
     border-radius: 20px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
 }
@@ -23,18 +23,14 @@
 
 .profile-avatar-img{
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     box-shadow: 0 0 17px rgba(0, 0, 0, 0.25);
     margin: -40px 0 5px 0;
 }
 .profile-name-surname{
-    background: linear-gradient(180deg, rgb(80, 141, 208) 0%, rgb(3, 33, 70) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: black;
-    font-weight: bold;
-    margin: 5px 0 20px 0;
+    color: var(--dark-theme-text-second-color);
+    margin: 10px;
 }
 
 .profile-text{
@@ -48,11 +44,11 @@
     margin: 0 0 10px 0;
 }
 .sub_follow span{
-    color: #6c6c6c;
+    color: var(--light-theme-text-color);
 }
 
 .profile-info span{
-    color: #151414;
+    color: var(--light-theme-text-color);
     font-weight: bolder;
 }
 
@@ -88,6 +84,7 @@
     font-size: 15px;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 .btn-message{
     background: linear-gradient(90deg, #77BCFF 0%, #3878C8 100%);
@@ -99,6 +96,7 @@
     font-size: 15px;
     font-weight: bold;
     margin: 0 10px;
+    cursor: pointer;
 }
 .btn-message__container{
     height: 100%;
@@ -131,7 +129,14 @@
     background: linear-gradient(to right, #41151e, #ab351f);
     color: var(--dark-theme-text-color);
 }
-.profile-dark span{
+.profile-dark .sub, .follow{
+    color: var(--dark-theme-text-second-color);
+}
+
+.profile-dark .sub span, .follow span{
     color: var(--dark-theme-text-color);
 }
 
+.profile-dark .profile-info span{
+    color: var(--dark-theme-text-second-color);
+}
