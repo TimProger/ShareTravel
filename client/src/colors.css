@@ -1,0 +1,8 @@
+:root {
+  --light-theme-background-color: #FFFFFF;
+  --light-theme-text-color: #1c1c1c;
+  --light-theme-text-second-color: rgb(40, 95, 171);
+  --dark-theme-background-color: #1e1e2c;
+  --dark-theme-text-color: #ffffff;
+  --dark-theme-text-second-color: #4c94da;
+}

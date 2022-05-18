@@ -18,6 +18,7 @@ function App(){
     }, [])
 
     const {isAuth, loading} = useTypedSelector(state => state.auth)
+    const {theme} = useTypedSelector(state => state.profile)
 
     if(loading){
         return <PageLoading />
@@ -26,7 +27,7 @@ function App(){
     return (
         <>
             {/* Проверка авторизации */}
-            {isAuth ? <MainPage /> : <AuthPage />}
+            {isAuth ? <MainPage theme={theme}/> : <AuthPage />}
         </>
     )
 }

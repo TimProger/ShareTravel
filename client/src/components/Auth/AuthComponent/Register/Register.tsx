@@ -12,21 +12,14 @@ interface FormData {
     checkbox: boolean;
 }
 
-export default function Register() {
+export default function Register(props: any) {
 
     const { register, handleSubmit, getValues, formState: { errors } } = useForm<FormData>({
-        // defaultValues: {
-        //     firstName:"Freddy",
-        //     secondName:"Fazbear",
-        //     email: "email@email.com",
-        //     password: "P@ssw0rd!",
-        //     passwordRepeat: "P@ssw0rd!",
-        // },
         mode: "onBlur"
     });
     return (
         <form className={'registration-form'} onSubmit={handleSubmit((formData): void => {
-            console.log(formData)
+            props.register(formData)
         })}>
             <h1>Регистрация</h1>
             <div className="item_reg_name">

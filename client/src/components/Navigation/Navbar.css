@@ -1,9 +1,3 @@
-:root {
-    --light-theme-text-color: #1c1c1c;
-    --dark-theme-text-color: #ffffff;
-    --second-text-color: rgb(116, 141, 182);
-}
-
 .navbar{
     width: 24%;
     border-radius: 10px;
@@ -16,16 +10,16 @@
 }
 
 .navbar-light{
-    background-color: #FFFFFF;
+    background-color: var(--light-theme-background-color);
     color: var(--light-theme-text-color);
 }
 
 .navbar-dark{
-    background-color: #1e1e2c;
+    background-color: var(--dark-theme-background-color);
     color: var(--dark-theme-text-color);
 }
 .navbar-dark .navbar-logo{
-    color: #77BCFF;
+    color: var(--dark-theme-text-second-color);
 }
 
 .navbar-light a{
@@ -52,7 +46,7 @@
     font-size: 25px;
     line-height: 46px;
     margin: 0;
-    color: var(--second-text-color);
+    color: var(--light-theme-text-second-color);
  }
 
 .navbar-profile{
@@ -112,10 +106,26 @@
 
 .menu_links a:hover{
     text-decoration: none;
-    color: var(--second-text-color);
+    color: var(--light-theme-text-second-color);
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.navbar-dark .menu_links a{
+    color: var(--dark-theme-text-color);
+}
+
+.navbar-dark .menu_links a:hover{
+    color: var(--dark-theme-text-second-color);
+}
+
+.navbar-dark .changeTheme{
+    color: var(--dark-theme-text-color);
+}
+
+.navbar-dark .changeTheme:hover{
+    color: var(--dark-theme-text-second-color);
 }
 
 .changeTheme{
@@ -128,7 +138,7 @@
 
 .changeTheme:hover{
     text-decoration: none;
-    color: var(--second-text-color);
+    color: var(--light-theme-text-second-color);
     display: flex;
     align-items: center;
     gap: 20px;
