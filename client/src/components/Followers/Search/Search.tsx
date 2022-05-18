@@ -43,7 +43,7 @@ const Search: React.FC<ISearchProps> = (props) => {
     }
 
     return (
-        <div className={props.theme === 'light' ? "search search-light" : "search search-dark"}>
+        <div className={props.theme === 'light' ? "search-container search-light" : "search-container search-dark"}>
             <div className={'searchContainer'}>
                 <div className='search' onFocus={focusHandler} ref={ref}>
                     <input type="text" onChange={changeHandler} value={text} placeholder='Поиск пользователя...' className='searchBar'/>

@@ -1,8 +1,3 @@
-:root {
-    --main-text-color: #1c1c1c;
-    --second-text-color: rgb(40, 95, 171);
-}
-
 .followers{
     width: 100%;
     min-height: 100%;
@@ -31,7 +26,7 @@
 }
 
 .columnTitle{
-    background-color: #FFFFFF;
+    background-color: var(--light-theme-background-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     width: 96%;
@@ -44,9 +39,8 @@
 }
 
 .container-dark{
-    color: white;
-
+    color: var(--dark-theme-text-color);
 }
 .container-dark .columnTitle{
-    background-color: #1e1e2c;
+    background-color: var(--dark-theme-background-color);
 }

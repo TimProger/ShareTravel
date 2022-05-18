@@ -1,10 +1,5 @@
-:root {
-    --main-text-color: #1c1c1c;
-    --second-text-color: rgb(40, 95, 171);
-}
-
 .follower{
-    background-color: #FFFFFF;
+    background-color: var(--light-theme-background-color);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     width: 96%;
@@ -44,7 +39,7 @@
     margin: 0;
     text-align: left;
     text-decoration: none;
-    color: var(--second-text-color);
+    color: var(--light-theme-text-second-color);
     font-size: 18px;
 }
 
@@ -63,8 +58,8 @@
     border: 1px solid;
     font-size: 15px;
     border-color: var(--second-text-color);
-    background: #ffffff;
-    color: #3a3a3a;
+    background: var(--light-theme-background-color);
+    color: var(--light-theme-text-color);
     padding: 5px;
 }
 
@@ -83,14 +78,12 @@
 }
 .follower-dark .follower-profile-name{
     color: #77BCFF;
-    background-color:#1e1e2c ;
 }
 .follower-dark .follower-btn{
-
-    color: #1c1c1c;
+    color: var(--dark-theme-text-color);
+    background: var(--dark-theme-background-color);
 }
-.follower-dark .follower-btn:hover{
-    background-color: #4898f1;
-    color: #1c1c1c;
+.follower-btn:hover{
+    background-color: var(--dark-theme-text-second-color);
 }
 
