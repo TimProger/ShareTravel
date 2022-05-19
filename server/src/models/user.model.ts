@@ -15,19 +15,15 @@ interface UserDocument extends mongoose.Document {
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please provide a name'],
-        minlength: 3,
-        maxlength: 50
+        required: [true, 'Пожалуйста, введите имя'],
     },
     surname: {
         type: String,
-        required: [true, 'Please provide a surname'],
-        minlength: 3,
-        maxlength: 50
+        required: [true, 'Пожалуйста, введите фамилию'],
     },
     email: {
         type: String,
-        required: [true, 'Please provide an email'],
+        required: [true, 'Пожалуйста, введите почту'],
         match: [
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             'Invalid email'
@@ -36,8 +32,12 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Please provide a password'],
-        minlength: 6
+        required: [true, 'Пожалуйста, введите пароль'],
+        minlength: 8
+    },
+    avatar: {
+        type: String,
+        required: [true, 'Пожалуйста, загрузите изображение']
     }
 });
 

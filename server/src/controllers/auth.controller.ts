@@ -6,10 +6,9 @@ import { Request, Response } from 'express';
 const register = async (req: Request, res: Response): Promise<void> => {
     const user = await User.create({ ...req.body });
     const token = user.createJWT();
-
     res
         .status(StatusCodes.CREATED)
-        .json({ user: { name: user.name }, token });
+        .json({ user, token });
 }
 
 const login = async (req: Request, res: Response): Promise<void> => {
@@ -32,7 +31,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
     const token = user.createJWT();
     res
         .status(StatusCodes.OK)
-        .json({ user: { name: user.name }, token });
+        .json({ user, token });
 }
 
 export {

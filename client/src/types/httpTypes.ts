@@ -1,12 +1,10 @@
 import {IUser} from "./userType";
 
 export interface AuthResponse {
-    token: string;
     user: IUser | any;
+    token: string;
+    msg?: string
 }
-
-
-// Axios Get Interfaces
 
 // Api Get Users
 interface IApiUsersResponseDataInfo{

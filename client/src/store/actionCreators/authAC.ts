@@ -38,10 +38,10 @@ export const login = (data: IAuthFormData) => {
         try {
             dispatch({type: AuthActionTypes.AUTH_USER})
             const response = await AuthService.login(data.email, data.password)
-            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('token', response.token);
             dispatch({
                 type: AuthActionTypes.AUTH_USER_SUCCESS,
-                payload: response.data.user
+                payload: response.user
             })
         } catch (e) {
             dispatch({
@@ -58,11 +58,19 @@ export const register = (data: IRegisterFormData) => {
         try {
             dispatch({type: AuthActionTypes.AUTH_USER})
             const user = users.find(user=>user.email === data.email) || users[0]
-            const response = await AuthService.register(data.name, data.surname, data.email, data.password, data.passwordRepeat)
-            localStorage.setItem('token', response.data.token);
+            const response = await AuthService.register(data.name, data.surname, data.email, data.password, data.passwordRepeat, data.file)
+            if(response.msg){
+                dispatch({
+                    type: AuthActionTypes.AUTH_USER_ERROR,
+                    payload: 'Произошла ошибка при авторизации: ' + response.msg
+                })
+                return
+            }
+            console.log(response)
+            localStorage.setItem('token', response.token);
             dispatch({
                 type: AuthActionTypes.AUTH_USER_SUCCESS,
-                payload: response.data.user
+                payload: response.user
             })
         } catch (e) {
             dispatch({

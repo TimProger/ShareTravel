@@ -16,7 +16,6 @@ const port = config.get<number>('port');
 
 const app: express.Express = express();
 
-app.set('trust proxy', 1); // Ignore proxy's IP
 app.use(rateLimiter({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 200,
@@ -33,7 +32,11 @@ app.use(fileUpload({
 
 app.use(express.json());
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    optionsSuccessStatus: 200
+}));
 app.use(xss());
 
 routes(app);

@@ -1,15 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import './Register.css'
 import { useForm } from "react-hook-form";
 import {NavLink} from "react-router-dom";
 
 interface FormData {
-    firstName:string;
-    secondName:string;
+    name:string;
+    surname:string;
     email: string;
     password: string;
     passwordRepeat: string;
     checkbox: boolean;
+    file: string;
 }
 
 export default function Register(props: any) {
@@ -22,36 +23,37 @@ export default function Register(props: any) {
             props.register(formData)
         })}>
             <h1>Регистрация</h1>
+            {props.error ? props.error : ''}
             <div className="item_reg_name">
 
                 <div className={'item'}>
                     <input
-                        className={errors.secondName ?
+                        className={errors.surname ?
                             "item_reg_firstName name-column error error_firstName"
                             : "item_reg_firstName name-column"}
                         type={"text"}
                         placeholder={'Имя*'}
-                        {...register("firstName",
+                        {...register("name",
                             {
                                 required: 'Пожалуйста, введите имя'
                             })}
                     />
-                    {errors.firstName ? <span>{errors.firstName.message}</span> : null}
+                    {errors.name ? <span>{errors.name.message}</span> : null}
                 </div>
 
                 <div className={'item'}>
                     <input
-                        className={errors.secondName ?
+                        className={errors.surname ?
                             "item_reg_secondName name-column error error_secondName"
                             : "item_reg_secondName name-column"}
                         type={"text"}
                         placeholder={'Фамилия*'}
-                        {...register("secondName",
+                        {...register("surname",
                             {
                                 required: 'Пожалуйста, введите фамилию'
                             })}
                     />
-                    {errors.secondName ? <span>{errors.secondName.message}</span> : null}
+                    {errors.surname ? <span>{errors.surname.message}</span> : null}
                 </div >
 
             </div>
@@ -126,6 +128,16 @@ export default function Register(props: any) {
                     <label className={'item_reg_input_agree_label'}>Я полностью доверяю свои данные</label>
                 </div>
                 {errors.checkbox ? <span>{errors.checkbox.message}</span> : null}
+            </div>
+
+            <div className="item input-file">
+                <div className="input-file-container">
+                    <label className={'item_reg_input_agree_label'}>Загрузите ваш аватар</label>
+                    <input className={'item_reg_input_agree'} type="file" accept={'image/*'} {...register("file",{
+                        required: 'Пожалуйста, загрузите изображение'})
+                    }/>
+                </div>
+                {errors.file ? <span>{errors.file.message}</span> : null}
             </div>
 
 

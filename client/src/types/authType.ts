@@ -31,6 +31,7 @@ export interface IRegisterFormData {
     email: string;
     password: string;
     passwordRepeat: string;
+    file: string
 }
 
 export enum AuthActionTypes {

@@ -13,15 +13,15 @@ export default function Auth(props: {
     login: (data: any)=>void}) {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         defaultValues: {
-            email: "1email1@mail.ru",
-            password: "1233211233z21"
+            email: "2email2@mail.ru",
+            password: "1q2w3e4r5"
         },
         mode: "onBlur"
     });
     return (
         <form
             className={props.theme === 'light' ? "auth-form auth-form-light" : "auth-form auth-form-dark"}
-            onSubmit={handleSubmit((formData):void => {
+            onSubmit={handleSubmit((formData): void => {
                 props.login(formData)
             }
         )}>
