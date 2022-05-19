@@ -1,8 +1,13 @@
 import React from "react";
 import Register from "./Register";
 import {useActions} from "../../../../hooks/useActions";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 
 export default function RegisterContainer() {
     const {register} = useActions()
-    return <Register register={register}/>;
+    const {theme} = useTypedSelector(state => state.theme)
+    return <Register
+                register={register}
+                theme={theme}
+    />;
 }
