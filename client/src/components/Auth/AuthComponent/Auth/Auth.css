@@ -76,3 +76,21 @@
     text-decoration: underline;
     text-decoration-color: rgba(25, 118, 210, 0.4);
 }
+.auth-form-dark{
+    background-color: var(--dark-theme-background-color);
+    color: var(--dark-theme-text-color);
+}
+.auth-form-dark h1{
+    color: var(--dark-theme-text-second-color);
+}
+.auth-form-dark .submit a{
+    color: var(--dark-theme-text-second-color);
+}
+.auth-form-dark .item-input{
+    color: var(--dark-theme-text-color);
+    background: var(--dark-theme-background-color);
+}
+.auth-form-dark .item input{
+    background-color: var(--dark-theme-input-color);
+    color: var(--dark-theme-text-color);
+}

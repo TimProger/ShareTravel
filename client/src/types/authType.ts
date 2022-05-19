@@ -8,6 +8,7 @@ interface IAuth {
     text: string;
     email: string;
     age: number;
+
 }
 
 export interface IAuthState {
@@ -16,6 +17,7 @@ export interface IAuthState {
     loading: boolean;
     error: null | string;
     registerError: null | string;
+
 }
 
 export interface IAuthFormData {

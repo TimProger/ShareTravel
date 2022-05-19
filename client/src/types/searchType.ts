@@ -10,4 +10,5 @@ export interface ISearchProps {
 
 export interface IDropdownProps {
     user: IUser | any;
+    theme: string;
 }

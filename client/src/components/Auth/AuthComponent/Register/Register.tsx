@@ -18,7 +18,7 @@ export default function Register(props: any) {
         mode: "onBlur"
     });
     return (
-        <form className={'registration-form'} onSubmit={handleSubmit((formData): void => {
+        <form className={props.theme === 'light' ? "registration-form registration-form-light" : "registration-form registration-form-dark"} onSubmit={handleSubmit((formData): void => {
             props.register(formData)
         })}>
             <h1>Регистрация</h1>

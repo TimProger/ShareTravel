@@ -38,3 +38,15 @@
     border-radius: 10px;
     margin-top: 5px;
 }
+.element-dark{
+    color: var(--dark-theme-text-second-color);
+    background-color: var(--dark-theme-background-color);
+}
+.element-dark .dropdown{
+    background-color: var(--dark-theme-background-color);
+}
+.element-dark .element>p{
+    color: var(--dark-theme-text-second-color);
+    background-color: var(--dark-theme-background-color);
+}
+

@@ -36,5 +36,9 @@ textarea:focus, input:focus{
 
 .search-dark .searchBar{
     background-color: var(--dark-theme-background-color);
-    color: var(--dark-theme-text-color)
+    color: var(--dark-theme-text-color);
+}
+.search-dark .dropdown{
+    background-color: var(--dark-theme-background-color);
+    color: var(--dark-theme-text-color);
 }

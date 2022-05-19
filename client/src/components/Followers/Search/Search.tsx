@@ -50,7 +50,7 @@ const Search: React.FC<ISearchProps> = (props) => {
                     <FiSearch className='icon'/>
                 </div>
                 {isDisplayed && props.users.length>0?<div className="dropdown">
-                    {props.users.slice(0, 10).map(el=><Dropdown key={el.login.uuid} user={el}/>)}
+                    {props.users.slice(0, 10).map(el=><Dropdown key={el.login.uuid} user={el} theme={props.theme}/>)}
                 </div>:<></>}
             </div>
         </div>
