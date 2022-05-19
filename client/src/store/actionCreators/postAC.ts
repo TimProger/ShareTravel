@@ -3,6 +3,7 @@ import {Dispatch} from "redux";
 import axios from 'axios';
 import {UserActionTypes} from "../../types/userType";
 import {IApiUsersResponseData} from "../../types/httpTypes";
+import {getData} from "../../http/fetch";
 
 // AC который в начале начинает загрузку постов при помощи FETCH_POSTS
 // А затем обращается за ними на сервер
@@ -12,13 +13,13 @@ export const fetchPosts = (page: number = 1) => {
         try {
             dispatch({type: PostActionTypes.FETCH_POSTS})
             // Типы, которые мы задаём в дженерике относятся не к самому объекту ответа, а лишь к его полю data
-            axios.get<IApiUsersResponseData>(`https://randomuser.me/api/?page=${page}&results=10&seed=abc`)
+            getData(`https://randomuser.me/api/?page=${page}&results=10&seed=abc`)
                 .then(response => {
                     // Response -> data -> results
                     // Response -> data от axios -> results от api -> массив пользователей
                     dispatch({
                         type: PostActionTypes.FETCH_POSTS_SUCCESS,
-                        payload: response.data.results
+                        payload: response.results
                     })
                 }).catch(e => {
                     dispatch({
@@ -27,62 +28,6 @@ export const fetchPosts = (page: number = 1) => {
                     })
                 }
             )
-            // fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`)
-            //     .then(response => response.json())
-            //     .then(json => {
-            //         dispatch({
-            //             type: PostActionTypes.FETCH_POSTS_SUCCESS,
-            //             payload: json
-            //         })
-            //     }).catch(e => {
-            //             dispatch({
-            //                 type: PostActionTypes.FETCH_POSTS_ERROR,
-            //                 payload: 'Произошла ошибка при загрузке постов'
-            //             })
-            //         }
-            //     )
-            // setTimeout(()=>(dispatch({
-            //     type: PostActionTypes.FETCH_POSTS_SUCCESS,
-            //     payload: [
-            //         {
-            //             id: 0,
-            //             uid: 1,
-            //             avatar: 'https://i.ytimg.com/vi/LmWQd8zhEg4/maxresdefault.jpg',
-            //             text: 'What a good network',
-            //             likes: 18,
-            //             liked: false,
-            //             name: 'Tim',
-            //             surname: 'Timmsky',
-            //             comments: [],
-            //             totalComments: 0
-            //         },
-            //         {
-            //             id: 1,
-            //             uid: 2,
-            //             avatar: 'https://i.ytimg.com/vi/LmWQd8zhEg4/maxresdefault.jpg',
-            //             text: 'Yo dudes',
-            //             likes: 0,
-            //             liked: false,
-            //             name: 'Bob',
-            //             surname: 'Luminsky',
-            //             comments: [],
-            //             totalComments: 0
-            //         },
-            //         {
-            //             id: 2,
-            //             uid: 3,
-            //             avatar: 'https://i.ytimg.com/vi/LmWQd8zhEg4/maxresdefault.jpg',
-            //             text: 'Nice knife, Jack.',
-            //             image: 'https://i.ytimg.com/vi/LmWQd8zhEg4/maxresdefault.jpg',
-            //             likes: 231312,
-            //             liked: false,
-            //             name: 'Steven',
-            //             surname: 'Armstrong',
-            //             comments: [],
-            //             totalComments: 0
-            //         }
-            //     ]
-            // })), 10)
         } catch (e) {
             dispatch({
                 type: PostActionTypes.FETCH_POSTS_ERROR,
