@@ -88,17 +88,6 @@ function Navbar(props: any){
                         <p className="menu_text">Помощь</p>
                     </NavLink>
 
-                    <div className="changeTheme" onClick={()=>{
-                        props.changeTheme()
-                        localStorage.setItem('theme', props.theme === 'light' ? 'dark' : 'light')
-                    }}>
-                        {props.theme === 'light' ?
-                            <><IoMoonOutline className={'icons'}/> Theme</>
-                            :
-                            <><IoSunnyOutline className={'icons'}/> Theme</>
-                        }
-                    </div>
-
                 </div>
             </div>
         </div>

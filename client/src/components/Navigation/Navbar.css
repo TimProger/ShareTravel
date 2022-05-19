@@ -126,28 +126,38 @@
     color: var(--dark-theme-text-second-color);
 }
 
-.navbar-dark .changeTheme{
-    color: var(--dark-theme-text-color);
-}
-
-.navbar-dark .changeTheme:hover{
-    color: var(--dark-theme-text-second-color);
-}
-
 .changeTheme{
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    position: absolute;
+    top: 19px;
+    right: 25px;
 }
 
 .changeTheme:hover{
     text-decoration: none;
-    color: var(--light-theme-text-second-color);
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.changeThemeDark{
+    color: var(--dark-theme-text-color);
+}
+
+.changeThemeDark:hover{
+    color: var(--dark-theme-text-second-color);
+}
+
+.changeThemeLight{
+    color: var(--light-theme-text-color);
+}
+
+.changeThemeLight:hover{
+    color: var(--dark-theme-text-second-color);
 }
 
 .line {
