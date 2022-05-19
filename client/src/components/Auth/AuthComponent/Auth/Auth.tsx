@@ -8,17 +8,19 @@ interface FormData {
     password: string;
 }
 
-export default function Auth(props: {login: (data: any)=>void}) {
+export default function Auth(props: {
+    theme: string;
+    login: (data: any)=>void}) {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         defaultValues: {
             email: "1email1@mail.ru",
-            password: "123321123321"
+            password: "1233211233z21"
         },
         mode: "onBlur"
     });
     return (
         <form
-            className={'auth-form'}
+            className={props.theme === 'light' ? "auth-form auth-form-light" : "auth-form auth-form-dark"}
             onSubmit={handleSubmit((formData):void => {
                 props.login(formData)
             }
