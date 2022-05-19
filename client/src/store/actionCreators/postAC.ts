@@ -1,7 +1,6 @@
-import {IPost, PostAction, PostActionTypes} from "../../types/postType";
+import {PostAction, PostActionTypes} from "../../types/postType";
 import {Dispatch} from "redux";
 import axios from 'axios';
-import {UserActionTypes} from "../../types/userType";
 import {IApiUsersResponseData} from "../../types/httpTypes";
 
 // AC который в начале начинает загрузку постов при помощи FETCH_POSTS

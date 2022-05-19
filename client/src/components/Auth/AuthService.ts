@@ -16,4 +16,8 @@ export default class AuthService {
     static async logout(): Promise<void> {
         return postData(`${API_URL}/auth/logout`)
     }
+
+    static async getUserByToken(token: string): Promise<AuthResponse>{
+        return postData(`${API_URL}/auth/token`, {token})
+    }
 }
