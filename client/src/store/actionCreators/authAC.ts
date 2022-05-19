@@ -58,7 +58,7 @@ export const register = (data: IRegisterFormData) => {
         try {
             dispatch({type: AuthActionTypes.AUTH_USER})
             const user = users.find(user=>user.email === data.email) || users[0]
-            const response = await AuthService.register(data.name, data.surname, data.email, data.password, data.passwordRepeat, data.file)
+            const response = await AuthService.register(data.name, data.surname, data.email, data.password, data.passwordRepeat)
             if(response.msg){
                 dispatch({
                     type: AuthActionTypes.AUTH_USER_ERROR,

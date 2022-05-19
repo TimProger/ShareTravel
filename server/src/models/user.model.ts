@@ -34,10 +34,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Пожалуйста, введите пароль'],
         minlength: 8
-    },
-    avatar: {
-        type: String,
-        required: [true, 'Пожалуйста, загрузите изображение']
     }
 });
 

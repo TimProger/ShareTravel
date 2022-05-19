@@ -26,9 +26,9 @@ export default class AuthService {
         return postData(`${API_URL}/auth/login`, {email, password})
     }
 
-    static async register(name: string, surname: string, email: string, password: string, passwordRepeat: string, avatar: string): Promise<AuthResponse> {
+    static async register(name: string, surname: string, email: string, password: string, passwordRepeat: string): Promise<AuthResponse> {
         // return $api.post<AuthResponse>(`${API_URL}/auth/register`, {name, surname, email, password, passwordRepeat})
-        return postData(`${API_URL}/auth/register`, {name, surname, email, password, passwordRepeat, avatar})
+        return postData(`${API_URL}/auth/register`, {name, surname, email, password, passwordRepeat})
     }
 
     static async logout(): Promise<void> {

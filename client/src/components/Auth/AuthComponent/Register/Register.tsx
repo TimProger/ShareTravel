@@ -130,15 +130,15 @@ export default function Register(props: any) {
                 {errors.checkbox ? <span>{errors.checkbox.message}</span> : null}
             </div>
 
-            <div className="item input-file">
-                <div className="input-file-container">
-                    <label className={'item_reg_input_agree_label'}>Загрузите ваш аватар</label>
-                    <input className={'item_reg_input_agree'} type="file" accept={'image/*'} {...register("file",{
-                        required: 'Пожалуйста, загрузите изображение'})
-                    }/>
-                </div>
-                {errors.file ? <span>{errors.file.message}</span> : null}
-            </div>
+            {/*<div className="item input-file">*/}
+            {/*    <div className="input-file-container">*/}
+            {/*        <label className={'item_reg_input_agree_label'}>Загрузите ваш аватар</label>*/}
+            {/*        <input className={'item_reg_input_agree'} type="file" accept={'image/*'} {...register("file",{*/}
+            {/*            required: 'Пожалуйста, загрузите изображение'})*/}
+            {/*        }/>*/}
+            {/*    </div>*/}
+            {/*    {errors.file ? <span>{errors.file.message}</span> : null}*/}
+            {/*</div>*/}
 
 
             <div className="submit">
