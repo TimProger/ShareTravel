@@ -121,6 +121,7 @@
     width: 100%;
     margin-bottom: 16px;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .error{

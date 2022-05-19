@@ -1,8 +1,10 @@
 :root {
   --light-theme-background-color: #FFFFFF;
+  --light-theme-main-background-color: #F7F6FC;
   --light-theme-text-color: #1c1c1c;
   --light-theme-text-second-color: rgb(40, 95, 171);
   --dark-theme-background-color: #1E1D2A;
+  --dark-theme-main-background-color: #373b4b;
   --dark-theme-text-color: #ffffff;
   --dark-theme-text-second-color: #4c94da;
   --dark-theme-input-color: #373641;

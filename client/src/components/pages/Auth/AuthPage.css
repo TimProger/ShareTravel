@@ -1,8 +1,25 @@
-.auth{
+.auth-container{
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.auth{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.auth-container-light{
+    background: var(--light-theme-main-background-color);
+}
+
+.auth-container-dark{
+    background: var(--dark-theme-main-background-color);
 }

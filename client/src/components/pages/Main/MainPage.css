@@ -1,0 +1,33 @@
+.wrapper-container{
+    text-align: center;
+    min-height: 100vh;
+    min-width: 100%;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-container-light{
+    background: var(--light-theme-main-background-color);
+}
+
+.wrapper-container-dark{
+    background: var(--dark-theme-main-background-color);
+}
+
+.wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 1000px;
+    gap: 20px;
+    margin: 20px;
+}
+
+.page{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

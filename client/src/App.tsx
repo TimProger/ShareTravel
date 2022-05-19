@@ -45,7 +45,7 @@ function App(){
             </div>
 
             {/* Проверка авторизации */}
-            {isAuth ? <MainPage theme={theme}/> : <AuthPage />}
+            {isAuth ? <MainPage theme={theme}/> : <AuthPage theme={theme}/>}
         </>
     )
 }
