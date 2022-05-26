@@ -64,12 +64,12 @@ const Followers: React.FC<IUsersProps> = (props) => {
             <div className={props.theme === 'light' ? "container container-light" : "container container-dark"}>
                 <div className='column'>
                     <h3 className='columnTitle'>Подписки</h3>
-                    {props.follows.map((user:any, index: number) => <Follower key={index} user={user} theme={props.theme}/>)}
+                    {props.follows.map((user: any, index: number) => <Follower key={index} user={user} theme={props.theme}/>)}
                     {props.loading ? <div className="load">Идёт загрузка</div> : ""}
                 </div>
                 <div className='column'>
                     <h3 className='columnTitle'>Подписчики</h3>
-                    {props.followers.map((user:any, index: number) => <Follower key={index} user={user} followed={true}  theme={props.theme}/>)}
+                    {props.followers.map((user: any, index: number) => <Follower key={index} user={user} followed={true}  theme={props.theme}/>)}
                     {props.loading ? <div className="load">Идёт загрузка</div> : ""}
                 </div>
             </div>

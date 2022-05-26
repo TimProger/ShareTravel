@@ -28,7 +28,7 @@ export default function Register(props: any) {
 
                 <div className={'item'}>
                     <input
-                        className={errors.surname ?
+                        className={errors.name ?
                             "item_reg_firstName name-column error error_firstName"
                             : "item_reg_firstName name-column"}
                         type={"text"}
