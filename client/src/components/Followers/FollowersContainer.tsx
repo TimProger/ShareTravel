@@ -24,6 +24,5 @@ const mapDispatchToProps = (dispatch: any) => {
     }
   }
 
-// export default FollowersContainer;
 let FollowersContainer = connect(mapStateToProps, mapDispatchToProps)(Followers);
 export default FollowersContainer;
