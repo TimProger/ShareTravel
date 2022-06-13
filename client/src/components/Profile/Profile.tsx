@@ -5,15 +5,16 @@ import { FiMapPin } from "react-icons/fi";
 import {isEmpty} from "../../utils/utils";
 import {IProfileProps} from "../../types/profileType";
 import NotFound from "../NotFound/NotFound";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 
 function Profile(props: IProfileProps) {
     const [searchParams, setSearchParams] = useSearchParams()
-    const page = searchParams.get("page")
+    const page: string | null = searchParams.get("page")
+    const {id} = useParams()
 
     // Получаю пользователя используя полученный id
     React.useEffect(() => {
-        page?props.fetchProfile(props.id, + page):props.fetchProfile(props.id)
+        page?props.fetchProfile(String(id), +page):props.fetchProfile(String(id))
         return function (){
             props.dropProfile()
         }
@@ -42,7 +43,7 @@ function Profile(props: IProfileProps) {
         <div className={props.theme === 'light' ? "profile profile-light" : "profile profile-dark"}>
             <div className="profile-background">
                 <img className="profile-background-img" src="https://images.unsplash.com/photo-1585170466274-9e8dc02e14d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXdlc29tZSUyMHBpY3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="background"/>
-                <div className="">
+                <div>
                     <img className="profile-avatar-img" src={props.profile.picture.large || "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg"} alt="avatar"/>
                 </div>
                 <h1 className="profile-name-surname">{props.profile.name.first} {props.profile.name.last}</h1>

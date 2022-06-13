@@ -1,9 +1,9 @@
 import React from 'react';
-import './Followers.css'
 import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
+import './Followers.css'
 import Followers from "./Followers";
 import ActionCreators from '../../store/actionCreators/'
-import { connect } from "react-redux";
 
 
 const mapStateToProps = (state: any) => (

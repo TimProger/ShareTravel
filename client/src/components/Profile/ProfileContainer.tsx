@@ -1,30 +1,25 @@
 import React from "react"
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useParams} from "react-router-dom";
+import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
 import Profile from "./Profile";
+import ActionCreators from '../../store/actionCreators/'
 
-function ProfileContainer() {
-    // Получение пользователя, ошибки и статуса загрузки
-    const {profile, error, loading} = useTypedSelector(state => state.profile)
+const mapStateToProps = (state: any) => (
+    {
+    profile: state.profile.profile,
+    error: state.profile.error,
+    loading: state.profile.loading,
+    theme: state.theme.theme,
+  })
 
-    // Получение темы
-    const {theme} = useTypedSelector(state => state.theme)
+const mapDispatchToProps = (dispatch: any) => {
+    const boundActions = bindActionCreators(ActionCreators, dispatch)
+    return {
+      fetchProfile: boundActions.fetchProfile,
+      dropProfile: boundActions.dropProfile,
+    }
+  }
 
-    // Получаю функцию для получения пользователя
-    const {fetchProfile, dropProfile} = useActions()
-
-    // Получение поля id из url при помощи useParams
-    const {id} = useParams();
-
-    return <Profile profile={profile}
-                    error={error}
-                    loading={loading}
-                    fetchProfile={fetchProfile}
-                    dropProfile={dropProfile}
-                    id={String(id)}
-                    theme={theme}
-                />
-}
+let ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 export default ProfileContainer;
