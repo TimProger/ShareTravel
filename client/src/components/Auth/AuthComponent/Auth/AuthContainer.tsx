@@ -1,12 +1,21 @@
 import React from "react";
-import {useActions} from "../../../../hooks/useActions";
 import Auth from "./Auth";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import ActionCreators from '../../../../store/actionCreators/'
+import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
 
+const mapStateToProps = (state: any) => (
+    {
+    theme: state.theme.theme,
+  })
 
+const mapDispatchToProps = (dispatch: any) => {
+    const boundActions = bindActionCreators(ActionCreators, dispatch)
+    return {
+        login: boundActions.login,
+    }
+  }
 
-export default function AuthContainer() {
-    const {theme} = useTypedSelector(state => state.theme)
-    const {login} = useActions()
-    return <Auth login={login}  theme={theme}/>
-}
+let AuthContainer = connect(mapStateToProps, mapDispatchToProps)(Auth);
+
+export default AuthContainer;

@@ -1,15 +1,22 @@
 import React from "react";
 import Register from "./Register";
-import {useActions} from "../../../../hooks/useActions";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import ActionCreators from '../../../../store/actionCreators/'
+import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
 
-export default function RegisterContainer() {
-    const {register} = useActions()
-    const {theme} = useTypedSelector(state => state.theme)
-    const {error} = useTypedSelector(state => state.auth)
-    return <Register
-                register={register}
-                theme={theme}
-                error={error}
-    />;
-}
+const mapStateToProps = (state: any) => (
+    {
+    error: state.auth.error,
+    theme: state.theme.theme,
+  })
+
+const mapDispatchToProps = (dispatch: any) => {
+    const boundActions = bindActionCreators(ActionCreators, dispatch)
+    return {
+        register: boundActions.register,
+    }
+  }
+
+let RegisterContainer = connect(mapStateToProps, mapDispatchToProps)(Register);
+
+export default RegisterContainer;
