@@ -1,28 +1,27 @@
 import React from "react"
-import './Posts.css'
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
 import Posts from "./Posts";
+import ActionCreators from '../../store/actionCreators/'
 
-function PostsContainer(){
-    // Получение постов, ошибки и статуса загрузки
-    const {posts, error, loading} = useTypedSelector(state => state.post)
+const mapStateToProps = (state: any) => (
+    {
+    posts: state.post.posts,
+    error: state.post.error,
+    loading: state.post.loading,
+    theme: state.theme.theme,
+  })
 
-    // Получение темы
-    const {theme} = useTypedSelector(state => state.theme)
+const mapDispatchToProps = (dispatch: any) => {
+    const boundActions = bindActionCreators(ActionCreators, dispatch)
+    return {
+        fetchPosts: boundActions.fetchPosts,
+        likePost: boundActions.likePost,
+        loadComments: boundActions.loadComments,
+        dropPosts: boundActions.dropPosts,
+    }
+  }
 
-    // Получаю функции для получения постов, для лайков и для подгрузки комментариев
-    const {fetchPosts, likePost, loadComments, dropPosts} = useActions()
-
-    return <Posts fetchPosts={fetchPosts}
-                  dropPosts={dropPosts}
-                  likePost={likePost}
-                  loadComments={loadComments}
-                  posts={posts}
-                  error={error}
-                  loading={loading}
-                  theme={theme}
-    />
-}
+let PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
 
 export default PostsContainer;
