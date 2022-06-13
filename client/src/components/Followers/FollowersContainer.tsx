@@ -18,7 +18,6 @@ const mapStateToProps = (state: any) => (
 const mapDispatchToProps = (dispatch: any) => {
     const boundActions = bindActionCreators(ActionCreators, dispatch)
     return {
-      // dispatching plain actions
       fetchUsers: boundActions.fetchUsers,
       dropUsers: boundActions.dropUsers,
     }
