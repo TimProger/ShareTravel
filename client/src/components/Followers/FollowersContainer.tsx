@@ -1,26 +1,29 @@
 import React from 'react';
 import './Followers.css'
-import {useActions} from "../../hooks/useActions";
-import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {bindActionCreators} from "redux";
 import Followers from "./Followers";
+import ActionCreators from '../../store/actionCreators/'
+import { connect } from "react-redux";
 
-const FollowersContainer = () => {
-    // Получение пользователей, ошибки и статуса загрузки
-    const {follows, followers, error, loading} = useTypedSelector(state => state.user)
 
-    // Получение темы
-    const {theme} = useTypedSelector(state => state.theme)
+const mapStateToProps = (state: any) => (
+    {
+    follows: state.user.follows,
+    followers: state.user.followers,
+    error: state.user.error,
+    loading: state.user.loading,
+    theme: state.theme.theme,
+  })
 
-    // Получаю функцию для получения пользователей
-    const {fetchUsers, dropUsers} = useActions()
+const mapDispatchToProps = (dispatch: any) => {
+    const boundActions = bindActionCreators(ActionCreators, dispatch)
+    return {
+      // dispatching plain actions
+      fetchUsers: boundActions.fetchUsers,
+      dropUsers: boundActions.dropUsers,
+    }
+  }
 
-    return <Followers follows={follows}
-                      followers={followers}
-                      error={error}
-                      loading={loading}
-                      dropUsers={dropUsers}
-                      fetchUsers={fetchUsers}
-                      theme={theme}/>;
-};
-
+// export default FollowersContainer;
+let FollowersContainer = connect(mapStateToProps, mapDispatchToProps)(Followers);
 export default FollowersContainer;
