@@ -3,14 +3,16 @@ import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import Posts from "./Posts";
 import ActionCreators from '../../store/actionCreators/'
+import {RootState} from "../../store/reducers";
 
-const mapStateToProps = (state: any) => (
+const mapStateToProps = (state: RootState) => (
     {
-    posts: state.post.posts,
-    error: state.post.error,
-    loading: state.post.loading,
-    theme: state.theme.theme,
-  })
+        posts: state.post.posts,
+        error: state.post.error,
+        loading: state.post.loading,
+        theme: state.theme.theme,
+    }
+)
 
 const mapDispatchToProps = (dispatch: any) => {
     const boundActions = bindActionCreators(ActionCreators, dispatch)

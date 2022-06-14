@@ -3,8 +3,9 @@ import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import ActionCreators from '../../store/actionCreators/'
+import {RootState} from "../../store/reducers";
 
-const mapStateToProps = (state: any) => (
+const mapStateToProps = (state: RootState) => (
     {
     profile: state.profile.profile,
     error: state.profile.error,

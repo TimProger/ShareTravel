@@ -3,8 +3,9 @@ import Auth from "./Auth";
 import ActionCreators from '../../../../store/actionCreators/'
 import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
+import {RootState} from "../../../../store/reducers";
 
-const mapStateToProps = (state: any) => (
+const mapStateToProps = (state: RootState) => (
     {
     theme: state.theme.theme,
   })

@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import './Followers.css'
 import Followers from "./Followers";
 import ActionCreators from '../../store/actionCreators/'
+import {RootState} from "../../store/reducers";
 
-
-const mapStateToProps = (state: any) => (
+const mapStateToProps = (state: RootState) => (
     {
     follows: state.user.follows,
     followers: state.user.followers,
