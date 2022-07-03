@@ -13,7 +13,12 @@ function App() {
 
     // Проверяю наличие куки и если она есть, то ищу пользователя по данным в ней
     useEffect(() => {
+        debugger;
         let theme = localStorage.getItem('theme')
+        if (!theme) {
+            let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+            isDark ? theme = 'dark' : theme = 'light'
+        }
         if (theme === 'light' || theme === 'dark') {
             checkTheme(theme)
         }

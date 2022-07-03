@@ -1,7 +1,7 @@
 import React from "react";
 import './Auth.css'
 import { useForm } from "react-hook-form";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface FormData {
     email: string;
@@ -10,7 +10,8 @@ interface FormData {
 
 export default function Auth(props: {
     theme: string;
-    login: (data: any)=>void}) {
+    login: (data: any) => void
+}) {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         defaultValues: {
             email: "2email2@mail.ru",
@@ -24,7 +25,7 @@ export default function Auth(props: {
             onSubmit={handleSubmit((formData): void => {
                 props.login(formData)
             }
-        )}>
+            )}>
             <h1>Авторизация</h1>
             <div className={'item'}>
                 <input
@@ -50,7 +51,8 @@ export default function Auth(props: {
                     type={"password"}
                     placeholder={'Пароль'}
                     {...register("password",
-                        {required: 'Введите пароль'
+                        {
+                            required: 'Введите пароль'
                         }
                     )}
                 />

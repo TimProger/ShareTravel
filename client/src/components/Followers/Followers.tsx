@@ -1,7 +1,7 @@
 import React from 'react';
 import './Followers.css'
 import Follower from "./Follower/Follower";
-import {IUsersProps} from "../../types/userType";
+import { IUsersProps } from "../../types/userType";
 import SearchContainer from './Search/SearchContainer';
 import FollowersLoading from "../Loadings/Followers/FollowersLoading";
 
@@ -13,18 +13,18 @@ const Followers: React.FC<IUsersProps> = (props) => {
 
     const scrollHandler = () => {
         let scrollPos = document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight)
-        if(scrollPos < 600){
+        if (scrollPos < 600) {
             // if(scrollPos < Math.abs(props.follows.length-props.followers.length)*60+60){
             document.removeEventListener('scroll', scrollHandler)
             setFetching(true)
-            setTimeout(()=>document.addEventListener('scroll', scrollHandler), 300)
+            setTimeout(() => document.addEventListener('scroll', scrollHandler), 300)
         }
     }
 
     // Добавляю ивент и удаляю его при переходе на другую страницу
     React.useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
-        return function (){
+        return function () {
             props.dropUsers()
             document.removeEventListener('scroll', scrollHandler)
         }
@@ -32,7 +32,7 @@ const Followers: React.FC<IUsersProps> = (props) => {
 
     // Получаю пользователей
     React.useEffect(() => {
-        if(fetching){
+        if (fetching) {
             // if(props.follows.length>props.followers.length){
             //     props.fetchUsers(followersPage, true)
             //     setFollowersPage(prevState => prevState + 1)
@@ -56,7 +56,7 @@ const Followers: React.FC<IUsersProps> = (props) => {
 
     return (
         <div className={'followers'}>
-        <SearchContainer/>
+            <SearchContainer />
             {/*
                 Вывожу пользователей, создавая под каждого компоненту Follower
                 А также проверяю статус подписки (Временное решение)
@@ -64,12 +64,12 @@ const Followers: React.FC<IUsersProps> = (props) => {
             <div className={props.theme === 'light' ? "container container-light" : "container container-dark"}>
                 <div className='column'>
                     <h3 className='columnTitle'>Подписки</h3>
-                    {props.follows.map((user: any, index: number) => <Follower key={index} user={user} theme={props.theme}/>)}
+                    {props.follows.map((user: any, index: number) => <Follower key={index} user={user} theme={props.theme} />)}
                     {props.loading ? <div className="load">Идёт загрузка</div> : ""}
                 </div>
                 <div className='column'>
                     <h3 className='columnTitle'>Подписчики</h3>
-                    {props.followers.map((user: any, index: number) => <Follower key={index} user={user} followed={true}  theme={props.theme}/>)}
+                    {props.followers.map((user: any, index: number) => <Follower key={index} user={user} followed={true} theme={props.theme} />)}
                     {props.loading ? <div className="load">Идёт загрузка</div> : ""}
                 </div>
             </div>
