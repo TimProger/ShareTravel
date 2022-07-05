@@ -12,9 +12,18 @@ import {
     IoMapOutline,
     IoExitOutline,
     IoMoonOutline,
-    IoSunnyOutline,} from "react-icons/io5";
+    IoSunnyOutline,
+} from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
-function Navbar(props: any){
+const lngs = {
+    en: { nativeName: 'English' },
+    ru: { nativeName: 'Руский' },
+}
+
+function Navbar(props: any) {
+
+    const { t, i18n } = useTranslation()
 
     // Создание навигационной панели с блоком пользователя полученным через props
     return (
@@ -25,7 +34,7 @@ function Navbar(props: any){
                 <div className="navbar-profile">
                     {/* Ссылка ведущая на страницу профиля */}
                     <NavLink
-                        to={'/user/'+props.user.id}
+                        to={'/user/' + props.user.id}
                         className='navbar-profile-avatar'
                     >
                         {/* Аватар пользователя */}
@@ -34,7 +43,7 @@ function Navbar(props: any){
                     <NavLink to={'/user/' + props.user.id} className='navbar-profile-text'>
                         <p className='profile-name'>
                             {/* Имя и фамилия пользователя */}
-                            {props.user.name} <br/> {props.user.surname}
+                            {props.user.name} <br /> {props.user.surname}
                         </p>
                     </NavLink>
                 </div>
@@ -43,50 +52,56 @@ function Navbar(props: any){
                 <div className='menu_links'>
                     <NavLink to='/'>
                         <IoNewspaperOutline className="icons" />
-                        <p className="menu_text">Новости</p>
+                        <p className="menu_text">{t('news')}</p>
                     </NavLink>
 
                     <NavLink to='followers'>
                         <IoPeopleOutline className="icons" />
-                        <p className="menu_text">Подписки</p>
+                        <p className="menu_text">{t('followers')}</p>
                     </NavLink>
 
                     <NavLink to='/dialogs'>
                         <IoChatbubblesOutline className="icons" />
-                        <p className="menu_text">Диалоги</p>
+                        <p className="menu_text">{t('dialogs')}</p>
                     </NavLink>
 
                     <NavLink to='/map'>
                         <IoMapOutline className="icons" />
-                        <p className="menu_text">Карта</p>
+                        <p className="menu_text">{t('map')}</p>
                     </NavLink>
 
                     <NavLink to='recs'>
                         <IoHeartOutline className="icons" />
-                        <p className="menu_text">Для вас</p>
+                        <p className="menu_text">{t('recs')}</p>
                     </NavLink>
 
                     <NavLink to='fav'>
                         <IoStarOutline className="icons" />
-                        <p className="menu_text">Избранное</p>
+                        <p className="menu_text">{t('favs')}</p>
                     </NavLink>
 
-                    <div className="line"/>
+                    <div className="line" />
 
                     <NavLink to='settings'>
                         <IoSettingsOutline className="icons" />
-                        <p className="menu_text">Настройки</p>
+                        <p className="menu_text">{t('settings')}</p>
                     </NavLink>
 
                     <NavLink to='exit'>
                         <IoExitOutline className="icons" />
-                        <p className="menu_text">Выйти</p>
+                        <p className="menu_text">{t('exit')}</p>
                     </NavLink>
 
                     <NavLink to='help'>
                         <IoHelpCircleOutline className="icons" />
-                        <p className="menu_text">Помощь</p>
+                        <p className="menu_text">{t('help')}</p>
                     </NavLink>
+
+                    <div>
+                        {Object.keys(lngs).map((lng) => {
+                            return <button type="submit" key={lng} onClick={() => i18n.changeLanguage(lng)}>{lng}</button>
+                        })}
+                    </div>
 
                 </div>
             </div>
