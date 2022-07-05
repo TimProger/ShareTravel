@@ -1,38 +1,13 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend'
 
 i18next
     .use(LanguageDetector)
     .use(initReactI18next)
+    .use(Backend)
     .init({
         fallbackLng: 'ru',
-        resources: {
-            en: {
-                translation: {
-                    news: 'News',
-                    followers: 'Follows',
-                    dialogs: 'Dialogs',
-                    map: 'Map',
-                    recs: 'For you',
-                    favs: 'Favorites',
-                    settings: 'Settings',
-                    exit: 'Exit',
-                    help: 'Help',
-                }
-            },
-            ru: {
-                translation: {
-                    news: 'Новости',
-                    followers: 'Подписки',
-                    dialogs: 'Диалоги',
-                    map: 'Карта',
-                    recs: 'Для вас',
-                    favs: 'Избранное',
-                    settings: 'Настройки',
-                    exit: 'Выход',
-                    help: 'Помощь',
-                }
-            }
-        }
+        // Файлы с текстом для локализации находятся в public/locales
     })

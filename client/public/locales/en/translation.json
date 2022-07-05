@@ -1,0 +1,13 @@
+{
+    "navbar": {
+        "news": "News",
+        "followers": "Follows",
+        "dialogs": "Dialogs",
+        "map": "Map",
+        "recs": "For you",
+        "favs": "Favorites",
+        "settings": "Settings",
+        "exit": "Exit",
+        "help": "Help"
+    }
+}

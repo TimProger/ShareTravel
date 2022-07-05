@@ -52,49 +52,49 @@ function Navbar(props: any) {
                 <div className='menu_links'>
                     <NavLink to='/'>
                         <IoNewspaperOutline className="icons" />
-                        <p className="menu_text">{t('news')}</p>
+                        <p className="menu_text">{t('navbar.news')}</p>
                     </NavLink>
 
                     <NavLink to='followers'>
                         <IoPeopleOutline className="icons" />
-                        <p className="menu_text">{t('followers')}</p>
+                        <p className="menu_text">{t('navbar.followers')}</p>
                     </NavLink>
 
                     <NavLink to='/dialogs'>
                         <IoChatbubblesOutline className="icons" />
-                        <p className="menu_text">{t('dialogs')}</p>
+                        <p className="menu_text">{t('navbar.dialogs')}</p>
                     </NavLink>
 
                     <NavLink to='/map'>
                         <IoMapOutline className="icons" />
-                        <p className="menu_text">{t('map')}</p>
+                        <p className="menu_text">{t('navbar.map')}</p>
                     </NavLink>
 
                     <NavLink to='recs'>
                         <IoHeartOutline className="icons" />
-                        <p className="menu_text">{t('recs')}</p>
+                        <p className="menu_text">{t('navbar.recs')}</p>
                     </NavLink>
 
                     <NavLink to='fav'>
                         <IoStarOutline className="icons" />
-                        <p className="menu_text">{t('favs')}</p>
+                        <p className="menu_text">{t('navbar.favs')}</p>
                     </NavLink>
 
                     <div className="line" />
 
                     <NavLink to='settings'>
                         <IoSettingsOutline className="icons" />
-                        <p className="menu_text">{t('settings')}</p>
+                        <p className="menu_text">{t('navbar.settings')}</p>
                     </NavLink>
 
                     <NavLink to='exit'>
                         <IoExitOutline className="icons" />
-                        <p className="menu_text">{t('exit')}</p>
+                        <p className="menu_text">{t('navbar.exit')}</p>
                     </NavLink>
 
                     <NavLink to='help'>
                         <IoHelpCircleOutline className="icons" />
-                        <p className="menu_text">{t('help')}</p>
+                        <p className="menu_text">{t('navbar.help')}</p>
                     </NavLink>
 
                     <div>

@@ -11,11 +11,13 @@ import './i18n'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter> {/* Позволяет работать с путями */}
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <React.Suspense fallback="loading">
+      <BrowserRouter> {/* Позволяет работать с путями */}
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </React.Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
